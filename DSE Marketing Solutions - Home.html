@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DSE Marketing Solutions - Full-stack marketing, amplified by AI.">
+    <title>DSE Marketing Solutions - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-main: #0a0a0a;
+            --text-muted: #666666;
+            --accent-primary: #e60000; /* Electric Blue */
+            --accent-secondary: #ff4d4d; /* Neon Purple */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-color);
+            background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-main); 
+            font-family: var(--font-sans); 
+            overflow-x: hidden; 
+            line-height: 1.6; 
+        }
+
+        .page { position: relative; }
+
+        /* NAV */
+        nav {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 5%;
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+        .logo { display: flex; align-items: center; gap: 8px; }
+        .logo-mark {
+            width: 28px; height: 28px; 
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); 
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 11px; font-weight: 600; letter-spacing: -0.5px;
+            box-shadow: 0 4px 12px rgba(230, 0, 0, 0.3);
+        }
+        .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px; }
+        .logo-text span { 
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-main); }
+        
+        .nav-cta {
+            background: var(--text-main); color: #fff; border: none; border-radius: 20px;
+            padding: 8px 20px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: var(--font-sans);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
+
+        /* HERO */
+        .hero {
+            padding: 160px 5% 90px;
+            text-align: center;
+            position: relative;
+        }
+        /* Glowing Orbs Behind Hero */
+        .hero::before {
+            content: ''; position: absolute; top: 10%; left: 30%; transform: translateX(-50%);
+            width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(230,0,0,0.1) 0%, rgba(255,255,255,0) 70%); z-index: -1;
+            filter: blur(40px);
+        }
+        .hero::after {
+            content: ''; position: absolute; top: 10%; right: 10%; transform: translateX(-50%);
+            width: 30vw; height: 30vw; background: radial-gradient(circle, rgba(255,77,77,0.08) 0%, rgba(255,255,255,0) 70%); z-index: -1;
+            filter: blur(40px);
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid rgba(230, 0, 0, 0.2); border-radius: 30px;
+            padding: 6px 16px; font-size: 0.85rem; color: var(--accent-primary); font-weight: 500;
+            background: rgba(230, 0, 0, 0.05); margin-bottom: 28px;
+            animation: fadeUp 1s ease-out; backdrop-filter: blur(10px);
+        }
+        .hero-badge-dot { 
+            width: 6px; height: 6px; border-radius: 50%; background: var(--accent-primary); 
+            box-shadow: 0 0 8px var(--accent-primary); 
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1.05;
+            margin-bottom: 24px; max-width: 900px; margin-left: auto; margin-right: auto; color: var(--text-main);
+            animation: fadeUp 1s ease-out 0.1s both;
+        }
+        .hero h1 em { 
+            font-style: normal;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.15rem; color: var(--text-muted); max-width: 580px; margin: 0 auto 36px;
+            line-height: 1.6; font-weight: 400; animation: fadeUp 1s ease-out 0.2s both;
+        }
+        .hero-actions { display: flex; align-items: center; justify-content: center; gap: 16px; animation: fadeUp 1s ease-out 0.3s both; }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff; border: none; border-radius: 30px;
+            padding: 14px 32px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: var(--font-sans);
+            transition: all 0.3s ease; text-decoration: none; display: inline-block;
+            box-shadow: 0 8px 24px rgba(230, 0, 0, 0.25);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(230, 0, 0, 0.35); }
+        
+        .btn-outline {
+            background: var(--glass-bg); color: var(--text-main); border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 30px; padding: 14px 32px; font-size: 1rem; font-weight: 600; cursor: pointer;
+            font-family: var(--font-sans); transition: all 0.3s ease; backdrop-filter: blur(10px); text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .btn-outline:hover { background: rgba(0,0,0,0.02); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+
+        /* INDUSTRIES STRIP */
+        .industries {
+            padding: 10px 5%; border-top: 1px solid rgba(230,0,0,0.1); border-bottom: 1px solid rgba(255,77,77,0.1);
+            display: flex; align-items: center; gap: 0; 
+            background: linear-gradient(90deg, rgba(255,255,255,0.4), rgba(230,0,0,0.03), rgba(255,77,77,0.03), rgba(255,255,255,0.4));
+            backdrop-filter: blur(10px); overflow: hidden; position: relative;
+        }
+        .ind-label { font-size: 0.85rem; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 2px; margin-right: 32px; white-space: nowrap; z-index: 2; }
+        
+        .ind-marquee-container {
+            display: flex; overflow: hidden; width: 100%; position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+        }
+
+        .ind-track {
+            display: flex; width: max-content;
+            animation: marquee 40s linear infinite;
+            animation-delay: 2s; /* Start moving after cascade */
+        }
+        .ind-track:hover { animation-play-state: paused; }
+
+        .ind-tags { 
+            display: flex; gap: 16px; flex-wrap: nowrap; width: max-content;
+            padding: 20px 16px 20px 0; /* Right padding matches gap for seamless loop */
+        }
+
+        .ind-tag {
+            font-size: 1.05rem; color: var(--text-main); font-weight: 600; padding: 10px 26px;
+            background: rgba(255,255,255,0.8); border-radius: 30px;
+            white-space: nowrap; transition: all 0.3s ease; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            position: relative; z-index: 1;
+            /* Cascade setup */
+            opacity: 0; transform: translateX(30px);
+            animation: slideInTag 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .ind-tag:nth-child(1) { animation-delay: 0.1s; }
+        .ind-tag:nth-child(2) { animation-delay: 0.2s; }
+        .ind-tag:nth-child(3) { animation-delay: 0.3s; }
+        .ind-tag:nth-child(4) { animation-delay: 0.4s; }
+        .ind-tag:nth-child(5) { animation-delay: 0.5s; }
+        .ind-tag:nth-child(6) { animation-delay: 0.6s; }
+        .ind-tag:nth-child(7) { animation-delay: 0.7s; }
+        /* Duplicate tags are instantly visible so they don't pop in when marquee loops */
+        .ind-tag:nth-child(n+8), .ind-track .ind-tags:last-child .ind-tag { opacity: 1; transform: translateX(0); animation: none; }
+
+        @keyframes slideInTag {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Typewriter Cursor */
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1em;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            animation: blink 1s step-end infinite;
+            margin-left: 4px;
+            vertical-align: text-bottom;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Futuristic Gradient Border */
+        .ind-tag::before {
+            content: ''; position: absolute; top: -1px; left: -1px; right: -1px; bottom: -1px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 30px; z-index: -1; opacity: 0.2; transition: all 0.4s;
+        }
+        .ind-tag::after {
+            content: ''; position: absolute; top: 1px; left: 1px; right: 1px; bottom: 1px;
+            background: #fff; border-radius: 30px; z-index: -1;
+        }
+        .ind-tag:hover { transform: translateY(-3px) scale(1.05); color: var(--accent-primary); }
+        .ind-tag:hover::before { opacity: 1; filter: blur(4px); }
+
+        /* SERVICES */
+        .services { padding: 100px 5%; }
+        .section-label { font-size: 0.85rem; font-weight: 600; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+        .section-title { font-size: clamp(2.5rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1px; color: var(--text-main); margin-bottom: 16px; }
+        .section-sub { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 60px; max-width: 500px; line-height: 1.6; }
+        
+        .services-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+        }
+        .service-card { 
+            background: var(--glass-bg); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 24px; 
+            padding: 40px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--glass-shadow); position: relative; overflow: hidden;
+        }
+        /* Subtle glowing top border for cards */
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.05); }
+        .service-card:hover::before { opacity: 1; }
+        
+        .service-icon {
+            width: 48px; height: 48px; border-radius: 14px; 
+            background: linear-gradient(135deg, rgba(230,0,0,0.1), rgba(255,77,77,0.1));
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px; color: var(--accent-primary); font-size: 24px;
+            border: 1px solid rgba(230,0,0,0.15);
+        }
+        .service-card h3 { font-size: 1.35rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px; letter-spacing: -0.3px; }
+        .service-card p { font-size: 1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
+        .service-tag {
+            display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--accent-secondary);
+            background: rgba(255,77,77,0.08); border: 1px solid rgba(255,77,77,0.2); 
+            border-radius: 12px; padding: 5px 14px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        /* PLATFORM TEASER */
+        .platform { padding: 100px 5%; position: relative; }
+        /* Background Glow for Platform */
+        .platform::before {
+            content: ''; position: absolute; bottom: 0; right: 0;
+            width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(230,0,0,0.08) 0%, rgba(255,255,255,0) 70%); z-index: -1;
+            filter: blur(60px);
+        }
+
+        .platform-card {
+            background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.5); border-radius: 30px; 
+            padding: 50px 60px; display: flex; align-items: center; justify-content: space-between; gap: 60px;
+            backdrop-filter: blur(24px); box-shadow: 0 20px 60px rgba(0,0,0,0.05); flex-wrap: wrap;
+        }
+        .platform-left { flex: 1; min-width: 300px; }
+        .platform-left h3 { font-size: 2.2rem; font-weight: 800; color: var(--text-main); letter-spacing: -1px; margin-bottom: 16px; }
+        .platform-left p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; max-width: 460px; }
+        
+        .early-badge {
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;
+            background: linear-gradient(135deg, rgba(230,0,0,0.1), rgba(255,77,77,0.1));
+            border: 1px solid rgba(230,0,0,0.2);
+            border-radius: 20px; padding: 6px 16px; font-size: 0.85rem; font-weight: 600; color: var(--accent-primary);
+        }
+        
+        /* Unified Search Bar Waitlist */
+        .waitlist-bar {
+            display: flex; align-items: center; background: #fff; border: 2px solid rgba(0,0,0,0.05);
+            border-radius: 40px; padding: 6px; margin-top: 32px; max-width: 460px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .waitlist-bar:focus-within { border-color: rgba(230,0,0,0.3); box-shadow: 0 0 0 4px rgba(230,0,0,0.05), 0 10px 30px rgba(0,0,0,0.08); }
+        .waitlist-bar input {
+            flex: 1; border: none; background: transparent; padding: 12px 20px; font-size: 1rem; color: var(--text-main);
+            outline: none; font-family: var(--font-sans); min-width: 150px;
+        }
+        .waitlist-bar input::placeholder { color: #aaa; }
+        .waitlist-bar button {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff; border: none; border-radius: 30px; padding: 14px 28px; font-size: 0.95rem; font-weight: 600; 
+            cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 12px rgba(230,0,0,0.2); font-family: var(--font-sans);
+        }
+        .waitlist-bar button:hover { transform: scale(1.03); box-shadow: 0 8px 20px rgba(230,0,0,0.3); }
+        
+        /* Dashboard Teaser Right Side */
+        .platform-dashboard { 
+            display: flex; flex-direction: column; gap: 16px; position: relative; flex: 1; min-width: 320px; 
+            padding: 24px; background: rgba(255, 255, 255, 0.4); border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+        }
+        .platform-dashboard::after {
+            content: ''; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px;
+            background: radial-gradient(circle, rgba(230,0,0,0.2) 0%, transparent 70%); filter: blur(30px); z-index: -1;
+        }
+
+        .dash-widget {
+            background: #fff; border-radius: 16px; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(230,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+        }
+        .dash-widget:nth-child(2) { margin-left: -20px; margin-right: 20px; } /* Offset effect */
+        .dash-widget:hover { transform: translateX(-5px) scale(1.02); border-color: rgba(230,0,0,0.15); box-shadow: 0 15px 40px rgba(230,0,0,0.08); z-index: 10; position: relative; }
+        
+        .dash-widget-icon {
+            width: 44px; height: 44px; border-radius: 12px; background: rgba(230,0,0,0.05); color: var(--accent-primary);
+            display: flex; align-items: center; justify-content: center; font-size: 22px; border: 1px solid rgba(230,0,0,0.1);
+        }
+        
+        .dash-widget-data { text-align: right; }
+        .dash-widget-data .num { font-size: 2rem; font-weight: 800; color: var(--text-main); line-height: 1; letter-spacing: -1px; }
+        .dash-widget-data .num span { color: var(--text-muted); font-size: 1.2rem; font-weight: 600; margin-left: 2px; }
+        .dash-widget-data .label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px; }
+
+        /* FOOTER */
+        .footer {
+            padding: 40px 5%; display: flex; align-items: center; justify-content: space-between;
+            background: #ffffff; border-top: 1px solid var(--glass-border); flex-wrap: wrap; gap: 20px;
+        }
+        .footer-copy { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+        .footer-links { display: flex; gap: 30px; }
+        .footer-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent-primary); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .platform-card { padding: 40px 30px; flex-direction: column; align-items: flex-start; }
+            .metric-item { text-align: left; }
+            .platform-metrics { flex-direction: row; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 20px; }
+            .waitlist-input { width: 100%; }
+            .footer { flex-direction: column; align-items: flex-start; gap: 15px; }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* STRATEGY SANDBOX */
+        .sandbox {
+            position: relative; width: 100%; height: 700px;
+            background-color: #fafafa; overflow: hidden;
+            background-image: radial-gradient(rgba(0,0,0,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border-top: 1px solid var(--glass-border);
+            display: flex; flex-direction: column; align-items: center; padding-top: 60px;
+        }
+        .sandbox-header { text-align: center; position: relative; z-index: 10; pointer-events: none; }
+        .sandbox-header h2 { font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px; letter-spacing: -1px; }
+        .sandbox-header p { font-size: 1.1rem; color: var(--text-muted); }
+        .btn-clear {
+            position: absolute; bottom: 30px; right: 30px;
+            background: #fff; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; padding: 10px 20px;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer; color: var(--text-muted); z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.2s; pointer-events: auto;
+            font-family: var(--font-sans);
+        }
+        .btn-clear:hover { background: #f0f0f0; color: var(--text-main); }
+        
+        #strategy-canvas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: crosshair;
+        }
+
+        .draggable-item {
+            position: absolute; background: #fff; border-radius: 12px; padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);
+            cursor: grab; z-index: 5; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+            user-select: none;
+        }
+        .draggable-item:active {
+            cursor: grabbing; transform: scale(1.05) rotate(2deg); box-shadow: 0 20px 40px rgba(0,0,0,0.15); z-index: 100 !important;
+        }
+        
+        .card-postit { background: #fff9c4; border: none; width: 220px; font-family: 'Comic Sans MS', cursive, sans-serif; }
+        .card-postit [contenteditable="true"] { outline: none; transition: background 0.2s; padding: 2px; border-radius: 4px; }
+        .card-postit [contenteditable="true"]:hover { background: rgba(0,0,0,0.05); cursor: text; }
+        .card-postit [contenteditable="true"]:focus { background: rgba(255,255,255,0.5); cursor: text; }
+        .card-postit h4 { font-size: 1.2rem; color: #333; margin-bottom: 8px; }
+        .card-postit p { font-size: 0.95rem; color: #555; line-height: 1.5; }
+        
+        .card-photo { padding: 12px; padding-bottom: 40px; background: #fff; width: 180px; display: flex; flex-direction: column; align-items: center; border-radius: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); border: none; }
+        .card-photo img { width: 100%; height: auto; border-radius: 2px; object-fit: cover; aspect-ratio: 1/1; pointer-events: none; }
+        .card-photo [contenteditable="true"] { outline: none; font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 0.85rem; color: #555; margin-top: 15px; transition: background 0.2s; padding: 2px 6px; border-radius: 4px; text-align: center; }
+        .card-photo [contenteditable="true"]:hover { background: rgba(0,0,0,0.05); cursor: text; }
+        .card-photo [contenteditable="true"]:focus { background: rgba(0,0,0,0.1); cursor: text; }
+        
+        .card-graph { width: 300px; }
+        .card-graph-title { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 16px; letter-spacing: 1px;}
+        .card-graph-bar { height: 12px; background: rgba(230,0,0,0.1); border-radius: 6px; margin-bottom: 12px; position: relative; }
+        .card-graph-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); border-radius: 6px; }
+
+        .card-node { width: 200px; text-align: center; border-radius: 50%; height: 200px; display: flex; align-items: center; justify-content: center; flex-direction: column; border: 4px solid var(--accent-primary); background: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-mark">DSE</div>
+            <span class="logo-text">DSE <span>AI</span> Solutions</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Services</a>
+            <a href="#">Industries</a>
+            <a href="#">Platform</a>
+            <a href="#">About</a>
+        </div>
+        <button class="nav-cta">Get started</button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            Introducing DSE AI Solutions
+        </div>
+        <h1>Marketing that<br>thinks <em id="typewriter">faster</em><br>than the market.</h1>
+        <p>AI-powered growth strategies for the industries shaping the future — renewables, medtech, infrastructure, and more.</p>
+        <div class="hero-actions">
+            <a href="#" class="btn-primary">Start a project</a>
+            <a href="#" class="btn-outline">See our work →</a>
+        </div>
+    </section>
+
+    <!-- INDUSTRIES STRIP -->
+    <div class="industries">
+        <span class="ind-label">Industries</span>
+        <div class="ind-marquee-container">
+            <div class="ind-track">
+                <div class="ind-tags">
+                    <span class="ind-tag">⚡ Renewables</span>
+                    <span class="ind-tag">🧬 MedTech</span>
+                    <span class="ind-tag">🏗 Infrastructure</span>
+                    <span class="ind-tag">🚧 Construction</span>
+                    <span class="ind-tag">🏢 Real Estate</span>
+                    <span class="ind-tag">🤝 Non-Profit</span>
+                    <span class="ind-tag">⛽ Oil & Gas</span>
+                    <span class="ind-tag">⚡ Renewables</span>
+                    <span class="ind-tag">🧬 MedTech</span>
+                    <span class="ind-tag">🏗 Infrastructure</span>
+                    <span class="ind-tag">🚧 Construction</span>
+                    <span class="ind-tag">🏢 Real Estate</span>
+                    <span class="ind-tag">🤝 Non-Profit</span>
+                    <span class="ind-tag">⛽ Oil & Gas</span>
+                </div>
+                <!-- Duplicate group for infinite scroll -->
+                <div class="ind-tags" aria-hidden="true">
+                    <span class="ind-tag">⚡ Renewables</span>
+                    <span class="ind-tag">🧬 MedTech</span>
+                    <span class="ind-tag">🏗 Infrastructure</span>
+                    <span class="ind-tag">🚧 Construction</span>
+                    <span class="ind-tag">🏢 Real Estate</span>
+                    <span class="ind-tag">🤝 Non-Profit</span>
+                    <span class="ind-tag">⛽ Oil & Gas</span>
+                    <span class="ind-tag">⚡ Renewables</span>
+                    <span class="ind-tag">🧬 MedTech</span>
+                    <span class="ind-tag">🏗 Infrastructure</span>
+                    <span class="ind-tag">🚧 Construction</span>
+                    <span class="ind-tag">🏢 Real Estate</span>
+                    <span class="ind-tag">🤝 Non-Profit</span>
+                    <span class="ind-tag">⛽ Oil & Gas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services">
+        <div class="section-label">What we do</div>
+        <div class="section-title">Full-stack marketing,<br>amplified by AI.</div>
+        <div class="section-sub">Every service we offer runs with AI at its core — not as a feature, but as the foundation.</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+                <h3>AI Content Strategy</h3>
+                <p>Data-trained content plans that adapt to your industry's language and your audience's intent.</p>
+                <span class="service-tag">AI-powered</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="ti ti-chart-dots" aria-hidden="true"></i></div>
+                <h3>Performance Marketing</h3>
+                <p>SEM & SEO driven by real-time signals. We don't guess — we optimize continuously.</p>
+                <span class="service-tag">AI-powered</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="ti ti-palette" aria-hidden="true"></i></div>
+                <h3>Brand & Design</h3>
+                <p>Visual identities built for B2B credibility. From logos to full brand systems that scale.</p>
+                <span class="service-tag">Human-led</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="ti ti-mail-forward" aria-hidden="true"></i></div>
+                <h3>Email & Automation</h3>
+                <p>Sequences that convert. AI-written, human-reviewed. Built to nurture leads at every stage.</p>
+                <span class="service-tag">AI-powered</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="ti ti-device-mobile" aria-hidden="true"></i></div>
+                <h3>Social Media</h3>
+                <p>Managed presence across the platforms your buyers actually use — con content that earns trust.</p>
+                <span class="service-tag">AI-assisted</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="ti ti-code" aria-hidden="true"></i></div>
+                <h3>Web Design</h3>
+                <p>Fast, conversion-focused websites. Not just beautiful — built to generate leads from day one.</p>
+                <span class="service-tag">Human-led</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGY SANDBOX -->
+    <section class="sandbox" id="sandbox">
+        <div class="sandbox-header">
+            <h2>The Strategy Board</h2>
+            <p>Drag the cards. Draw connections. Plan your next move.</p>
+        </div>
+        
+        <canvas id="strategy-canvas"></canvas>
+        
+        <!-- Draggable Cards -->
+        <div class="draggable-item card-postit" style="top: 250px; left: 15%; transform: rotate(-3deg);">
+            <h4 contenteditable="true" spellcheck="false">Target 2026</h4>
+            <p contenteditable="true" spellcheck="false">Focus on B2B SaaS and Enterprise Healthcare. We need to double the MQLs by Q3.</p>
+        </div>
+
+        <div class="draggable-item card-photo" style="top: 100px; left: 75%; transform: rotate(5deg);">
+            <img src="./assets/medtech_photo_1780284871635.png" alt="MedTech">
+            <span contenteditable="true" spellcheck="false">MedTech</span>
+        </div>
+        <div class="draggable-item card-photo" style="top: 280px; left: 5%; transform: rotate(-8deg);">
+            <img src="./assets/b2b_saas_photo_1780284897532.png" alt="SaaS">
+            <span contenteditable="true" spellcheck="false">B2B SaaS</span>
+        </div>
+        <div class="draggable-item card-photo" style="top: 480px; left: 30%; transform: rotate(3deg);">
+            <img src="./assets/real_estate_photo_1780284883728.png" alt="Real Estate">
+            <span contenteditable="true" spellcheck="false">Real Estate</span>
+        </div>
+        
+        <div class="draggable-item card-graph" style="top: 400px; left: 65%; transform: rotate(2deg);">
+            <div class="card-graph-title">Expected Growth</div>
+            <div class="card-graph-bar"><span style="width: 40%"></span></div>
+            <div class="card-graph-bar"><span style="width: 65%"></span></div>
+            <div class="card-graph-bar"><span style="width: 90%"></span></div>
+        </div>
+
+        <div class="draggable-item card-node" style="top: 150px; left: 55%;">
+            <i class="ti ti-rocket" style="font-size: 48px; color: var(--accent-primary); margin-bottom: 10px;"></i>
+            <h4 style="font-size: 1.1rem; color: var(--text-main); font-weight: 700;">Launch Campaign</h4>
+        </div>
+
+        <button class="btn-clear" id="clear-canvas">Clear Ink</button>
+    </section>
+
+    <!-- PLATFORM TEASER -->
+    <section class="platform">
+        <div class="section-label">Coming soon</div>
+        <div class="section-title" style="margin-bottom:6px">The DSE Platform.</div>
+        <div class="section-sub">Our AI suite, built for your team. One dashboard. All your marketing intelligence.</div>
+        <div class="platform-card">
+            <div class="platform-left">
+                <div class="early-badge">
+                    <span>●</span> Early Access
+                </div>
+                <h3>Get ahead of the curve.</h3>
+                <p>Join the waitlist for our proprietary AI marketing platform — designed for complex B2B industries. Be the first to automate what your competitors are still doing manually.</p>
+                <form class="waitlist-bar" onsubmit="event.preventDefault()">
+                    <input type="email" placeholder="your@company.com" required>
+                    <button type="submit">Join waitlist</button>
+                </form>
+            </div>
+            <div class="platform-dashboard">
+                <div class="dash-widget">
+                    <div class="dash-widget-icon"><i class="ti ti-bolt"></i></div>
+                    <div class="dash-widget-data">
+                        <div class="num"><span class="counter" data-target="10">0</span><span>x</span></div>
+                        <div class="label">Faster output</div>
+                    </div>
+                </div>
+                <div class="dash-widget">
+                    <div class="dash-widget-icon"><i class="ti ti-clock-off"></i></div>
+                    <div class="dash-widget-data">
+                        <div class="num"><span class="counter" data-target="60">0</span><span>%</span></div>
+                        <div class="label">Less manual work</div>
+                    </div>
+                </div>
+                <div class="dash-widget">
+                    <div class="dash-widget-icon"><i class="ti ti-layout-dashboard"></i></div>
+                    <div class="dash-widget-data">
+                        <div class="num"><span class="counter" data-target="1">0</span><span>panel</span></div>
+                        <div class="label">For everything</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span class="footer-copy">© 2026 DSE AI Solutions</span>
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Numbers Counter Animation
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.5 };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.counter');
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / 30; // Anim speed
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 40);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    const platformDash = document.querySelector('.platform-dashboard');
+    if(platformDash) observer.observe(platformDash);
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const words = ["faster", "smarter", "further"];
+        let wordIndex = 0;
+        const el = document.getElementById("typewriter");
+
+        function typeWriter(text, i, cb) {
+            if (i < text.length) {
+                el.innerHTML = text.substring(0, i + 1) + '<span class="cursor"></span>';
+                setTimeout(() => typeWriter(text, i + 1, cb), 80); // Velocidad de tipeo
+            } else {
+                el.innerHTML = text + '<span class="cursor"></span>';
+                setTimeout(cb, 3000); // Espera 3 segundos
+            }
+        }
+
+        function deleteWriter(text, i, cb) {
+            if (i >= 0) {
+                el.innerHTML = text.substring(0, i) + '<span class="cursor"></span>';
+                setTimeout(() => deleteWriter(text, i - 1, cb), 50); // Velocidad de borrado
+            } else {
+                cb();
+            }
+        }
+
+        function startLoop() {
+            setTimeout(() => {
+                let currentWord = words[wordIndex];
+                deleteWriter(currentWord, currentWord.length, () => {
+                    wordIndex = (wordIndex + 1) % words.length;
+                    let nextWord = words[wordIndex];
+                    typeWriter(nextWord, 0, startLoop);
+                });
+            }, 3000); // Retraso inicial antes de borrar la primera palabra
+        }
+        
+        // Inicializa el estado con el cursor
+        el.innerHTML = words[0] + '<span class="cursor"></span>';
+        startLoop();
+    });
+
+    // STRATEGY SANDBOX LOGIC
+    const canvas = document.getElementById('strategy-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const sandbox = document.getElementById('sandbox');
+        
+        function resizeCanvas() {
+            canvas.width = sandbox.offsetWidth;
+            canvas.height = sandbox.offsetHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+        
+        ctx.strokeStyle = 'rgba(230, 0, 0, 0.8)';
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 4;
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            [lastX, lastY] = [x, y];
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            [lastX, lastY] = [e.clientX - rect.left, e.clientY - rect.top];
+        });
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+        // Pre-draw some strategy arrows on load
+        setTimeout(() => {
+            function drawArrow(startX, startY, endX, endY, cpX, cpY) {
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.quadraticCurveTo(cpX, cpY, endX, endY);
+                ctx.stroke();
+                
+                // Arrowhead
+                const angle = Math.atan2(endY - cpY, endX - cpX);
+                ctx.beginPath();
+                ctx.moveTo(endX, endY);
+                ctx.lineTo(endX - 15 * Math.cos(angle - Math.PI/6), endY - 15 * Math.sin(angle - Math.PI/6));
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(endX, endY);
+                ctx.lineTo(endX - 15 * Math.cos(angle + Math.PI/6), endY - 15 * Math.sin(angle + Math.PI/6));
+                ctx.stroke();
+            }
+
+            const w = canvas.width;
+            // From SaaS (Left) to Launch Campaign
+            drawArrow(w * 0.15, 320, w * 0.52, 220, w * 0.35, 200);
+            
+            // From Real Estate (Bottom Left) to Launch Campaign
+            drawArrow(w * 0.35, 480, w * 0.55, 330, w * 0.5, 450);
+
+            // From MedTech (Right) to Launch Campaign
+            drawArrow(w * 0.75, 180, w * 0.65, 200, w * 0.7, 150);
+        }, 800);
+
+        document.getElementById('clear-canvas').addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        // Drag and Drop
+        const draggables = document.querySelectorAll('.draggable-item');
+        let activeItem = null;
+        let isDragging = false;
+        let startX, startY, initialLeft, initialTop;
+        let highestZ = 10;
+
+        draggables.forEach(item => {
+            item.addEventListener('mousedown', dragStart);
+        });
+
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('mousemove', drag);
+
+        function dragStart(e) {
+            if (e.target.isContentEditable) return;
+            if (e.target.closest('.draggable-item')) {
+                activeItem = e.target.closest('.draggable-item');
+                isDragging = true;
+                highestZ++;
+                activeItem.style.zIndex = highestZ;
+
+                startX = e.clientX;
+                startY = e.clientY;
+                initialLeft = activeItem.offsetLeft;
+                initialTop = activeItem.offsetTop;
+                
+                activeItem.style.transition = 'none';
+            }
+        }
+
+        function dragEnd() {
+            if (activeItem) {
+                activeItem.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s';
+            }
+            isDragging = false;
+            activeItem = null;
+        }
+
+        function drag(e) {
+            if (isDragging && activeItem) {
+                e.preventDefault();
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                activeItem.style.left = (initialLeft + dx) + 'px';
+                activeItem.style.top = (initialTop + dy) + 'px';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
