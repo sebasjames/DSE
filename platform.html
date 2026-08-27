@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DSE Marketing Solutions - Full-stack marketing, amplified by AI.">
-    <title>DSE Marketing Solutions - Home</title>
+    <title>DSE Marketing Solutions - Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -2684,6 +2684,171 @@
                 font-size: 2.5rem;
             }
         }
+    
+        /* CUSTOM CURSOR */
+        body, a, button, .nav-cta, input, textarea {
+            cursor: none !important;
+        }
+
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 999999;
+            transform: translate(-20px, -10px); /* Adjust so the tip is at the mouse coordinate */
+            transition: transform 0.05s linear;
+        }
+
+        .cursor-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+        }
+
+        .cursor-icon.active {
+            opacity: 1;
+        }
+
+        .cursor-click-lines {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 70px;
+            height: 70px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cursor-click-lines path {
+            stroke: #333;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 20;
+            stroke-dashoffset: 20;
+        }
+
+        body.is-clicking .cursor-click-lines {
+            opacity: 1;
+        }
+
+        body.is-clicking .cursor-click-lines path {
+            animation: click-burst 0.4s ease-out forwards;
+        }
+
+        @keyframes click-burst {
+            0% { stroke-dashoffset: 20; opacity: 1; transform: scale(0.8); transform-origin: center; }
+            50% { stroke-dashoffset: 0; opacity: 1; transform: scale(1.1); transform-origin: center; }
+            100% { stroke-dashoffset: -20; opacity: 0; transform: scale(1.2); transform-origin: center; }
+        }
+
+        /* Prevent default dragging cursors */
+        * {
+            user-select: none;
+        }
+        input, textarea, p, h1, h2, h3, h4, h5, h6, span {
+            user-select: text; /* Allow text selection */
+        }
+
+    
+        /* EASTER EGG CSS */
+        .cursor-ripple {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 0, 0, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999998;
+            transform: translate(-50%, -50%) scale(1);
+            animation: ripple-expand 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+        }
+
+        @keyframes ripple-expand {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; border-width: 4px; }
+            100% { transform: translate(-50%, -50%) scale(8); opacity: 0; border-width: 1px; }
+        }
+
+        .fade-zoom-out {
+            transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s ease;
+            transform: scale(2.5) translateZ(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #easter-egg-scene {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #111;
+            z-index: 9999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease 1s;
+            overflow: hidden;
+            flex-direction: column;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #easter-egg-scene.egg-active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .egg-canvas {
+            width: 80%;
+            height: 80%;
+            background: #222;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .egg-fake-cursor {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: 100;
+            top: 150%; /* Offscreen initially */
+            left: 150%;
+            transition: top 1s cubic-bezier(0.2, 0.8, 0.2, 1), left 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+        }
+
+        .egg-fake-image {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            top: -200px;
+            left: 10%;
+            transition: top 1s cubic-bezier(0.2, 0.8, 0.2, 1), left 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .egg-fake-image:nth-child(2) { background: linear-gradient(135deg, #4776E6, #8E54E9); left: 80%; }
+        .egg-fake-image:nth-child(3) { background: linear-gradient(135deg, #11998e, #38ef7d); left: 40%; top: 120%; }
+
     </style>
     <script type="application/ld+json">
     {
@@ -2746,580 +2911,24 @@
                         <a href="#">Logistics</a>
                     </div>
                 </div>
-                <a href="platform.html">Studio</a>
+                <a href="platform.html">Platform</a>
                 <a href="#">About</a>
             </div>
             <button class="nav-cta" onclick="openContactModal(event)">Get started</button>
         </nav>
-
         <!-- HERO -->
-        <section class="hero">
+        <section class="hero" style="min-height: 95vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 100px;">
             <div class="hero-badge">
                 <div class="hero-badge-dot"></div>
-                Introducing DSE AI Solutions
+                Introducing DSE AI Platform
             </div>
-            <h1>Marketing that<br>thinks <em id="typewriter">faster</em><br>than the market.</h1>
-            <p>AI-powered growth strategies for the industries shaping the future — renewables, medtech, infrastructure,
-                and more.</p>
+            <h1 style="max-width: 1000px;">Unifying your Marketing in one single<br><em id="typewriter">Platform</em></h1>
+            <p>Say goodbye to fragmented tools. Manage campaigns, analytics, and content generation from a single, centralized AI hub built for the future.</p>
             <div class="hero-actions">
                 <a href="#" class="btn-primary" onclick="openContactModal(event)">Start a project</a>
                 <a href="#" class="btn-outline">See our work →</a>
             </div>
         </section>
-
-        <!-- INDUSTRIES STRIP -->
-        <div class="industries">
-            <span class="ind-label">Industries</span>
-            <div class="ind-marquee-container">
-                <div class="ind-track">
-                    <div class="ind-tags">
-                        <span class="ind-tag"><i class="ti ti-bolt"></i> Renewables</span>
-                        <span class="ind-tag"><i class="ti ti-dna"></i> MedTech</span>
-                        <span class="ind-tag"><i class="ti ti-building-bridge"></i> Infrastructure</span>
-                        <span class="ind-tag"><i class="ti ti-barrier-block"></i> Construction</span>
-                        <span class="ind-tag"><i class="ti ti-building-skyscraper"></i> Real Estate</span>
-                        <span class="ind-tag"><i class="ti ti-heart-handshake"></i> Non-Profit</span>
-                        <span class="ind-tag"><i class="ti ti-gas-station"></i> Oil & Gas</span>
-                        <span class="ind-tag"><i class="ti ti-bolt"></i> Renewables</span>
-                        <span class="ind-tag"><i class="ti ti-dna"></i> MedTech</span>
-                        <span class="ind-tag"><i class="ti ti-building-bridge"></i> Infrastructure</span>
-                        <span class="ind-tag"><i class="ti ti-barrier-block"></i> Construction</span>
-                        <span class="ind-tag"><i class="ti ti-building-skyscraper"></i> Real Estate</span>
-                        <span class="ind-tag"><i class="ti ti-heart-handshake"></i> Non-Profit</span>
-                        <span class="ind-tag"><i class="ti ti-gas-station"></i> Oil & Gas</span>
-                    </div>
-                    <!-- Duplicate group for infinite scroll -->
-                    <div class="ind-tags" aria-hidden="true">
-                        <span class="ind-tag"><i class="ti ti-bolt"></i> Renewables</span>
-                        <span class="ind-tag"><i class="ti ti-dna"></i> MedTech</span>
-                        <span class="ind-tag"><i class="ti ti-building-bridge"></i> Infrastructure</span>
-                        <span class="ind-tag"><i class="ti ti-barrier-block"></i> Construction</span>
-                        <span class="ind-tag"><i class="ti ti-building-skyscraper"></i> Real Estate</span>
-                        <span class="ind-tag"><i class="ti ti-heart-handshake"></i> Non-Profit</span>
-                        <span class="ind-tag"><i class="ti ti-gas-station"></i> Oil & Gas</span>
-                        <span class="ind-tag"><i class="ti ti-bolt"></i> Renewables</span>
-                        <span class="ind-tag"><i class="ti ti-dna"></i> MedTech</span>
-                        <span class="ind-tag"><i class="ti ti-building-bridge"></i> Infrastructure</span>
-                        <span class="ind-tag"><i class="ti ti-barrier-block"></i> Construction</span>
-                        <span class="ind-tag"><i class="ti ti-building-skyscraper"></i> Real Estate</span>
-                        <span class="ind-tag"><i class="ti ti-heart-handshake"></i> Non-Profit</span>
-                        <span class="ind-tag"><i class="ti ti-gas-station"></i> Oil & Gas</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TRUSTED BY (BLANKS) -->
-        <section class="trusted-ribbon">
-            <p class="trusted-title">TRUSTED BY INNOVATIVE BRANDS</p>
-            <div class="trusted-logos">
-                <div class="logo-blank"></div>
-                <div class="logo-blank"></div>
-                <div class="logo-blank"></div>
-                <div class="logo-blank"></div>
-                <div class="logo-blank"></div>
-            </div>
-        </section>
-
-        <!-- SERVICES -->
-        <section class="services" id="problem">
-            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <div class="section-label">The Problem</div>
-                <div class="section-title" style="text-transform: uppercase;">THE <span
-                        style="color: var(--accent-primary);">OLD AGENCY MODEL</span> IS BROKEN.</div>
-                <div class="section-sub" style="max-width: 800px;">If you're relying on manual execution and
-                    disconnected
-                    tools, you're already behind.</div>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="ti ti-users-minus" aria-hidden="true"></i></div>
-                    <h3>The Generalist Trap</h3>
-                    <p>Most agencies don't understand the nuances of MedTech, SaaS, or Renewables, leading to generic
-                        messaging that fails to convert technical buyers.</p>
-                    <span class="service-tag">Knowledge Gap</span>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="ti ti-hourglass-empty" aria-hidden="true"></i></div>
-                    <h3>The Content Bottleneck</h3>
-                    <p>Producing highly technical content takes human teams weeks. By the time your campaign launches,
-                        the market conversation has shifted.</p>
-                    <span class="service-tag">Slow Execution</span>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="ti ti-report-money" aria-hidden="true"></i></div>
-                    <h3>Blind Ad Spend</h3>
-                    <p>Throwing budget at broad keywords without AI-driven intent modeling results in low-quality leads
-                        and wasted marketing dollars.</p>
-                    <span class="service-tag">Wasted Budget</span>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="ti ti-plug-x" aria-hidden="true"></i></div>
-                    <h3>The Fragmented Stack</h3>
-                    <p>When your CRM, ad platforms, and email sequences don't communicate in real-time, you create a
-                        leaky funnel where prospects drop off.</p>
-                    <span class="service-tag">Tech Silos</span>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="ti ti-chart-pie-off" aria-hidden="true"></i></div>
-                    <h3>Vanity Metrics</h3>
-                    <p>Marketing celebrates clicks and traffic, but Sales rejects the leads. A lack of alignment means
-                        you're optimizing for visibility, not revenue.</p>
-                    <span class="service-tag">Misalignment</span>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="ti ti-clock-dollar" aria-hidden="true"></i></div>
-                    <h3>The Billable Hours Trap</h3>
-                    <p>Traditional agencies bill for effort, not outcomes. You pay for manual busywork instead of
-                        strategic growth and automated efficiency.</p>
-                    <span class="service-tag">Inefficiency</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- HOW IT WORKS -->
-        <section class="how-it-works">
-            <div class="section-label">How It Works</div>
-            <div class="section-title">
-                <span id="hiw-part1"></span><span id="hiw-part2" style="color: var(--accent-primary);"></span><span id="hiw-part3"></span><span class="typewriter-cursor-large" id="hiw-cursor" style="display: none;"></span>
-            </div>
-            <div class="section-sub" style="margin: 0 auto; text-align: center;">From chaos to autonomous revenue generation in days, not months.</div>
-            
-            <div class="hiw-container">
-                <div class="hiw-grid">
-                    <!-- Step 1 -->
-                    <div class="hiw-step" id="hiw-card-1">
-                        <div class="handwritten-annotation" id="hiw-annotation" style="display: none;">
-                            <div class="annotation-text" id="annotation-text"><span id="annot-part1"></span><span id="annot-part2" style="color: var(--accent-primary);"></span><span id="annot-part3"></span></div>
-                            <svg class="annotation-arrow" width="80" height="80" viewBox="0 0 100 100" fill="none">
-                                <path id="arrow-path" d="M 10 20 Q 60 10 85 80" stroke="#111" stroke-width="3" stroke-linecap="round" fill="none"/>
-                                <path id="arrow-head" d="M 65 75 L 85 80 L 85 60" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                        <div class="hiw-number-container clickable-circle" onclick="openContactModal(event)" style="cursor: pointer; position: relative; z-index: 20;" title="Get your free AI audit">
-                            <div class="hiw-pulse"></div>
-                            <div class="hiw-number">1</div>
-                        </div>
-                        <h3><span class="hiw-title-text" data-text="1. AI-Driven Audit"></span></h3>
-                        <p><span class="hiw-p-text" data-text="We connect to your data sources. Our AI engine audits your entire funnel in seconds, identifying hidden revenue leaks."></span></p>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="hiw-step" id="hiw-card-2">
-                        <div class="hiw-number-container">
-                            <div class="hiw-nodes"><span></span><span></span><span></span></div>
-                            <div class="hiw-number">2</div>
-                        </div>
-                        <h3><span class="hiw-title-text" data-text="2. Autonomous Strategy"></span></h3>
-                        <p><span class="hiw-p-text" data-text="The AI generates a bespoke marketing strategy, writes the copy, targets the audience, and allocates the budget."></span></p>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="hiw-step" id="hiw-card-3">
-                        <div class="hiw-number-container">
-                            <div class="hiw-bars"><span></span><span></span><span></span></div>
-                            <div class="hiw-number">3</div>
-                        </div>
-                        <h3><span class="hiw-title-text" data-text="3. Real-Time Scaling"></span></h3>
-                        <p><span class="hiw-p-text" data-text="Campaigns launch automatically. The system learns 24/7, shifting spend to the highest ROI channels in real-time."></span></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- HARD METRICS -->
-        <section class="hard-metrics">
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <h3 class="counter-element" data-target="100" data-prefix="$" data-suffix="K+">$0</h3>
-                    <p>Ad Spend Managed</p>
-                </div>
-                <div class="metric-card">
-                    <h3 class="counter-element" data-target="55" data-prefix="" data-suffix="K+">0</h3>
-                    <p>Data Points Analyzed</p>
-                </div>
-                <div class="metric-card">
-                    <h3 class="counter-element" data-target="33" data-prefix="+" data-suffix="%">+0%</h3>
-                    <p>Average ROI Increase</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SHOWCASE SECTION -->
-        <section class="showcase" id="showcase">
-            <div class="showcase-bg active"
-                style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop');">
-            </div>
-            <div class="showcase-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop');">
-            </div>
-            <div class="showcase-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=2000&auto=format&fit=crop');">
-            </div>
-            <div class="showcase-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop');">
-            </div>
-            <div class="showcase-bg"
-                style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2000&auto=format&fit=crop');">
-            </div>
-
-            <div class="showcase-overlay"></div>
-            <div class="showcase-columns">
-                <div class="showcase-col" data-index="0">
-                    <div class="col-content">
-                        <span class="col-num">01</span>
-                        <h3 class="col-title">AI<br>Content</h3>
-                        <div class="col-hidden-content">
-                            <p>Data-trained content plans that adapt to your audience.</p>
-                            <a href="#" class="col-link">See more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="showcase-col" data-index="1">
-                    <div class="col-content">
-                        <span class="col-num">02</span>
-                        <h3 class="col-title">Performance<br>Marketing</h3>
-                        <div class="col-hidden-content">
-                            <p>SEM & SEO driven by real-time signals.</p>
-                            <a href="#" class="col-link">See more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="showcase-col" data-index="2">
-                    <div class="col-content">
-                        <span class="col-num">03</span>
-                        <h3 class="col-title">Brand<br>& Design</h3>
-                        <div class="col-hidden-content">
-                            <p>Visual identities built for B2B credibility.</p>
-                            <a href="#" class="col-link">See more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="showcase-col" data-index="3">
-                    <div class="col-content">
-                        <span class="col-num">04</span>
-                        <h3 class="col-title">Email &<br>Automation</h3>
-                        <div class="col-hidden-content">
-                            <p>Sequences that convert. AI-written, human-reviewed.</p>
-                            <a href="#" class="col-link">See more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="showcase-col" data-index="4">
-                    <div class="col-content">
-                        <span class="col-num">05</span>
-                        <h3 class="col-title">Web<br>Design</h3>
-                        <div class="col-hidden-content">
-                            <p>Fast, conversion-focused websites.</p>
-                            <a href="#" class="col-link">See more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- STRATEGY SANDBOX -->
-        <section class="sandbox" id="sandbox">
-            <div class="sandbox-header">
-                <h2>The Strategy Board</h2>
-                <p>Drag the cards. Draw connections. Plan your next move.</p>
-            </div>
-
-            <canvas id="strategy-canvas"></canvas>
-
-            <!-- Draggable Cards -->
-            <div class="draggable-item card-postit" style="top: 350px; left: 15%; transform: rotate(-3deg);">
-                <h4 contenteditable="true" spellcheck="false">Target 2026</h4>
-                <p contenteditable="true" spellcheck="false">Focus on B2B SaaS and Enterprise Healthcare. We need to
-                    double the MQLs by Q3.</p>
-            </div>
-
-            <div class="draggable-item card-photo" style="top: 200px; left: 75%; transform: rotate(5deg);">
-                <img src="./assets/medtech_photo_1780284871635.png" alt="MedTech">
-                <span contenteditable="true" spellcheck="false">MedTech</span>
-            </div>
-            <div class="draggable-item card-photo" style="top: 380px; left: 5%; transform: rotate(-8deg);">
-                <img src="./assets/b2b_saas_photo_1780284897532.png" alt="SaaS">
-                <span contenteditable="true" spellcheck="false">B2B SaaS</span>
-            </div>
-            <div class="draggable-item card-photo" style="top: 580px; left: 30%; transform: rotate(3deg);">
-                <img src="./assets/real_estate_photo_1780284883728.png" alt="Real Estate">
-                <span contenteditable="true" spellcheck="false">Real Estate</span>
-            </div>
-
-            <div class="draggable-item card-graph" style="top: 500px; left: 65%; transform: rotate(2deg);">
-                <div class="card-graph-title">Expected Growth</div>
-                <div class="card-graph-bar"><span style="width: 40%"></span></div>
-                <div class="card-graph-bar"><span style="width: 65%"></span></div>
-                <div class="card-graph-bar"><span style="width: 90%"></span></div>
-            </div>
-
-            <div class="draggable-item card-node" style="top: 250px; left: 55%;">
-                <i class="ti ti-rocket" style="font-size: 48px; color: var(--accent-primary); margin-bottom: 10px;"></i>
-                <h4 style="font-size: 1.1rem; color: var(--text-main); font-weight: 700;">Launch Campaign</h4>
-            </div>
-
-            <button class="btn-clear" id="clear-canvas">Clear Ink</button>
-        </section>
-
-        <!-- COMMUNICATIONS -->
-        <section class="communications" id="communications">
-            <div class="comm-container">
-                <!-- Left: AI Document -->
-                <div class="comm-left" id="comm-left">
-                    <div class="doc-stack-container">
-                        <div class="stack-doc doc-3"></div>
-                        <div class="stack-doc doc-2"></div>
-                        <div class="stack-doc doc-1"></div>
-                        <div class="ai-document" id="ai-document">
-                            <div class="success-badge"><i class="ti ti-circle-check" style="font-size: 18px;"></i>
-                                Generated</div>
-                            <div class="doc-border"></div>
-                            <div class="doc-content">
-                                <div class="doc-header">
-                                    <div class="doc-logo" id="ai-logo"
-                                        style="opacity: 0; transform: scale(0.5); transition: all 0.5s ease;">
-                                        <div class="logo-circle"
-                                            style="background: transparent; color: #000; font-size: 32px;"><i
-                                                class="ti ti-brand-abstract"></i></div>
-                                    </div>
-                                    <div class="doc-meta" id="typewriter-meta" style="min-height: 12px;"></div>
-                                </div>
-                                <div class="doc-body">
-                                    <h3 id="typewriter-title" style="min-height: 44px; margin-bottom: 25px;"></h3>
-                                    <div class="typewriter-container" id="typewriter-text"></div>
-                                </div>
-                                <div class="doc-footer" id="typewriter-footer" style="min-height: 42px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="position: relative; display: inline-block;">
-                        <div class="handwritten-annotation" id="pr-annotation" style="display: none; top: 35px; left: -240px; transform: rotate(-5deg);">
-                            <div class="annotation-text" id="pr-annotation-text"><span id="pr-annot-part1"></span><span id="pr-annot-part2" style="color: var(--accent-primary);"></span><span id="pr-annot-part3"></span></div>
-                            <svg class="annotation-arrow" width="80" height="80" viewBox="0 0 100 100" fill="none" style="position: absolute; right: -70px; top: -50px; transform: rotate(10deg); margin: 0;">
-                                <path id="pr-arrow-path" d="M 15 75 Q 50 85 85 20" stroke="#111" stroke-width="3" stroke-linecap="round" fill="none"/>
-                                <path id="pr-arrow-head" d="M 65 25 L 85 20 L 80 40" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                        <button class="btn-review" id="btn-review">Ready to Review <i
-                                class="ti ti-arrow-right"></i></button>
-                    </div>
-
-                    <div class="email-mockup" id="email-mockup">
-                        <div class="email-header">
-                            <div class="mac-dots"><span></span><span></span><span></span></div>
-                            <div class="email-title">New Message</div>
-                        </div>
-                        <div class="email-body">
-                            <div class="email-field"><strong>To:</strong> <span id="email-to"></span></div>
-                            <div class="email-field"><strong>Subject:</strong> <span id="email-subject"></span></div>
-                            <div class="email-content">
-                                <p>Hi Team,</p>
-                                <p>Here is the latest PR campaign guide for review.</p>
-                                <div class="email-attachment" id="email-attach">
-                                    <i class="ti ti-file-text"></i>
-                                    <div>
-                                        <div class="attach-name">PR_Campaign_Guide.pdf</div>
-                                        <div class="attach-size">2.4 MB</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sent-success-message" id="sent-success">
-                        <i class="ti ti-mail-fast"></i>
-                        <h3>Check Your Inbox!</h3>
-                        <p>The campaign draft has been sent successfully.</p>
-                    </div>
-                </div>
-
-                <!-- Right: Content -->
-                <div class="comm-right">
-                    <h2>Press Releases<br><span style="color: var(--accent-primary);">In seconds</span><br>Powered by AI
-                    </h2>
-                    <div class="divider"></div>
-                    <p class="hook-text">Secure top-tier media coverage effortlessly. Our AI crafts journalist-ready press releases designed to get published, not ignored.</p>
-
-                    <div class="micro-metrics">
-                        <div class="metric-item">
-                            <i class="ti ti-bolt"></i>
-                            10x Faster Generation
-                        </div>
-                        <div class="metric-item">
-                            <i class="ti ti-chart-arrows-vertical"></i>
-                            +300% Media Pickups
-                        </div>
-                    </div>
-
-                    <div class="includes-block">
-                        <h4>Supported Networks</h4>
-                        <div class="network-tags">
-                            <span class="network-tag pr-newswire" onclick="openContactModal(event)">PR Newswire</span>
-                            <span class="network-tag business-wire" onclick="openContactModal(event)">Business Wire</span>
-                            <span class="network-tag accesswire" onclick="openContactModal(event)">Accesswire</span>
-                        </div>
-                    </div>
-
-                    <div class="mini-testimonial">
-                        <div class="testimonial-stars">
-                            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
-                        </div>
-                        <div class="testimonial-quote">
-                            "The AI matched our exact brand tone. We secured 3 top-tier media publications in 48 hours without lifting a finger."
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah T.">
-                            <div class="author-info">
-                                <strong>Sarah T.</strong>
-                                <span>Comms Director</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- PLATFORM TEASER -->
-        <section class="platform">
-            <div class="section-label">Coming soon</div>
-            <div class="section-title" style="margin-bottom:6px">The DSE Studio.</div>
-            <div class="section-sub">Our AI suite, built for your team. One dashboard. All your marketing intelligence.
-            </div>
-            <div class="platform-card">
-                <div class="platform-left">
-                    <div class="early-badge">
-                        <span>●</span> Early Access
-                    </div>
-                    <h3>Get ahead of the curve.</h3>
-                    <p>Join the waitlist for our proprietary AI marketing studio — designed for complex B2B
-                        industries. Be the first to automate what your competitors are still doing manually.</p>
-                    <form class="waitlist-bar" name="waitlist" method="POST" data-netlify="true" netlify>
-                        <input type="email" name="email" placeholder="your@company.com" required>
-                        <button type="submit">Join waitlist</button>
-                    </form>
-                </div>
-                <div class="platform-dashboard">
-                    <div class="dash-widget span-2">
-                        <div class="dash-widget-icon"><i class="ti ti-bolt"></i></div>
-                        <div class="dash-widget-data">
-                            <div class="num"><span class="counter" data-target="10">0</span><span>x</span></div>
-                            <div class="label">Faster output</div>
-                        </div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-icon"><i class="ti ti-clock-off"></i></div>
-                        <div class="dash-widget-data">
-                            <div class="num"><span class="counter" data-target="60">0</span><span>%</span></div>
-                            <div class="label">Less work</div>
-                        </div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-icon"><i class="ti ti-layout-dashboard"></i></div>
-                        <div class="dash-widget-data">
-                            <div class="num"><span class="counter" data-target="1">0</span></div>
-                            <div class="label">Panel</div>
-                        </div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-icon"><i class="ti ti-chart-arrows"></i></div>
-                        <div class="dash-widget-data">
-                            <div class="num"><span class="counter" data-target="24">0</span><span>/7</span></div>
-                            <div class="label">AI Sync</div>
-                        </div>
-                    </div>
-                    <div class="dash-widget">
-                        <div class="dash-widget-icon"><i class="ti ti-target"></i></div>
-                        <div class="dash-widget-data">
-                            <div class="num"><span class="counter" data-target="99">0</span><span>%</span></div>
-                            <div class="label">Accuracy</div>
-                        </div>
-                    </div>
-                    <div class="dash-widget span-2">
-                        <div class="dash-widget-icon"><i class="ti ti-rocket"></i></div>
-                        <div class="dash-widget-data">
-                            <div class="num"><span class="counter" data-target="5">0</span><span>M+</span></div>
-                            <div class="label">Leads Scored</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ SECTION -->
-        <section class="faq-section" id="faq">
-            <div class="faq-container">
-                <div class="faq-header">
-                    <span class="faq-tag">04 // CALIBRATION</span>
-                    <h2>Straight <span style="color: var(--accent-primary);">Answers.</span></h2>
-                </div>
-                
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <div class="faq-question">"We already have a marketing agency."</div>
-                        <div class="faq-answer">Most agencies are generalists. We are specialists. We integrate with your current team to handle the technical heavy lifting they can't.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">"How fast are the results?"</div>
-                        <div class="faq-answer">SEO is a long-game (3-6 months), but LinkedIn and email systems activate in the first 30 days.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">"How does DSE protect my data?"</div>
-                        <div class="faq-answer">We deploy enterprise-grade encryption and strict access protocols. Our AI models operate in isolated environments, ensuring your proprietary data is never exposed or used to train public models.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">"Does AI-generated content penalize SEO?"</div>
-                        <div class="faq-answer">Google penalizes spam, not AI. We use AI for intent modeling, structure, and research, but every piece is heavily calibrated for human-first value, expertise, and authority (E-E-A-T), which search engines reward.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CASE STUDIES (BLANKS) -->
-        <section class="case-studies">
-            <div class="case-studies-container">
-                <div class="section-label">Proven Results</div>
-                <div class="section-title">DON'T TAKE OUR WORD FOR IT.</div>
-                
-                <div class="case-studies-grid">
-                    <div class="case-card">
-                        <div class="case-logo-blank"></div>
-                        <h3>"How we increased leads by [ XX% ] and reduced CAC by [ XX% ] in 3 months."</h3>
-                        <a href="#" class="btn-ghost">Read Full Case Study &rarr;</a>
-                    </div>
-                    <div class="case-card">
-                        <div class="case-logo-blank"></div>
-                        <h3>"Scaling content production by [ 10x ] without losing brand voice."</h3>
-                        <a href="#" class="btn-ghost">Read Full Case Study &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- CONTACT FORM SECTION -->
-        <section class="contact-section" style="padding: 100px 5%; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color);">
-            <div style="background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 50px; width: 100%; max-width: 600px; box-shadow: var(--glass-shadow); text-align: center;">
-                <div class="section-label" style="font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 12px;">Get in Touch</div>
-                <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px;">Let's talk <span style="color: var(--accent-primary);">growth.</span></h2>
-                <form style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <label for="contact-name" style="font-size: 0.9rem; font-weight: 600; color: var(--text-main);">Name</label>
-                        <input type="text" id="contact-name" placeholder="John Doe" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none;" required>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <label for="contact-email" style="font-size: 0.9rem; font-weight: 600; color: var(--text-main);">Email</label>
-                        <input type="email" id="contact-email" placeholder="john@company.com" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none;" required>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <label for="contact-message" style="font-size: 0.9rem; font-weight: 600; color: var(--text-main);">Message</label>
-                        <textarea id="contact-message" rows="4" placeholder="How can we help you?" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none; resize: vertical;" required></textarea>
-                    </div>
-                    <button type="submit" style="background: var(--text-main); color: #fff; padding: 16px; border-radius: 12px; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 10px;">Send Message</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
         <footer class="footer">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -3446,7 +3055,7 @@
 
 
         document.addEventListener("DOMContentLoaded", () => {
-            const words = ["faster", "smarter", "further"];
+            const words = ["Platform", "Solution", "Artificial Intelligence"];
             let wordIndex = 0;
             const el = document.getElementById("typewriter");
 
@@ -3972,6 +3581,272 @@
 
     </script>
 
+
+    
+    <!-- EASTER EGG DOM -->
+    <div id="easter-egg-scene">
+        <h2 style="margin-bottom: 20px; font-weight: 300; letter-spacing: 2px;">DSE Studio Mode</h2>
+        <div class="egg-canvas" id="egg-canvas">
+            <div class="egg-fake-image" id="egg-img-1">Marketing Asset</div>
+            <div class="egg-fake-image" id="egg-img-2">AI Output</div>
+            <div class="egg-fake-image" id="egg-img-3">Data Chart</div>
+            
+            <svg class="egg-fake-cursor" id="egg-fake-cursor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-41.4c-10.8-6.1-23.8-7.1-35.3-2.5s-19.5 13.8-22.1 26l-13.5 63c-3.6 16.7 1.4 34.1 13.6 46.3l128.4 128.4c12.1 12.1 28.5 18.9 45.6 18.9H320c53 0 96-43 96-96V192c0-17.7-14.3-32-32-32s-32 14.3-32 32v128h-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v160h-32V32z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
+            </svg>
+            <svg class="egg-fake-cursor" id="egg-fake-cursor-closed" style="display:none;" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M112 112c0-26.5 21.5-48 48-48s48 21.5 48 48v80c0 8.8 7.2 16 16 16s16-7.2 16-16V64c0-26.5 21.5-48 48-48s48 21.5 48 48v128c0 8.8 7.2 16 16 16s16-7.2 16-16V96c0-26.5 21.5-48 48-48s48 21.5 48 48v128c0 8.8 7.2 16 16 16s16-7.2 16-16v-16c0-26.5 21.5-48 48-48s48 21.5 48 48v224c0 70.7-57.3 128-128 128H221.3c-28.5 0-56.1-9.6-78.3-27.2L22.2 388.4C8.1 377.3 0 360.2 0 342c0-29.2 28.3-50.4 56.6-42.6L112 314.1V112z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- CUSTOM CURSOR DOM -->
+    <div id="custom-cursor">
+        <!-- Lines -->
+        <svg class="cursor-click-lines" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 15 L 50 5" fill="none" />
+            <path d="M 25 25 L 15 15" fill="none" />
+            <path d="M 75 25 L 85 15" fill="none" />
+            <path d="M 15 50 L 5 50" fill="none" />
+            <path d="M 85 50 L 95 50" fill="none" />
+        </svg>
+
+        <!-- Pointing Hand (Normal) -->
+        <svg class="cursor-icon active" id="cursor-point" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-41.4c-10.8-6.1-23.8-7.1-35.3-2.5s-19.5 13.8-22.1 26l-13.5 63c-3.6 16.7 1.4 34.1 13.6 46.3l128.4 128.4c12.1 12.1 28.5 18.9 45.6 18.9H320c53 0 96-43 96-96V192c0-17.7-14.3-32-32-32s-32 14.3-32 32v128h-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v160h-32V32z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Open Hand (2 Fingers / Hovering Draggable) -->
+        <svg class="cursor-icon" id="cursor-open" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 8.8-7.2 16-16 16s-16-7.2-16-16V96c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 8.8-7.2 16-16 16s-16-7.2-16-16V160c0-17.7-14.3-32-32-32s-32 14.3-32 32V352c0 70.7 57.3 128 128 128H320c70.7 0 128-57.3 128-128V224c0-17.7-14.3-32-32-32s-32 14.3-32 32v128c0 8.8-7.2 16-16 16s-16-7.2-16-16V32z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Closed Hand (Dragging) -->
+        <svg class="cursor-icon" id="cursor-closed" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M112 112c0-26.5 21.5-48 48-48s48 21.5 48 48v80c0 8.8 7.2 16 16 16s16-7.2 16-16V64c0-26.5 21.5-48 48-48s48 21.5 48 48v128c0 8.8 7.2 16 16 16s16-7.2 16-16V96c0-26.5 21.5-48 48-48s48 21.5 48 48v128c0 8.8 7.2 16 16 16s16-7.2 16-16v-16c0-26.5 21.5-48 48-48s48 21.5 48 48v224c0 70.7-57.3 128-128 128H221.3c-28.5 0-56.1-9.6-78.3-27.2L22.2 388.4C8.1 377.3 0 360.2 0 342c0-29.2 28.3-50.4 56.6-42.6L112 314.1V112z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+<script>
+
+        
+        // EASTER EGG LOGIC
+        let rippleInterval;
+        let easterEggTimeout;
+        let isHolding = false;
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.closest('#easter-egg-scene')) return; // Don't trigger if already inside
+
+            isHolding = true;
+
+            // Start Ripples
+            rippleInterval = setInterval(() => {
+                const ripple = document.createElement('div');
+                ripple.className = 'cursor-ripple';
+                ripple.style.left = mouseX + 'px';
+                ripple.style.top = mouseY + 'px';
+                document.body.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 1500);
+            }, 300); // Emits a ripple every 300ms
+
+            // Start 5 second timer
+            easterEggTimeout = setTimeout(() => {
+                if (isHolding) {
+                    triggerEasterEgg();
+                }
+            }, 5000);
+        });
+
+        const stopHolding = () => {
+            isHolding = false;
+            clearInterval(rippleInterval);
+            clearTimeout(easterEggTimeout);
+        };
+
+        document.addEventListener('mouseup', stopHolding);
+        document.addEventListener('mouseleave', stopHolding);
+
+        async function triggerEasterEgg() {
+            stopHolding();
+            
+            // Fade and zoom the entire body content
+            const children = document.body.children;
+            for(let i=0; i<children.length; i++) {
+                const tag = children[i].tagName.toLowerCase();
+                const id = children[i].id;
+                if(tag !== 'script' && tag !== 'style' && id !== 'custom-cursor' && id !== 'easter-egg-scene') {
+                    children[i].classList.add('fade-zoom-out');
+                }
+            }
+
+            // Hide the actual custom cursor
+            document.getElementById('custom-cursor').style.display = 'none';
+
+            // Show the easter egg scene
+            const scene = document.getElementById('easter-egg-scene');
+            scene.classList.add('egg-active');
+
+            // Start the sequence after it fades in
+            setTimeout(playCanvasSequence, 2000);
+        }
+
+        async function playCanvasSequence() {
+            const fakeCursor = document.getElementById('egg-fake-cursor');
+            const fakeCursorClosed = document.getElementById('egg-fake-cursor-closed');
+            const img1 = document.getElementById('egg-img-1');
+            const img2 = document.getElementById('egg-img-2');
+            const img3 = document.getElementById('egg-img-3');
+
+            const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+            
+            const moveCursor = (x, y) => {
+                fakeCursor.style.left = x;
+                fakeCursor.style.top = y;
+                fakeCursorClosed.style.left = x;
+                fakeCursorClosed.style.top = y;
+            };
+            
+            const grab = () => {
+                fakeCursor.style.display = 'none';
+                fakeCursorClosed.style.display = 'block';
+            };
+            
+            const release = () => {
+                fakeCursor.style.display = 'block';
+                fakeCursorClosed.style.display = 'none';
+            };
+
+            // Sequence
+            moveCursor('50%', '110%'); // Start cursor bottom center
+            await wait(1000);
+
+            // Drag img1
+            moveCursor('15%', '-5%'); // Go to img1
+            await wait(1200);
+            grab();
+            await wait(200);
+            img1.style.top = '20%';
+            img1.style.left = '30%';
+            moveCursor('35%', '25%'); // Drag it
+            await wait(1200);
+            release();
+            await wait(500);
+
+            // Drag img2
+            moveCursor('85%', '-5%'); // Go to img2
+            await wait(1200);
+            grab();
+            await wait(200);
+            img2.style.top = '50%';
+            img2.style.left = '60%';
+            moveCursor('65%', '55%'); // Drag it
+            await wait(1200);
+            release();
+            await wait(500);
+
+            // Drag img3
+            moveCursor('45%', '110%'); // Go to img3
+            await wait(1200);
+            grab();
+            await wait(200);
+            img3.style.top = '60%';
+            img3.style.left = '20%';
+            moveCursor('25%', '65%'); // Drag it
+            await wait(1200);
+            release();
+            await wait(1000);
+            
+            // Cursor leaves
+            moveCursor('150%', '150%');
+        }
+
+        // CUSTOM CURSOR LOGIC
+        const cursor = document.getElementById('custom-cursor');
+        const iconPoint = document.getElementById('cursor-point');
+        const iconOpen = document.getElementById('cursor-open');
+        const iconClosed = document.getElementById('cursor-closed');
+        let isDraggingCursor = false;
+        let isSelecting = false;
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 8}px)`;
+            
+            // Check if user is selecting text
+            if (window.getSelection().toString().length > 0 && e.buttons === 1) {
+                isSelecting = true;
+                setCursorState(iconOpen);
+            } else if (isSelecting && e.buttons === 0) {
+                isSelecting = false;
+                if (!isDraggingCursor) setCursorState(iconPoint);
+            }
+        });
+
+        document.addEventListener('mousedown', (e) => {
+            // Trigger click burst
+            document.body.classList.remove('is-clicking');
+            void document.body.offsetWidth; // trigger reflow
+            document.body.classList.add('is-clicking');
+            setTimeout(() => document.body.classList.remove('is-clicking'), 400);
+
+            // Handle Drag/Selection start
+            if (e.target.tagName.toLowerCase() !== 'input' && e.target.tagName.toLowerCase() !== 'textarea') {
+                isDraggingCursor = true;
+                setCursorState(iconClosed);
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDraggingCursor = false;
+            if (!isSelecting) {
+                setCursorState(iconPoint);
+            }
+        });
+
+        function setCursorState(activeIcon) {
+            iconPoint.classList.remove('active');
+            iconOpen.classList.remove('active');
+            iconClosed.classList.remove('active');
+            activeIcon.classList.add('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Restore custom cursor
+                document.getElementById('custom-cursor').style.display = 'block';
+
+                // Hide the easter egg scene
+                const scene = document.getElementById('easter-egg-scene');
+                scene.classList.remove('egg-active');
+
+                // Remove fade-zoom-out from all body children
+                const children = document.body.children;
+                for(let i=0; i<children.length; i++) {
+                    children[i].classList.remove('fade-zoom-out');
+                }
+
+                // Reset easter egg images to initial positions
+                document.getElementById('egg-img-1').style.top = '-200px';
+                document.getElementById('egg-img-1').style.left = '10%';
+                document.getElementById('egg-img-2').style.top = '-200px';
+                document.getElementById('egg-img-2').style.left = '80%';
+                document.getElementById('egg-img-3').style.top = '120%';
+                document.getElementById('egg-img-3').style.left = '40%';
+                
+                // Reset fake cursor
+                document.getElementById('egg-fake-cursor').style.left = '150%';
+                document.getElementById('egg-fake-cursor').style.top = '150%';
+            }
+        });
+
+</script>
 </body>
 
 </html>
