@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DSE Marketing Solutions — Renewable Energy & Cleantech</title>
+  <title>DSE Marketing Solutions â€” Renewable Energy & Cleantech</title>
 
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -810,7 +810,188 @@
         padding-top: 100px;
       }
     }
+  
+/* UNIFIED NAVBAR STYLES */
+nav.nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 18px 5% !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    box-sizing: border-box !important;
+    transition: all 0.3s ease !important;
+}
+
+nav.nav.scrolled {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+nav.nav .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+}
+
+nav.nav .logo-mark {
+    width: 28px !important;
+    height: 28px !important;
+    background: linear-gradient(135deg, #e60000, #ff4d4d) !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px !important;
+    box-shadow: 0 4px 12px rgba(230, 0, 0, 0.3) !important;
+}
+
+nav.nav .logo-text {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #0a0a0a !important;
+    letter-spacing: -0.5px !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+nav.nav .logo-text span {
+    background: linear-gradient(135deg, #e60000, #ff4d4d) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+nav.nav .nav-links {
+    display: flex !important;
+    gap: 28px !important;
+    align-items: center !important;
+}
+
+nav.nav .nav-links > a,
+nav.nav .nav-item-dropdown > a {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #555555 !important;
+    text-decoration: none !important;
+    transition: color 0.2s !important;
+    display: flex !important;
+    align-items: center !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+nav.nav .nav-links > a:hover,
+nav.nav .nav-item-dropdown:hover > a {
+    color: #0a0a0a !important;
+}
+
+nav.nav .nav-item-dropdown {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    padding: 10px 0 !important;
+}
+
+nav.nav .nav-dropdown-menu {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(15px) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 16px !important;
+    padding: 12px 0 !important;
+    min-width: 200px !important;
+    z-index: 10000 !important;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+nav.nav .nav-item-dropdown:hover .nav-dropdown-menu {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+}
+
+nav.nav .nav-dropdown-menu::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+    width: 12px !important;
+    height: 12px !important;
+    background: #ffffff !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+nav.nav .nav-dropdown-menu a {
+    display: block !important;
+    padding: 10px 24px !important;
+    font-size: 0.95rem !important;
+    color: #555555 !important;
+    text-decoration: none !important;
+    transition: all 0.2s !important;
+    white-space: nowrap !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    text-align: left !important;
+}
+
+nav.nav .nav-dropdown-menu a:hover {
+    color: #e60000 !important;
+    background: rgba(230, 0, 0, 0.04) !important;
+    padding-left: 30px !important;
+}
+
+nav.nav .nav-cta {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 8px 20px !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+nav.nav .nav-cta:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+    color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+    nav.nav .nav-links {
+        display: none !important;
+    }
+}
+
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 
 <body>
@@ -818,12 +999,27 @@
   <div class="bg-glow"></div>
   <div class="bg-glow-2"></div>
 
-  <nav id="nav">
-    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">
-      <div class="nav-name">DSE Marketing Solutions</div>
-      <div class="nav-tag">Clean Energy Growth Agency</div>
+    <!-- UNIFIED NAVBAR -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="logo" style="text-decoration: none;">
+      <div class="logo-mark">DSE</div>
+      <span class="logo-text">DSE <span>AI</span> Solutions</span>
     </a>
-    <a href="#book" class="nav-cta">Book a Free Call</a>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <div class="nav-item-dropdown">
+        <a href="#" onclick="event.preventDefault()">Industries <i class="ti ti-chevron-down" style="font-size: 0.85rem; margin-left: 6px; margin-top: 2px;"></i></a>
+        <div class="nav-dropdown-menu">
+          <a href="b2b.html">B2B</a>
+          <a href="futuristic-industrial-growth.html">Industrial</a>
+          <a href="medtech.html">MedTech</a>
+          <a href="renewables.html">Renewables</a>
+        </div>
+      </div>
+      <a href="platform.html">Studio</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <a href="#book" class="nav-cta">Get started</a>
   </nav>
 
   <section class="hero">
@@ -864,7 +1060,7 @@
     <div class="stripe-item"><span class="stripe-num count-up" data-start="0" data-end="68"
         data-suffix="%">0%</span><span class="stripe-lbl">of procurement decisions start online</span></div>
     <div class="stripe-item"><span class="stripe-num count-up" data-start="0" data-end="4"
-        data-suffix="×">0×</span><span class="stripe-lbl">more RFP invitations with strong content</span></div>
+        data-suffix="Ã—">0Ã—</span><span class="stripe-lbl">more RFP invitations with strong content</span></div>
     <div class="stripe-item"><span class="stripe-num count-up" data-start="1999" data-end="0"
         data-prefix="$">$1999</span><span class="stripe-lbl">spent by most competitors on SEO</span></div>
   </div>
@@ -884,7 +1080,7 @@
             </svg>
           </div>
           <div class="problem-title">The market moves faster than content</div>
-          <p class="problem-text">Solar, wind, storage, hydrogen — the conversation evolves weekly. Companies not
+          <p class="problem-text">Solar, wind, storage, hydrogen â€” the conversation evolves weekly. Companies not
             publishing are invisible to the buyers shaping where contracts go.</p>
         </div>
         <div class="problem-card reveal">
@@ -916,7 +1112,7 @@
           </div>
           <div class="problem-title">Buyers consume ideas, not just products</div>
           <p class="problem-text">Procurement directors and project developers read widely. They look for companies
-            demonstrating leadership — not just capability.</p>
+            demonstrating leadership â€” not just capability.</p>
         </div>
       </div>
     </div>
@@ -947,7 +1143,7 @@
         <div class="kicker-rule"></div><span>How it works</span>
       </div>
       <h2 class="section-heading reveal">Three moves.<br>One outcome.</h2>
-      <p class="how-sub reveal">We understand the clean energy sector — the technology, policy landscape, and buying
+      <p class="how-sub reveal">We understand the clean energy sector â€” the technology, policy landscape, and buying
         cycle. No generic agency that doesn't know a PPA from a PTC.</p>
 
       <div class="steps">
@@ -956,12 +1152,12 @@
           <div class="step-title">We map your content gap</div>
           <p class="step-text">A 30-minute audit covering search visibility, competitor positioning, and content
             opportunities your buyers are searching for right now.</p>
-          <span class="step-tag">Free — 30 minutes</span>
+          <span class="step-tag">Free â€” 30 minutes</span>
         </div>
         <div class="step reveal">
           <div class="step-num">02</div>
           <div class="step-title">We build your authority engine</div>
-          <p class="step-text">AI-powered production at scale — technical blogs, LinkedIn content, and white papers that
+          <p class="step-text">AI-powered production at scale â€” technical blogs, LinkedIn content, and white papers that
             position you as the go-to voice.</p>
           <span class="step-tag">Month 1 delivery</span>
         </div>
@@ -985,7 +1181,7 @@
             <div class="metric-lbl">Time to first inbound lead</div>
           </div>
           <div class="metric reveal">
-            <div class="metric-val count-up" data-start="0" data-end="3" data-suffix="×">0×</div>
+            <div class="metric-val count-up" data-start="0" data-end="3" data-suffix="Ã—">0Ã—</div>
             <div class="metric-lbl">Organic traffic increase (Mo. 6)</div>
           </div>
           <div class="metric reveal">
@@ -1008,9 +1204,9 @@
             up first when buyers go looking.</p>
 
           <div class="case-card">
-            <p class="case-quote">"Within three months of working with DSE, we had two inbound leads from search — one
+            <p class="case-quote">"Within three months of working with DSE, we had two inbound leads from search â€” one
               of which became a six-figure project."</p>
-            <div class="case-author">— Head of BD, Solar Development Firm</div>
+            <div class="case-author">â€” Head of BD, Solar Development Firm</div>
           </div>
         </div>
       </div>
@@ -1029,7 +1225,7 @@
           <div class="offer-check">?</div>
           <div>
             <div class="offer-title">AI-powered technical content</div>
-            <p class="offer-text">Blog posts and explainers written to the technical depth your buyers expect — produced
+            <p class="offer-text">Blog posts and explainers written to the technical depth your buyers expect â€” produced
               at speed.</p>
           </div>
         </div>
@@ -1073,7 +1269,7 @@
             and buyer authority</strong>. They work well together.</div>
       </div>
       <div class="obj-item reveal">
-        <div class="obj-q">Our tech sells itself — do we need content?</div>
+        <div class="obj-q">Our tech sells itself â€” do we need content?</div>
         <div class="obj-a">Buyers choose the company they trust. Content builds trust <strong>before the first
             conversation</strong>.</div>
       </div>
@@ -1093,14 +1289,14 @@
       </div>
       <h2 class="hero-headline reveal">Let's talk about<br><em>your</em> opportunity.</h2>
       <p class="hero-sub reveal" style="margin: 0 auto 40px; color: #fff;">A free 30-minute strategy call. We'll show
-        you exactly where your content and SEO gaps are — with real data specific to your company.</p>
+        you exactly where your content and SEO gaps are â€” with real data specific to your company.</p>
       <a href="#" class="btn-primary reveal" style="margin: 0 auto; display: inline-flex;">Book free strategy call</a>
     </div>
   </section>
 
   <footer>
     <div class="footer-brand">DSE <span><a href="https://dsemktgsolutions.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Marketing</a></span></div>
-    <div>© 2026 DSE Marketing Solutions. Built for B2B Cleantech.</div>
+    <div>Â© 2026 DSE Marketing Solutions. Built for B2B Cleantech.</div>
     <div class="footer-links">
       <a href="#">Privacy</a>
       <a href="#">Contact</a>
