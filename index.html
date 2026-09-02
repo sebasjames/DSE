@@ -3294,22 +3294,23 @@
 
 
         <!-- CONTACT FORM SECTION -->
-        <section class="contact-section" style="padding: 100px 5%; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color);">
-            <div style="background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 50px; width: 100%; max-width: 600px; box-shadow: var(--glass-shadow); text-align: center;">
+        <section class="contact-section" style="padding: 120px 5%; display: flex; justify-content: center; align-items: center; position: relative; background: url('./assets/dse_banner.jpg') center/cover no-repeat; overflow: hidden;">
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(10, 10, 15, 0.4) 0%, rgba(10, 10, 15, 0.75) 100%); pointer-events: none;"></div>
+            <div style="position: relative; z-index: 2; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 24px; padding: 50px; width: 100%; max-width: 600px; box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.45), 0 0 40px rgba(230, 0, 0, 0.2); text-align: center;">
                 <div class="section-label" style="font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 12px;">Get in Touch</div>
                 <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px;">Let's talk <span style="color: var(--accent-primary);">growth.</span></h2>
-                <form style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
+                <form name="contact-section" method="POST" data-netlify="true" netlify style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label for="contact-name" style="font-size: 0.9rem; font-weight: 600; color: var(--text-main);">Name</label>
-                        <input type="text" id="contact-name" placeholder="John Doe" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none;" required>
+                        <input type="text" id="contact-name" name="name" placeholder="John Doe" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none;" required>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label for="contact-email" style="font-size: 0.9rem; font-weight: 600; color: var(--text-main);">Email</label>
-                        <input type="email" id="contact-email" placeholder="john@company.com" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none;" required>
+                        <input type="email" id="contact-email" name="email" placeholder="john@company.com" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none;" required>
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label for="contact-message" style="font-size: 0.9rem; font-weight: 600; color: var(--text-main);">Message</label>
-                        <textarea id="contact-message" rows="4" placeholder="How can we help you?" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none; resize: vertical;" required></textarea>
+                        <textarea id="contact-message" name="message" rows="4" placeholder="How can we help you?" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none; resize: vertical;" required></textarea>
                     </div>
                     <button type="submit" style="background: var(--text-main); color: #fff; padding: 16px; border-radius: 12px; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 10px;">Send Message</button>
                 </form>
