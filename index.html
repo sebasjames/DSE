@@ -2448,44 +2448,90 @@
         }
         
         .case-card {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
             padding: 40px;
-            transition: box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            text-decoration: none;
+            color: inherit;
         }
         
         .case-card:hover {
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+            border-color: rgba(230, 0, 0, 0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
         
-        .case-logo-blank {
-            width: 100px;
-            height: 30px;
-            background: #dee2e6;
-            margin-bottom: 30px;
-            border-radius: 4px;
+        .case-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .case-category-badge {
+            background: rgba(230, 0, 0, 0.08);
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(230, 0, 0, 0.15);
+        }
+
+        .case-read-time {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
         }
         
         .case-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--text-main);
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 16px;
+            line-height: 1.35;
+            letter-spacing: -0.5px;
+        }
+
+        .case-card p.case-excerpt {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
         }
         
         .case-card .btn-ghost {
-            display: inline-block;
-            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--accent-primary);
             font-weight: 700;
+            font-size: 0.95rem;
             text-decoration: none;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease, color 0.3s ease;
+            margin-top: auto;
         }
         
-        .case-card .btn-ghost:hover {
-            transform: translateX(5px);
+        .case-card:hover .btn-ghost {
+            transform: translateX(6px);
+            color: #b80000;
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
         }
 
         .trusted-carousel {
@@ -3417,23 +3463,36 @@
             </div>
         </section>
 
-        <!-- CASE STUDIES (BLANKS) -->
-        <section class="case-studies">
+        <!-- CASE STUDIES & RECENT BLOGS -->
+        <section class="case-studies" id="insights">
             <div class="case-studies-container">
-                <div class="section-label">Proven Results</div>
+                <div class="section-label">Proven Results & Latest Insights</div>
                 <div class="section-title">DON'T TAKE OUR WORD FOR IT.</div>
                 
-                <div class="case-studies-grid">
-                    <div class="case-card">
-                        <div class="case-logo-blank"></div>
-                        <h3>"How we increased leads by [ XX% ] and reduced CAC by [ XX% ] in 3 months."</h3>
-                        <a href="#" class="btn-ghost">Read Full Case Study &rarr;</a>
-                    </div>
-                    <div class="case-card">
-                        <div class="case-logo-blank"></div>
-                        <h3>"Scaling content production by [ 10x ] without losing brand voice."</h3>
-                        <a href="#" class="btn-ghost">Read Full Case Study &rarr;</a>
-                    </div>
+                <div class="case-studies-grid" id="recentBlogPosts">
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="case-category-badge">AI & Automation</span>
+                            <span class="case-read-time"><i class="ti ti-clock"></i> 6 min read</span>
+                        </div>
+                        <h3>"The Death of Generalist Agencies: Why Verticalized AI is Capturing Enterprise B2B"</h3>
+                        <p class="case-excerpt">Traditional agency retainer models are collapsing under the weight of generic playbooks. Here is how autonomous vertical AI systems are driving 3.8x pipeline efficiency across technical enterprise sectors.</p>
+                        <a href="article.html?id=vertical-ai-vs-generalist-agencies" class="btn-ghost">Read Full Case Study &rarr;</a>
+                    </article>
+                    <article class="case-card">
+                        <div class="case-meta">
+                            <span class="case-category-badge">Market Intelligence</span>
+                            <span class="case-read-time"><i class="ti ti-clock"></i> 7 min read</span>
+                        </div>
+                        <h3>"Answer Engine Optimization (AEO): How to Rank in SearchGPT, Perplexity & Claude"</h3>
+                        <p class="case-excerpt">Traditional SEO captures keyword clicks. AEO captures agent citations. Learn the semantic structuring principles required to become the canonical data source for LLMs in your industry.</p>
+                        <a href="article.html?id=answer-engine-optimization-aeo-guide" class="btn-ghost">Read Full Case Study &rarr;</a>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="blog.html" class="btn-outline" style="border-radius: 30px; padding: 12px 32px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                        Explore All Articles & Research &rarr;
+                    </a>
                 </div>
             </div>
         </section>
@@ -4136,6 +4195,45 @@
                         slides[prev].classList.remove('previous');
                     }, 1200);
                 }, 3500);
+            }
+        })();
+    </script>
+    <script src="assets/js/blog-data.js"></script>
+    <script>
+        // DYNAMIC RECENT BLOG POSTS SYNC
+        (function renderRecentBlogs() {
+            const container = document.getElementById('recentBlogPosts');
+            if (!container || !window.DSE_BLOG_POSTS || !window.DSE_BLOG_POSTS.length) return;
+            
+            // Sort by ISO date descending (most recent first)
+            const recent = [...window.DSE_BLOG_POSTS].sort((a, b) => {
+                const dateA = new Date(a.isoDate || a.date);
+                const dateB = new Date(b.isoDate || b.date);
+                return dateB - dateA;
+            }).slice(0, 2);
+            
+            container.innerHTML = recent.map(post => `
+                <article class="case-card">
+                    <div class="case-meta">
+                        <span class="case-category-badge">${escapeHtml(post.category)}</span>
+                        <span class="case-read-time"><i class="ti ti-clock"></i> ${escapeHtml(post.readTime)}</span>
+                    </div>
+                    <h3>"${escapeHtml(post.title)}"</h3>
+                    <p class="case-excerpt">${escapeHtml(post.excerpt)}</p>
+                    <a href="article.html?id=${encodeURIComponent(post.id)}" class="btn-ghost">
+                        Read Full Case Study &rarr;
+                    </a>
+                </article>
+            `).join('');
+
+            function escapeHtml(str) {
+                if (!str) return '';
+                return str
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
             }
         })();
     </script>
