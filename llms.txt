@@ -12,6 +12,10 @@ DSE AI Solutions (https://dseaisolutions.com/) is a specialized growth technolog
 - **Industrial & Manufacturing** (https://dseaisolutions.com/futuristic-industrial-growth.html): High-ticket pipeline generation, engineering contract acceleration, and capital equipment sales cycles.
 - **B2B SaaS & Tech** (https://dseaisolutions.com/b2b.html): Unit economics optimization, CAC reduction, and predictable pipeline scale for enterprise recurring revenue models.
 
+## Technical Intelligence & Blog
+
+- **Blog & Technical Intelligence Hub** (https://dseaisolutions.com/blog.html): Tactical playbooks, unit economics benchmarks, and engineering frameworks on autonomous B2B marketing, AEO, and vertical AI.
+
 ## Core Products & Services
 
 1. **AI-Driven Funnel Audits**: Deep autonomous analysis of full-funnel marketing data to pinpoint revenue leaks in seconds.
