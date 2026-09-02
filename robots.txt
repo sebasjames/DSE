@@ -1,0 +1,33 @@
+﻿# User-Agent configuration for standard search engines and modern AI crawlers
+User-agent: *
+Allow: /
+
+# Explicit permissions for AI Answer Engines and LLM Search Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Disallow build and administrative assets
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Host and Sitemap locations
+Host: https://dseaisolutions.com
+Sitemap: https://dseaisolutions.com/sitemap.xml

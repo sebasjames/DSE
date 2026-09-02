@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://dseaisolutions.com/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dseaisolutions.com/assets/dse_banner.jpg</image:loc>
+      <image:title>DSE AI Solutions - Autonomous B2B Marketing</image:title>
+    </image:image>
+  </url>
+
+  <!-- Studio / Platform -->
+  <url>
+    <loc>https://dseaisolutions.com/platform.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- B2B SaaS Growth -->
+  <url>
+    <loc>https://dseaisolutions.com/b2b.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Industrial Growth Systems -->
+  <url>
+    <loc>https://dseaisolutions.com/futuristic-industrial-growth.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Healthcare & MedTech -->
+  <url>
+    <loc>https://dseaisolutions.com/medtech.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Clean Energy & Renewables -->
+  <url>
+    <loc>https://dseaisolutions.com/renewables.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
