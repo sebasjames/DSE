@@ -2685,42 +2685,22 @@
             }
         }
     
-        /* CUSTOM CURSOR */
-        body, a, button, .nav-cta, input, textarea {
-            cursor: none !important;
-        }
-
+        /* CUSTOM CLICK BURST EFFECT */
         #custom-cursor {
             position: fixed;
             top: 0;
             left: 0;
-            width: 40px;
-            height: 40px;
+            width: 0;
+            height: 0;
             pointer-events: none;
             z-index: 999999;
-            transform: translate(-20px, -10px); /* Adjust so the tip is at the mouse coordinate */
-            transition: transform 0.05s linear;
-        }
-
-        .cursor-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.15s ease;
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
-        }
-
-        .cursor-icon.active {
-            opacity: 1;
+            transition: transform 0.03s linear;
         }
 
         .cursor-click-lines {
             position: absolute;
-            top: -15px;
-            left: -15px;
+            top: -35px;
+            left: -35px;
             width: 70px;
             height: 70px;
             opacity: 0;
@@ -2728,7 +2708,7 @@
         }
 
         .cursor-click-lines path {
-            stroke: #333;
+            stroke: var(--accent-primary, #e60000);
             stroke-width: 3;
             stroke-linecap: round;
             stroke-dasharray: 20;
@@ -3597,7 +3577,7 @@
         </div>
     </div>
 
-    <!-- CUSTOM CURSOR DOM -->
+    <!-- CUSTOM CURSOR DOM (CLICK BURST EFFECT ONLY) -->
     <div id="custom-cursor">
         <!-- Lines -->
         <svg class="cursor-click-lines" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -3606,21 +3586,6 @@
             <path d="M 75 25 L 85 15" fill="none" />
             <path d="M 15 50 L 5 50" fill="none" />
             <path d="M 85 50 L 95 50" fill="none" />
-        </svg>
-
-        <!-- Pointing Hand (Normal) -->
-        <svg class="cursor-icon active" id="cursor-point" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-41.4c-10.8-6.1-23.8-7.1-35.3-2.5s-19.5 13.8-22.1 26l-13.5 63c-3.6 16.7 1.4 34.1 13.6 46.3l128.4 128.4c12.1 12.1 28.5 18.9 45.6 18.9H320c53 0 96-43 96-96V192c0-17.7-14.3-32-32-32s-32 14.3-32 32v128h-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v160h-32V32z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
-        </svg>
-
-        <!-- Open Hand (2 Fingers / Hovering Draggable) -->
-        <svg class="cursor-icon" id="cursor-open" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 8.8-7.2 16-16 16s-16-7.2-16-16V96c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 8.8-7.2 16-16 16s-16-7.2-16-16V160c0-17.7-14.3-32-32-32s-32 14.3-32 32V352c0 70.7 57.3 128 128 128H320c70.7 0 128-57.3 128-128V224c0-17.7-14.3-32-32-32s-32 14.3-32 32v128c0 8.8-7.2 16-16 16s-16-7.2-16-16V32z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
-        </svg>
-
-        <!-- Closed Hand (Dragging) -->
-        <svg class="cursor-icon" id="cursor-closed" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M112 112c0-26.5 21.5-48 48-48s48 21.5 48 48v80c0 8.8 7.2 16 16 16s16-7.2 16-16V64c0-26.5 21.5-48 48-48s48 21.5 48 48v128c0 8.8 7.2 16 16 16s16-7.2 16-16V96c0-26.5 21.5-48 48-48s48 21.5 48 48v128c0 8.8 7.2 16 16 16s16-7.2 16-16v-16c0-26.5 21.5-48 48-48s48 21.5 48 48v224c0 70.7-57.3 128-128 128H221.3c-28.5 0-56.1-9.6-78.3-27.2L22.2 388.4C8.1 377.3 0 360.2 0 342c0-29.2 28.3-50.4 56.6-42.6L112 314.1V112z" fill="#fff" stroke="#000" stroke-width="24" stroke-linejoin="round"/>
         </svg>
     </div>
 
@@ -3765,24 +3730,12 @@
             moveCursor('150%', '150%');
         }
 
-        // CUSTOM CURSOR LOGIC
+        // CUSTOM CURSOR LOGIC (CLICK BURST EFFECT)
         const cursor = document.getElementById('custom-cursor');
-        const iconPoint = document.getElementById('cursor-point');
-        const iconOpen = document.getElementById('cursor-open');
-        const iconClosed = document.getElementById('cursor-closed');
-        let isDraggingCursor = false;
-        let isSelecting = false;
 
         document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 8}px)`;
-            
-            // Check if user is selecting text
-            if (window.getSelection().toString().length > 0 && e.buttons === 1) {
-                isSelecting = true;
-                setCursorState(iconOpen);
-            } else if (isSelecting && e.buttons === 0) {
-                isSelecting = false;
-                if (!isDraggingCursor) setCursorState(iconPoint);
+            if (cursor) {
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
             }
         });
 
@@ -3792,27 +3745,7 @@
             void document.body.offsetWidth; // trigger reflow
             document.body.classList.add('is-clicking');
             setTimeout(() => document.body.classList.remove('is-clicking'), 400);
-
-            // Handle Drag/Selection start
-            if (e.target.tagName.toLowerCase() !== 'input' && e.target.tagName.toLowerCase() !== 'textarea') {
-                isDraggingCursor = true;
-                setCursorState(iconClosed);
-            }
         });
-
-        document.addEventListener('mouseup', () => {
-            isDraggingCursor = false;
-            if (!isSelecting) {
-                setCursorState(iconPoint);
-            }
-        });
-
-        function setCursorState(activeIcon) {
-            iconPoint.classList.remove('active');
-            iconOpen.classList.remove('active');
-            iconClosed.classList.remove('active');
-            activeIcon.classList.add('active');
-        }
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
