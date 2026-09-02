@@ -774,8 +774,8 @@
         }
 
         .platform-card {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: linear-gradient(145deg, #0e0e14 0%, #08080b 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
             padding: 50px 60px;
             display: flex;
@@ -783,8 +783,20 @@
             justify-content: space-between;
             gap: 60px;
             backdrop-filter: blur(24px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 50px rgba(230, 0, 0, 0.1);
             flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 77, 77, 0.6), rgba(255, 255, 255, 0.4), transparent);
         }
 
         .platform-left {
@@ -795,14 +807,14 @@
         .platform-left h3 {
             font-size: 2.2rem;
             font-weight: 800;
-            color: var(--text-main);
+            color: #ffffff;
             letter-spacing: -1px;
             margin-bottom: 16px;
         }
 
         .platform-left p {
             font-size: 1.1rem;
-            color: var(--text-muted);
+            color: #a1a1aa;
             line-height: 1.6;
             max-width: 460px;
         }
@@ -812,32 +824,32 @@
             align-items: center;
             gap: 8px;
             margin-bottom: 24px;
-            background: linear-gradient(135deg, rgba(230, 0, 0, 0.1), rgba(255, 77, 77, 0.1));
-            border: 1px solid rgba(230, 0, 0, 0.2);
+            background: rgba(230, 0, 0, 0.15);
+            border: 1px solid rgba(230, 0, 0, 0.35);
             border-radius: 20px;
             padding: 6px 16px;
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--accent-primary);
+            color: #ff4d4d;
         }
 
         /* Unified Search Bar Waitlist */
         .waitlist-bar {
             display: flex;
             align-items: center;
-            background: #fff;
-            border: 2px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 40px;
             padding: 6px;
             margin-top: 32px;
             max-width: 460px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .waitlist-bar:focus-within {
-            border-color: rgba(230, 0, 0, 0.3);
-            box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-color: rgba(230, 0, 0, 0.5);
+            box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .waitlist-bar input {
@@ -846,14 +858,14 @@
             background: transparent;
             padding: 12px 20px;
             font-size: 1rem;
-            color: var(--text-main);
+            color: #ffffff;
             outline: none;
             font-family: var(--font-sans);
             min-width: 150px;
         }
 
         .waitlist-bar input::placeholder {
-            color: #aaa;
+            color: #71717a;
         }
 
         .waitlist-bar button {
@@ -1502,10 +1514,10 @@
             flex: 1.5;
             min-width: 480px;
             padding: 24px;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
         }
 
@@ -1514,15 +1526,15 @@
             position: absolute;
             top: -30px;
             right: -30px;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(230, 0, 0, 0.2) 0%, transparent 70%);
-            filter: blur(30px);
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(230, 0, 0, 0.35) 0%, transparent 70%);
+            filter: blur(35px);
             z-index: -1;
         }
 
         .dash-widget {
-            background: #fff;
+            background: #121218;
             border-radius: 16px;
             padding: 16px 20px;
             display: flex;
@@ -1530,9 +1542,9 @@
             align-items: flex-start;
             justify-content: center;
             gap: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(230, 0, 0, 0.05);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s, border-color 0.4s;
         }
 
         .dash-widget.span-2 {
@@ -1545,8 +1557,8 @@
         /* Offset effect */
         .dash-widget:hover {
             transform: translateY(-5px) scale(1.03);
-            border-color: rgba(230, 0, 0, 0.15);
-            box-shadow: 0 15px 40px rgba(230, 0, 0, 0.08);
+            border-color: rgba(230, 0, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(230, 0, 0, 0.2);
             z-index: 10;
             position: relative;
         }
@@ -1555,13 +1567,13 @@
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            background: rgba(230, 0, 0, 0.05);
-            color: var(--accent-primary);
+            background: rgba(230, 0, 0, 0.15);
+            color: #ff4d4d;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 22px;
-            border: 1px solid rgba(230, 0, 0, 0.1);
+            border: 1px solid rgba(230, 0, 0, 0.3);
         }
 
         .dash-widget-data {
@@ -1575,22 +1587,22 @@
         .dash-widget-data .num {
             font-size: 1.6rem;
             font-weight: 800;
-            color: var(--text-main);
+            color: #ffffff;
             line-height: 1;
             letter-spacing: -1px;
         }
 
         .dash-widget-data .num span {
-            color: var(--text-muted);
+            color: #ff4d4d;
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-left: 2px;
         }
 
         .dash-widget-data .label {
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--text-muted);
+            color: #a1a1aa;
             text-transform: uppercase;
             margin-top: 6px;
             letter-spacing: 0.5px;
@@ -3264,9 +3276,7 @@
             </div>
             <div class="platform-card">
                 <div class="platform-left">
-                    <div class="early-badge">
-                        <span>●</span> Early Access
-                    </div>
+                    <div class="early-badge"><span style="color: #ff4d4d; font-size: 1.1rem; line-height: 1;">●</span> Early Access</div>
                     <h3>Get ahead of the curve.</h3>
                     <p>Join the waitlist for our proprietary AI marketing studio — designed for complex B2B
                         industries. Be the first to automate what your competitors are still doing manually.</p>
