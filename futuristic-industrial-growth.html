@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSE Marketing Solutions — Futuristic Industrial Growth</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* -- TOKENS ----------------------------------------------- */
+    :root {
+      --bg: #ffffff;
+      --surface: #f8f9fa;
+      --accent: #d90700;
+      --accent-rgb: 217, 7, 0;
+      --text: #0a1a2a;
+      --text-dim: #4a5a6a;
+      --text-lt: #8a9aab;
+      --border: #e0e4e8;
+      --grid: rgba(217, 7, 0, 0.05);
+
+      --ff-display: 'Space Grotesk', system-ui, sans-serif;
+      --ff-body: 'Inter', system-ui, sans-serif;
+      --ff-mono: 'Space Mono', monospace;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --transition: 0.4s var(--ease-out);
+    }
+
+    /* -- RESET ------------------------------------------------ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: var(--ff-body);
+      border: none;
+      background: none;
+    }
+
+    /* -- HUD / FUTURISTIC ELEMENTS --------------------------- */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(217, 7, 0, 0.03);
+      z-index: 1000;
+      pointer-events: none;
+      animation: scan 8s linear infinite;
+    }
+
+    @keyframes scan {
+      from {
+        transform: translateY(-100vh);
+      }
+
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    @keyframes pulse-opacity {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      20% {
+        opacity: 0.4;
+      }
+    }
+
+    .pulse-text {
+      animation: pulse-opacity 3.5s ease-in-out infinite;
+      color: var(--accent);
+    }
+
+    /* -- NAV --------------------------------------------------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    nav.scrolled {
+      padding: 16px 48px;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      position: relative;
+    }
+
+    .logo-box::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 1px solid var(--accent);
+      opacity: 0.3;
+    }
+
+    .nav-name {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-tagline {
+      font-family: var(--ff-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #fff;
+      background: var(--accent);
+      padding: 12px 24px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(217, 7, 0, 0.2);
+    }
+
+    /* -- HERO -------------------------------------------------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 48px 60px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-kicker::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-headline {
+      font-family: var(--ff-display);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      margin-bottom: 32px;
+    }
+
+    .hero-headline span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-dim);
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+
+    .hero-image-wrap {
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40%;
+      aspect-ratio: 4/5;
+      z-index: 1;
+      background: var(--surface);
+      overflow: hidden;
+      /* Fallback background during transition */
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.1);
+      transform: scale(1.08);
+      transition: opacity 0.8s var(--ease-out), filter 0.4s var(--ease-out), transform 5s linear;
+    }
+
+    .hero-image.fade-out {
+      opacity: 0;
+      transform: scale(1);
+      transition: opacity 0.8s var(--ease-out), filter 0.4s var(--ease-out), transform 0s;
+    }
+
+    .hero-image-wrap:hover .hero-image {
+      filter: grayscale(0%);
+    }
+
+    .image-glitch-overlay {
+      position: absolute;
+      inset: -20px;
+      border: 1px solid var(--accent);
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    /* -- SECTION COMMON --------------------------------------- */
+    section {
+      padding: 120px 48px;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-heading {
+      font-family: var(--ff-display);
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 60px;
+    }
+
+    /* -- CARDS ----------------------------------------------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      padding: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0%;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-10px);
+    }
+
+    .card:hover::before,
+    .card.auto-hover::before {
+      height: 100%;
+    }
+
+    .card-icon {
+      font-size: 32px;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-family: var(--ff-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .card-text {
+      color: var(--text-dim);
+      font-size: 15px;
+    }
+
+    /* -- CTA BUTTONS ------------------------------------------ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 36px;
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(217, 7, 0, 0.3);
+    }
+
+    /* -- REVEAL ANIMATIONS ------------------------------------ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* -- TYPEWRITER ------------------------------------------- */
+    .typing-cursor {
+      font-weight: 400;
+      color: var(--accent);
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* -- FAQ HOVER -------------------------------------------- */
+    .faq-item>div:first-child {
+      transition: color var(--transition);
+      cursor: pointer;
+    }
+
+    .faq-item>div:first-child:hover {
+      color: var(--accent);
+    }
+
+    /* -- RESPONSIVE ------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-image-wrap {
+        position: relative;
+        width: 100%;
+        right: 0;
+        top: 0;
+        transform: none;
+        margin-top: 60px;
+      }
+
+      nav {
+        padding: 20px 24px;
+      }
+
+      section {
+        padding: 80px 24px;
+      }
+
+      .results-layout {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">
+      <div class="logo-box"></div>
+      <div>
+        <div class="nav-name">DSE MARKETING SOLUTIONS</div>
+        <div class="nav-tagline">// Industrial growth systems</div>
+      </div>
+    </a>
+    <a href="#book" class="nav-cta">Initialize Call</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-kicker">STATUS: READY FOR SCALE</div>
+      <h1 class="hero-headline">
+        ENGINEERING<br><span>PRECISION</span><br>MARKETING<br><span id="typewriter">POWER</span><span
+          class="typing-cursor">_</span>
+      </h1>
+      <p class="hero-sub">
+        We help manufacturers of pumps, valves, and industrial equipment turn technical expertise into high-authority
+        content that commands premium contracts.
+      </p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn btn-primary">Book Strategy Call _</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img id="heroImage"
+        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070"
+        alt="Industrial Innovation" class="hero-image">
+      <div class="image-glitch-overlay"></div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="section-inner">
+      <span class="section-label">01 // THE SYSTEM GAP</span>
+      <h2 class="section-heading">Winning on the floor,<br><span class="pulse-text">Invisible online...</span></h2>
+
+      <div class="cards-grid">
+        <div class="card reveal">
+          <div class="card-icon">01</div>
+          <h3 class="card-title">Spec Sheet Marketing</h3>
+          <p class="card-text">Your product is perfection, but your digital presence is a static ghost town. Procurement
+            teams are finding your competitors first.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">02</div>
+          <h3 class="card-title">The Authority Gap</h3>
+          <p class="card-text">Commodity perception drives commodity pricing. Premium content creates premium
+            positioning for your engineering team.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">03</div>
+          <h3 class="card-title">Untapped Data</h3>
+          <p class="card-text">Your engineers have decades of knowledge that never makes it to the buyer's screen. We
+            bridge that gap with AI speed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" style="background: var(--surface);">
+    <div class="section-inner">
+      <span class="section-label">02 // THE PROTOCOL</span>
+      <h2 class="section-heading">Three moves.<br>Zero friction.</h2>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; background: var(--border);">
+        <div class="card reveal" style="background: #fff; border: none;">
+          <div style="font-family: var(--ff-mono); font-size: 48px; color: rgba(217, 7, 0, 0.1); margin-bottom: 20px;">
+            01</div>
+          <h3 class="card-title">Competitive Audit</h3>
+          <p class="card-text">We map your market position and identify the exact technical search terms your buyers are
+            using right now.</p>
+          <div style="margin-top: 24px; font-family: var(--ff-mono); font-size: 10px; color: var(--accent);">[ T-MINUS:
+            30 MIN ]</div>
+        </div>
+        <div class="card reveal" id="card-02" style="background: #fff; border: none;">
+          <div style="font-family: var(--ff-mono); font-size: 48px; color: rgba(217, 7, 0, 0.1); margin-bottom: 20px;">
+            02</div>
+          <h3 class="card-title">Engine Activation</h3>
+          <p class="card-text">Using AI-accelerated workflows, we turn your engineering insights into high-authority
+            content programs.</p>
+          <div style="margin-top: 24px; font-family: var(--ff-mono); font-size: 10px; color: var(--accent);">[ PHASE:
+            MONTH 01 ]</div>
+        </div>
+        <div class="card reveal" style="background: #fff; border: none;">
+          <div style="font-family: var(--ff-mono); font-size: 48px; color: rgba(217, 7, 0, 0.1); margin-bottom: 20px;">
+            03</div>
+          <h3 class="card-title">Scale & Optimize</h3>
+          <p class="card-text">Monthly performance reports tie every piece of content to commercial outcomes and lead
+            generation.</p>
+          <div style="margin-top: 24px; font-family: var(--ff-mono); font-size: 10px; color: var(--accent);">[ STATUS:
+            ONGOING ]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="section-inner results-layout"
+      style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+      <div>
+        <span class="section-label">03 // FIELD DATA</span>
+        <h2 class="section-heading">Industrial Grade<br>Results.</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;">
+          <div class="metric-card" style="border-left: 2px solid var(--accent); padding-left: 20px;">
+            <div style="font-family: var(--ff-display); font-size: 40px; font-weight: 800; color: var(--accent);"><span
+                id="days-counter">1</span> Days
+            </div>
+            <div style="font-size: 12px; color: var(--text-dim);">Avg. time to first inbound lead</div>
+          </div>
+          <div class="metric-card" style="border-left: 2px solid var(--accent); padding-left: 20px;">
+            <div style="font-family: var(--ff-display); font-size: 40px; font-weight: 800; color: var(--accent);"><span
+                id="traffic-counter">1.0</span>×
+            </div>
+            <div style="font-size: 12px; color: var(--text-dim);">Organic traffic increase</div>
+          </div>
+        </div>
+        <p class="card-text" style="font-size: 16px; margin-bottom: 32px;">
+          Most agencies have never seen a pump skid. We speak your language. Our technical thought leadership is
+          recognized by engineers because it's built by experts.
+        </p>
+        <div style="padding: 24px; background: var(--surface); border: 1px solid var(--border); font-style: italic;">
+          "We started ranking for high-intent terms. Within 4 months, two premium leads came directly from our content."
+          <div
+            style="margin-top: 12px; font-family: var(--ff-mono); font-size: 11px; font-style: normal; color: var(--accent);">
+            — VP SALES, VALVE MFG</div>
+        </div>
+      </div>
+      <div style="position: relative;">
+        <img
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Engineer analyzing data on tablet" style="width: 100%; filter: grayscale(1) contrast(1.2);">
+        <div
+          style="position: absolute; top: -20px; left: -20px; width: 60px; height: 60px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent);">
+        </div>
+        <div
+          style="position: absolute; bottom: -20px; right: -20px; width: 60px; height: 60px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background: var(--surface);">
+    <div class="section-inner">
+      <span class="section-label">04 // CALIBRATION</span>
+      <h2 class="section-heading">Straight <span id="faq-typewriter" style="color: var(--accent);">Questions</span><span
+          class="typing-cursor" id="faq-cursor" style="display: none;">_</span></h2>
+      <div style="border-top: 1px solid var(--border);">
+        <div class="faq-item reveal"
+          style="padding: 32px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+          <div style="font-weight: 700; font-family: var(--ff-display); font-size: 20px;">"We already have a marketing
+            agency."</div>
+          <div style="color: var(--text-dim); font-size: 15px;">Most agencies are generalists. We are specialists. We
+            integrate with your current team to handle the technical heavy lifting they can't.</div>
+        </div>
+        <div class="faq-item reveal"
+          style="padding: 32px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+          <div style="font-weight: 700; font-family: var(--ff-display); font-size: 20px;">"How fast are the results?"
+          </div>
+          <div style="color: var(--text-dim); font-size: 15px;">SEO is a long-game (3-6 months), but LinkedIn and email
+            systems activate in the first 30 days.</div>
+        </div>
+        <div class="faq-item reveal"
+          style="padding: 32px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+          <div style="font-weight: 700; font-family: var(--ff-display); font-size: 20px;">"We tried content marketing
+            before and it didn't work."</div>
+          <div style="color: var(--text-dim); font-size: 15px;">Most B2B content fails because it's generic — written by
+            people who've never worked in the industry. Our content is built around your specific technical expertise
+            and optimized for the exact terms your buyers search. That's a different product entirely.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="book" style="text-align: center; padding: 160px 48px; background: #fff;">
+    <div class="section-inner" style="max-width: 800px;">
+      <div style="font-family: var(--ff-mono); font-size: 12px; color: var(--accent); margin-bottom: 24px;">
+        SYSTEM_STATUS: READY_FOR_ONBOARDING</div>
+      <h2 class="hero-headline" style="font-size: clamp(40px, 6vw, 72px);">Let's talk about<br><span id="cta-typewriter"
+          style="color: var(--accent);">the</span><span class="typing-cursor" id="cta-cursor"
+          style="display: none;">_</span>
+        opportunity.</h2>
+      <p class="hero-sub" style="margin: 0 auto 48px;">A 30-minute strategy call. Real data about your company. No
+        commitment required.</p>
+      <a href="#" class="btn btn-primary" style="padding: 24px 60px; font-size: 14px;">Activate Strategy Call _</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: var(--surface); border-top: 1px solid var(--border); padding: 60px 48px;">
+    <div class="section-inner"
+      style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">
+        <div class="logo-box"></div>
+        <div class="nav-name">DSE MARKETING</div>
+      </div>
+      <div style="font-family: var(--ff-mono); font-size: 10px; color: var(--text-dim);">
+        © 2026 // ALL RIGHTS RESERVED // BUILT BY DSE MARKETING SOLUTIONS
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav Scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Reveal Animation
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Hero Slideshow
+    const heroImg = document.getElementById('heroImage');
+    const images = [
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2070",
+      "https://images.unsplash.com/photo-1717386255773-1e3037c81788?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2070",
+      "https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?auto=format&fit=crop&q=80&w=2070",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2070"
+    ];
+    let currentImgIndex = 0;
+
+    setInterval(() => {
+      heroImg.classList.add('fade-out');
+      setTimeout(() => {
+        currentImgIndex = (currentImgIndex + 1) % images.length;
+        heroImg.src = images[currentImgIndex];
+        heroImg.classList.remove('fade-out');
+      }, 800); // Wait for fade out to complete
+    }, 5000);
+
+    // Typewriter Effect
+    const words = ["POWER", "EXPERTS"];
+    let wordIndex = 0;
+    let isDeleting = false;
+    let text = "POWER";
+    let delay = 4000; // Initial wait before first delete
+    const typeWriterEl = document.getElementById('typewriter');
+
+    function typeWriter() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        text = currentWord.substring(0, text.length - 1);
+      } else {
+        text = currentWord.substring(0, text.length + 1);
+      }
+
+      typeWriterEl.textContent = text;
+
+      let typeSpeed = isDeleting ? 60 : 120;
+
+      if (!isDeleting && text === currentWord) {
+        typeSpeed = 3000; // Pause at the end of word before deleting again
+        isDeleting = true;
+      } else if (isDeleting && text === '') {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 500; // Pause before typing the next word
+      }
+
+      setTimeout(typeWriter, typeSpeed);
+    }
+
+    // Start the typewriter loop after the initial 4s delay
+    setTimeout(() => {
+      isDeleting = true;
+      typeWriter();
+    }, delay);
+
+    // Counter Animation
+    const counterEl = document.getElementById('days-counter');
+    let currentCount = 1;
+    const targetCount = 60;
+
+    function updateCounter() {
+      if (currentCount < targetCount) {
+        currentCount++;
+        counterEl.textContent = currentCount;
+
+        // Fast from 1 to 50, slow from 50 to 60
+        let countDelay = currentCount >= 50 ? 150 : 30;
+        setTimeout(updateCounter, countDelay);
+      } else {
+        // Start traffic counter when days counter finishes
+        updateTraffic();
+      }
+    }
+
+    // Traffic Counter Animation
+    const trafficEl = document.getElementById('traffic-counter');
+    let currentTraffic = 1.0;
+    const targetTraffic = 3.5;
+
+    function updateTraffic() {
+      if (currentTraffic < targetTraffic) {
+        currentTraffic += 0.1;
+        // Fix floating point precision
+        currentTraffic = Math.round(currentTraffic * 10) / 10;
+
+        // Ensure it always displays 1 decimal place (e.g., 3.0)
+        trafficEl.textContent = currentTraffic.toFixed(1);
+
+        // Fast from 1.0 to 3.0, slow from 3.0 to 3.5
+        let trafficDelay = currentTraffic >= 3.0 ? 150 : 50;
+        setTimeout(updateTraffic, trafficDelay);
+      }
+    }
+
+    // Start counters when visible
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          updateCounter();
+          counterObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (counterEl) {
+      counterObserver.observe(counterEl);
+    }
+
+    // CTA Typewriter Effect
+    const ctaWords = ["the", "your", "YOUR"];
+    let ctaWordIndex = 0;
+    let isCtaDeleting = false;
+    let ctaText = "the";
+    const ctaTypeWriterEl = document.getElementById('cta-typewriter');
+    const ctaCursorEl = document.getElementById('cta-cursor');
+    let ctaHasStarted = false;
+
+    function ctaTypeWriter() {
+      const currentWord = ctaWords[ctaWordIndex];
+
+      if (isCtaDeleting) {
+        ctaText = currentWord.substring(0, ctaText.length - 1);
+      } else {
+        ctaText = currentWord.substring(0, ctaText.length + 1);
+      }
+
+      ctaTypeWriterEl.textContent = ctaText;
+
+      let typeSpeed = isCtaDeleting ? 60 : 120;
+
+      if (!isCtaDeleting && ctaText === currentWord) {
+        if (ctaWordIndex === ctaWords.length - 1) {
+          // Stop at the last word "YOUR", hide cursor
+          ctaCursorEl.style.display = 'none';
+          return;
+        }
+
+        // Hide cursor during the 3-second pause
+        ctaCursorEl.style.display = 'none';
+
+        // Wait 3 seconds, then show cursor and start deleting
+        setTimeout(() => {
+          ctaCursorEl.style.display = 'inline';
+          isCtaDeleting = true;
+          ctaTypeWriter();
+        }, 3000);
+
+        return; // Early return because setTimeout handles the next step
+      } else if (isCtaDeleting && ctaText === '') {
+        isCtaDeleting = false;
+        ctaWordIndex++;
+        typeSpeed = 300; // Pause before typing the next word
+      }
+
+      setTimeout(ctaTypeWriter, typeSpeed);
+    }
+
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !ctaHasStarted) {
+          ctaHasStarted = true;
+          // Initial wait 3s before showing cursor and deleting "the"
+          setTimeout(() => {
+            ctaCursorEl.style.display = 'inline';
+            isCtaDeleting = true;
+            ctaTypeWriter();
+          }, 3000);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (ctaTypeWriterEl) {
+      ctaObserver.observe(ctaTypeWriterEl);
+    }
+
+    // Auto-hover Animation for 'How it works' section
+    const howSection = document.getElementById('how');
+    const targetCard = document.getElementById('card-02');
+    let hoverFired = false;
+
+    const hoverObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !hoverFired) {
+          hoverFired = true;
+          // Add a slight delay so they see it after scrolling
+          setTimeout(() => {
+            if (targetCard) {
+              targetCard.classList.add('auto-hover');
+
+              // Remove the class after 0.3 seconds to make the line retract quickly
+              setTimeout(() => {
+                targetCard.classList.remove('auto-hover');
+              }, 300);
+            }
+          }, 400);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (howSection) {
+      hoverObserver.observe(howSection);
+    }
+
+    // FAQ Typewriter Effect
+    let isFaqDeleting = false;
+    let faqText = "Questions";
+    const faqTypeWriterEl = document.getElementById('faq-typewriter');
+    const faqCursorEl = document.getElementById('faq-cursor');
+    let faqHasStarted = false;
+
+    function faqTypeWriter() {
+      if (isFaqDeleting) {
+        faqText = "Questions".substring(0, faqText.length - 1);
+      } else {
+        faqText = "Answers.".substring(0, faqText.length + 1);
+      }
+
+      faqTypeWriterEl.textContent = faqText;
+
+      let typeSpeed = isFaqDeleting ? 60 : 120;
+
+      if (!isFaqDeleting && faqText === "Answers.") {
+        // Stop at the last word "Answers."
+        setTimeout(() => {
+          faqCursorEl.style.display = 'none';
+        }, 2000); // Hide cursor after 2s
+        return;
+      } else if (isFaqDeleting && faqText === '') {
+        isFaqDeleting = false;
+        typeSpeed = 300; // Pause before typing the next word
+      }
+
+      setTimeout(faqTypeWriter, typeSpeed);
+    }
+
+    const faqObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !faqHasStarted) {
+          faqHasStarted = true;
+          // Initial wait 1.5s before showing cursor and deleting "Questions"
+          setTimeout(() => {
+            faqCursorEl.style.display = 'inline';
+            isFaqDeleting = true;
+            faqTypeWriter();
+          }, 1500);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (faqTypeWriterEl) {
+      faqObserver.observe(faqTypeWriterEl);
+    }
+  </script>
+
+</body>
+
+</html>

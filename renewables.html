@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSE Marketing Solutions — Renewable Energy & Cleantech</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* -- TOKENS ----------------------------------------------- */
+    :root {
+      --bg-dark: #041A10;
+      --bg-surface: #0B2B1B;
+      --bg-surface-glass: rgba(11, 43, 27, 0.6);
+
+      --accent: #00E676;
+      /* Vibrant Neon Green */
+      --accent-alt: #2EB87A;
+      /* Bio-Green */
+
+      --text: #F0FAF5;
+      /* Cream */
+      --text-dim: #A3C9B6;
+      /* Muted Green */
+
+      --border: rgba(46, 184, 122, 0.2);
+
+      --ff-display: 'Outfit', sans-serif;
+      --ff-body: 'Inter', sans-serif;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.4s var(--ease-out);
+    }
+
+    /* -- RESET ------------------------------------------------ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      background-color: var(--bg-dark);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: var(--ff-body);
+      border: none;
+      background: none;
+    }
+
+    /* -- BACKGROUND GLOWS ------------------------------------ */
+    .bg-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 230, 118, 0.15) 0%, transparent 70%);
+      top: -200px;
+      left: -200px;
+      z-index: -1;
+      pointer-events: none;
+      animation: floatGlow 15s ease-in-out infinite alternate;
+    }
+
+    .bg-glow-2 {
+      top: auto;
+      bottom: -100px;
+      right: -200px;
+      left: auto;
+      background: radial-gradient(circle, rgba(46, 184, 122, 0.1) 0%, transparent 70%);
+      animation: floatGlow 20s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatGlow {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(100px, 100px) scale(1.1);
+      }
+    }
+
+    /* -- NAV --------------------------------------------------- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(4, 26, 16, 0.98) 0%, transparent 100%);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    nav.scrolled {
+      background: rgba(4, 26, 16, 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-name {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--bg-dark);
+      background: var(--accent);
+      padding: 12px 24px;
+      border-radius: 30px 0 30px 30px;
+      /* Leaf-like shape */
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 230, 118, 0.3);
+    }
+
+    /* -- HERO -------------------------------------------------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 120px 48px 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.3;
+      mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+      overflow: hidden;
+    }
+
+    .hero-bg .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      transform: scale(1);
+    }
+
+    .hero-bg .slide.active {
+      opacity: 1;
+      animation: heroZoom 6s linear forwards;
+    }
+
+    .hero-bg .slide.previous {
+      opacity: 0;
+      animation: heroZoom 6s linear forwards;
+    }
+
+    @keyframes heroZoom {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.08);
+      }
+    }
+
+    .hero-inner {
+      max-width: 1000px;
+      z-index: 1;
+      background: var(--bg-surface-glass);
+      padding: 60px;
+      border-radius: 40px 0 40px 40px;
+      /* Large leaf shape */
+      border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      background: rgba(0, 230, 118, 0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    .kicker-rule {
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .hero-headline {
+      font-family: var(--ff-display);
+      font-size: clamp(40px, 7vw, 84px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+
+    .hero-sub strong {
+      color: #fff;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent);
+      color: var(--bg-dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: 30px 0 30px 30px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .btn-primary:hover,
+    .btn-primary.simulate-hover {
+      background: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 230, 118, 0.3);
+    }
+
+    .btn-ghost {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-color: var(--accent-alt);
+      text-underline-offset: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent);
+    }
+
+    /* -- STRIPE (STATS) ---------------------------------------- */
+    .hero-stripe {
+      display: flex;
+      background: var(--bg-surface);
+      padding: 30px 48px;
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .stripe-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stripe-num {
+      font-family: var(--ff-display);
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stripe-lbl {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      font-weight: 600;
+      max-width: 140px;
+      line-height: 1.4;
+    }
+
+    /* -- COMMON SECTION --------------------------------------- */
+    section {
+      padding: 120px 48px;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      font-family: var(--ff-display);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 60px;
+    }
+
+    /* -- PROBLEM SECTION -------------------------------------- */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .problem-card {
+      background: var(--bg-surface);
+      padding: 48px;
+      border-radius: 40px 0 40px 40px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .problem-card:hover,
+    .problem-card.simulate-hover {
+      background: var(--bg-surface-glass);
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 230, 118, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .problem-title {
+      font-family: var(--ff-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .problem-text {
+      font-size: 15px;
+      color: var(--text-dim);
+    }
+
+    /* -- TICKER ----------------------------------------------- */
+    .ticker-strip {
+      background: var(--accent-alt);
+      padding: 16px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      animation: ticker 30s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: var(--ff-display);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg-dark);
+      padding: 0 40px;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* -- HOW IT WORKS ----------------------------------------- */
+    .how {
+      background: #E8F5EE;
+      color: var(--bg-dark);
+    }
+
+    .how .section-heading {
+      color: var(--bg-dark);
+    }
+
+    .how .kicker {
+      background: rgba(4, 26, 16, 0.1);
+      color: var(--bg-dark);
+    }
+
+    .how .kicker-rule {
+      background: var(--bg-dark);
+    }
+
+    .how-sub {
+      font-size: 18px;
+      max-width: 600px;
+      margin-top: -30px;
+      margin-bottom: 60px;
+      color: #1E4030;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .step {
+      background: #fff;
+      padding: 48px;
+      border-radius: 40px 0 40px 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      position: relative;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .step:hover,
+    .step.simulate-hover {
+      background: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(0, 230, 118, 0.3);
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .step-num {
+      font-family: var(--ff-display);
+      font-size: 80px;
+      font-weight: 900;
+      color: rgba(46, 184, 122, 0.1);
+      line-height: 1;
+      margin-bottom: 16px;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+    }
+
+    .step-title {
+      font-family: var(--ff-display);
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step-text {
+      font-size: 15px;
+      color: #1E4030;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step-tag {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent-alt);
+      background: #F0FAF5;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    /* -- RESULTS ---------------------------------------------- */
+    .results-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .results-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .metric {
+      background: var(--bg-surface);
+      padding: 40px;
+      border-radius: 30px 0 30px 30px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .metric:hover {
+      background: var(--bg-surface-glass);
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .metric-val {
+      font-family: var(--ff-display);
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .metric-lbl {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .results-copy p {
+      font-size: 16px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    .case-card {
+      background: var(--bg-surface-glass);
+      border: 1px solid var(--accent-alt);
+      padding: 40px;
+      border-radius: 40px 0 40px 40px;
+      margin-top: 40px;
+    }
+
+    .case-quote {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-style: italic;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .case-author {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* -- OFFER ------------------------------------------------ */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .offer-item {
+      display: flex;
+      gap: 20px;
+      background: var(--bg-surface);
+      padding: 40px;
+      border-radius: 40px 0 40px 40px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .offer-item:hover,
+    .offer-item.simulate-hover {
+      background: var(--bg-surface-glass);
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .offer-check {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: var(--bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .offer-title {
+      font-family: var(--ff-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* -- OBJECTIONS ------------------------------------------- */
+    .objections {
+      background: #0B2B1B;
+    }
+
+    .obj-item {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 40px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .obj-item:hover .obj-q {
+      color: var(--accent);
+    }
+
+    .obj-q {
+      font-family: var(--ff-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      transition: var(--transition);
+    }
+
+    .obj-a {
+      font-size: 16px;
+      color: var(--text-dim);
+    }
+
+    .obj-a strong {
+      color: #fff;
+    }
+
+    /* -- CTA -------------------------------------------------- */
+    .cta-section {
+      text-align: center;
+      padding: 160px 48px;
+      background: url('https://images.unsplash.com/photo-1509391366360-1205669f6920?q=80&w=2072&auto=format&fit=crop') center/cover;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 26, 16, 0.85);
+      backdrop-filter: blur(5px);
+    }
+
+    #cta-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-inner .hero-headline {
+      font-size: clamp(48px, 6vw, 72px);
+    }
+
+    /* -- FOOTER ----------------------------------------------- */
+    footer {
+      background: #020C08;
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    /* -- TYPEWRITER ------------------------------------------- */
+    .typing-cursor {
+      font-weight: 400;
+      color: var(--accent);
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* -- ANIMATIONS ------------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+
+      .problem-grid,
+      .steps,
+      .results-layout,
+      .offer-grid,
+      .obj-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding: 40px;
+      }
+
+      section {
+        padding: 80px 24px;
+      }
+
+      nav {
+        padding: 16px 24px;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-glow"></div>
+  <div class="bg-glow-2"></div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">
+      <div class="nav-name">DSE Marketing Solutions</div>
+      <div class="nav-tag">Clean Energy Growth Agency</div>
+    </a>
+    <a href="#book" class="nav-cta">Book a Free Call</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="slide active"
+        style="background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2070&auto=format&fit=crop');">
+      </div>
+      <div class="slide"
+        style="background-image: url('https://images.unsplash.com/photo-1508791290064-c27cc1ef7a9a?q=80&w=2070&auto=format&fit=crop');">
+      </div>
+      <div class="slide"
+        style="background-image: url('https://images.unsplash.com/photo-1452179535021-368bb0edc3a8?q=80&w=2070&auto=format&fit=crop');">
+      </div>
+      <div class="slide"
+        style="background-image: url('https://images.unsplash.com/photo-1631985455894-65311148a768?q=80&w=2070&auto=format&fit=crop');">
+      </div>
+    </div>
+    <div class="hero-inner reveal">
+      <div class="kicker">
+        <div class="kicker-rule"></div><span>Status: Ready for Scale</span>
+      </div>
+      <h1 class="hero-headline">
+        The energy transition is moving fast.<br>
+        <em id="hero-typewriter">Your messaging is lagging.</em><span class="typing-cursor">_</span>
+      </h1>
+      <p class="hero-sub">
+        We help <strong>renewable energy and cleantech companies</strong> turn deep technical expertise into content
+        that builds market authority, attracts mission-aligned buyers, and wins high-value contracts.
+      </p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn-primary">Book strategy call</a>
+        <a href="#how" class="btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-stripe">
+    <div class="stripe-item"><span class="stripe-num count-up" data-start="0" data-end="68"
+        data-suffix="%">0%</span><span class="stripe-lbl">of procurement decisions start online</span></div>
+    <div class="stripe-item"><span class="stripe-num count-up" data-start="0" data-end="4"
+        data-suffix="×">0×</span><span class="stripe-lbl">more RFP invitations with strong content</span></div>
+    <div class="stripe-item"><span class="stripe-num count-up" data-start="1999" data-end="0"
+        data-prefix="$">$1999</span><span class="stripe-lbl">spent by most competitors on SEO</span></div>
+  </div>
+
+  <section class="problem">
+    <div class="section-inner">
+      <div class="kicker reveal">
+        <div class="kicker-rule"></div><span>The problem</span>
+      </div>
+      <h2 class="section-heading reveal">The sector is booming.<br>Most companies' marketing isn't.</h2>
+
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 12h4l3-9 5 18 3-9h5" />
+            </svg>
+          </div>
+          <div class="problem-title">The market moves faster than content</div>
+          <p class="problem-text">Solar, wind, storage, hydrogen — the conversation evolves weekly. Companies not
+            publishing are invisible to the buyers shaping where contracts go.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20V10m-6 10V4m12 16V14" />
+            </svg>
+          </div>
+          <div class="problem-title">Credibility doesn't translate online</div>
+          <p class="problem-text">Your engineers have world-class expertise, but your website reads like a 2018
+            brochure. Mission-aligned buyers want evidence of deep thinking.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7" />
+              <path d="M5 21c0-4 4-7 7-7s7 3 7 7" />
+            </svg>
+          </div>
+          <div class="problem-title">First-mover advantage in search</div>
+          <p class="problem-text">Companies ranking for cleantech terms lock in authority that compounds. Every month
+            you wait, that gap gets wider.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div class="problem-title">Buyers consume ideas, not just products</div>
+          <p class="problem-text">Procurement directors and project developers read widely. They look for companies
+            demonstrating leadership — not just capability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker-strip">
+    <div class="ticker-inner">
+      <span class="ticker-item">Cleantech SEO</span>
+      <span class="ticker-item">Thought Leadership</span>
+      <span class="ticker-item">Technical Copywriting</span>
+      <span class="ticker-item">LinkedIn Strategy</span>
+      <span class="ticker-item">Investor Narratives</span>
+      <span class="ticker-item">Case Study Production</span>
+
+      <!-- Duplicate for infinite scroll -->
+      <span class="ticker-item">Cleantech SEO</span>
+      <span class="ticker-item">Thought Leadership</span>
+      <span class="ticker-item">Technical Copywriting</span>
+      <span class="ticker-item">LinkedIn Strategy</span>
+      <span class="ticker-item">Investor Narratives</span>
+      <span class="ticker-item">Case Study Production</span>
+    </div>
+  </div>
+
+  <section class="how" id="how">
+    <div class="section-inner">
+      <div class="kicker reveal">
+        <div class="kicker-rule"></div><span>How it works</span>
+      </div>
+      <h2 class="section-heading reveal">Three moves.<br>One outcome.</h2>
+      <p class="how-sub reveal">We understand the clean energy sector — the technology, policy landscape, and buying
+        cycle. No generic agency that doesn't know a PPA from a PTC.</p>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-title">We map your content gap</div>
+          <p class="step-text">A 30-minute audit covering search visibility, competitor positioning, and content
+            opportunities your buyers are searching for right now.</p>
+          <span class="step-tag">Free — 30 minutes</span>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <div class="step-title">We build your authority engine</div>
+          <p class="step-text">AI-powered production at scale — technical blogs, LinkedIn content, and white papers that
+            position you as the go-to voice.</p>
+          <span class="step-tag">Month 1 delivery</span>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <div class="step-title">We track what drives pipeline</div>
+          <p class="step-text">Monthly reporting tied to outcomes: rankings, inbound leads, and content-influenced
+            deals. Content compounds over time.</p>
+          <span class="step-tag">Ongoing retainer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="section-inner">
+      <div class="results-layout">
+        <div class="results-metrics">
+          <div class="metric reveal">
+            <div class="metric-val count-up" data-start="0" data-end="4" data-suffix=" mo">0 mo</div>
+            <div class="metric-lbl">Time to first inbound lead</div>
+          </div>
+          <div class="metric reveal">
+            <div class="metric-val count-up" data-start="0" data-end="3" data-suffix="×">0×</div>
+            <div class="metric-lbl">Organic traffic increase (Mo. 6)</div>
+          </div>
+          <div class="metric reveal">
+            <div class="metric-val count-up" data-start="0" data-end="90" data-suffix=" Days">0 Days</div>
+            <div class="metric-lbl">To full content program live</div>
+          </div>
+          <div class="metric reveal">
+            <div class="metric-val count-up" data-start="0" data-end="60" data-suffix="%">0%</div>
+            <div class="metric-lbl">Report content-influenced deals</div>
+          </div>
+        </div>
+        <div class="results-copy reveal">
+          <div class="kicker">
+            <div class="kicker-rule"></div><span>Real results</span>
+          </div>
+          <h2 class="section-heading">High-stakes decisions require premium content.</h2>
+          <p>We understand the difference between utility-scale solar and distributed generation. We produce content
+            that earns the credibility of technical buyers.</p>
+          <p>The cleantech companies <strong>winning market share right now</strong> are the ones whose expertise shows
+            up first when buyers go looking.</p>
+
+          <div class="case-card">
+            <p class="case-quote">"Within three months of working with DSE, we had two inbound leads from search — one
+              of which became a six-figure project."</p>
+            <div class="case-author">— Head of BD, Solar Development Firm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer">
+    <div class="section-inner">
+      <div class="kicker reveal">
+        <div class="kicker-rule"></div><span>What's included</span>
+      </div>
+      <h2 class="section-heading reveal">Everything you need.<br>Nothing you don't.</h2>
+
+      <div class="offer-grid">
+        <div class="offer-item reveal">
+          <div class="offer-check">?</div>
+          <div>
+            <div class="offer-title">AI-powered technical content</div>
+            <p class="offer-text">Blog posts and explainers written to the technical depth your buyers expect — produced
+              at speed.</p>
+          </div>
+        </div>
+        <div class="offer-item reveal">
+          <div class="offer-check">?</div>
+          <div>
+            <div class="offer-title">Cleantech SEO strategy</div>
+            <p class="offer-text">Keyword research specific to your segment and content built to rank for terms buyers
+              actually search.</p>
+          </div>
+        </div>
+        <div class="offer-item reveal">
+          <div class="offer-check">?</div>
+          <div>
+            <div class="offer-title">LinkedIn thought leadership</div>
+            <p class="offer-text">Strategic presence for executives. Position your team as visible authorities in clean
+              energy.</p>
+          </div>
+        </div>
+        <div class="offer-item reveal">
+          <div class="offer-check">?</div>
+          <div>
+            <div class="offer-title">Investor narrative content</div>
+            <p class="offer-text">Project presentations and capability statements that support business development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="objections">
+    <div class="section-inner">
+      <div class="kicker reveal">
+        <div class="kicker-rule"></div><span>Common questions</span>
+      </div>
+      <h2 class="section-heading reveal">Straight answers.</h2>
+
+      <div class="obj-item reveal">
+        <div class="obj-q">We have a communications person already.</div>
+        <div class="obj-a">Most companies handle internal comms. We do <strong>strategic B2B content built for search
+            and buyer authority</strong>. They work well together.</div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q">Our tech sells itself — do we need content?</div>
+        <div class="obj-a">Buyers choose the company they trust. Content builds trust <strong>before the first
+            conversation</strong>.</div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q">How do you understand our specific technology?</div>
+        <div class="obj-a">We do deep technical onboarding before producing anything. <strong>Everything is specific to
+            your technology and buyers.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="book">
+    <canvas id="cta-canvas"></canvas>
+    <div class="cta-inner">
+      <div class="kicker reveal">
+        <div class="kicker-rule"></div><span>No pitch deck. No obligation.</span>
+      </div>
+      <h2 class="hero-headline reveal">Let's talk about<br><em>your</em> opportunity.</h2>
+      <p class="hero-sub reveal" style="margin: 0 auto 40px; color: #fff;">A free 30-minute strategy call. We'll show
+        you exactly where your content and SEO gaps are — with real data specific to your company.</p>
+      <a href="#" class="btn-primary reveal" style="margin: 0 auto; display: inline-flex;">Book free strategy call</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">DSE <span><a href="https://dsemktgsolutions.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Marketing</a></span></div>
+    <div>© 2026 DSE Marketing Solutions. Built for B2B Cleantech.</div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Nav Scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Hero Background Slider with Zoom Effect
+    const slides = document.querySelectorAll('.hero-bg .slide');
+
+    // Preload images
+    slides.forEach(slide => {
+      const imgObj = new Image();
+      imgObj.src = slide.style.backgroundImage.match(/url\("(.*)"\)/)[1];
+    });
+
+    let currentSlide = 0;
+    setInterval(() => {
+      // Current becomes previous
+      slides[currentSlide].classList.remove('active');
+      slides[currentSlide].classList.add('previous');
+
+      const prevSlide = currentSlide;
+
+      // Move to next
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      // Cleanup previous class from others
+      slides.forEach((slide, index) => {
+        if (index !== currentSlide && index !== prevSlide) {
+          slide.classList.remove('previous');
+        }
+      });
+
+      // Reset and start new active
+      slides[currentSlide].classList.remove('previous');
+      void slides[currentSlide].offsetWidth; // trigger reflow to reset animation
+      slides[currentSlide].classList.add('active');
+    }, 3000);
+
+    // Number Counter Animation
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          if (el.classList.contains('counted')) return;
+          el.classList.add('counted');
+
+          const start = parseFloat(el.getAttribute('data-start')) || 0;
+          const end = parseFloat(el.getAttribute('data-end')) || 0;
+          const prefix = el.getAttribute('data-prefix') || '';
+          const suffix = el.getAttribute('data-suffix') || '';
+          const duration = 2500; // 2.5 seconds
+
+          let startTime = null;
+
+          function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+
+            // easeOutQuart for smooth deceleration
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
+
+            const current = Math.floor(start + (end - start) * easeProgress);
+            el.textContent = prefix + current + suffix;
+
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              el.textContent = prefix + end + suffix;
+            }
+          }
+
+          window.requestAnimationFrame(step);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.count-up').forEach(el => counterObserver.observe(el));
+
+    // CTA Smart Grid Canvas Animation
+    const canvas = document.getElementById('cta-canvas');
+    if(canvas) {
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+      const particleCount = 60; // Adjust for density
+      
+      function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.radius = Math.random() * 1.5 + 0.5;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = '#00E676';
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animateCanvas() {
+        ctx.clearRect(0, 0, width, height);
+        
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+          
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < 180) {
+              ctx.beginPath();
+              // Fade out line based on distance
+              ctx.strokeStyle = `rgba(0, 230, 118, ${(1 - dist/180) * 0.5})`;
+              ctx.lineWidth = 0.8;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animateCanvas);
+      }
+      animateCanvas();
+    }
+
+    // Attention Grabber for Final CTA Button
+    const finalCtaSection = document.querySelector('.cta-section');
+    const finalCtaBtn = document.querySelector('.cta-section .btn-primary');
+    
+    if (finalCtaSection && finalCtaBtn) {
+      const btnObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Wait 2 seconds, then simulate hover
+            setTimeout(() => {
+              finalCtaBtn.classList.add('simulate-hover');
+              
+              // Remove the simulated hover after 800ms
+              setTimeout(() => {
+                finalCtaBtn.classList.remove('simulate-hover');
+              }, 800);
+              
+            }, 2000);
+            
+            btnObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 }); // triggers when 50% of the banner is visible
+      
+      btnObserver.observe(finalCtaSection);
+    }
+
+    // Problem Cards Cascading Hover Simulation
+    const problemGrid = document.querySelector('.problem-grid');
+    const problemCards = document.querySelectorAll('.problem-card');
+    
+    if (problemGrid && problemCards.length > 0) {
+      const problemObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Wait 1 second after section is in view, then cascade
+            setTimeout(() => {
+              problemCards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add('simulate-hover');
+                  setTimeout(() => {
+                    card.classList.remove('simulate-hover');
+                  }, 600); // Hover state lasts 600ms per card
+                }, index * 200); // Stagger by 200ms
+              });
+            }, 1000);
+            
+            problemObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 }); // triggers when 30% of the grid is visible
+      
+      problemObserver.observe(problemGrid);
+    }
+
+    // Step Cards (How it works) Cascading Hover Simulation
+    const stepGrid = document.querySelector('.steps');
+    const stepCards = document.querySelectorAll('.step');
+    
+    if (stepGrid && stepCards.length > 0) {
+      const stepObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Wait 1 second after section is in view, then cascade
+            setTimeout(() => {
+              stepCards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add('simulate-hover');
+                  setTimeout(() => {
+                    card.classList.remove('simulate-hover');
+                  }, 1000); // Slow hover state (1 second per card)
+                }, index * 500); // Slower stagger (wait 500ms between each)
+              });
+            }, 1000);
+            
+            stepObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 }); // triggers when 30% of the grid is visible
+      
+      stepObserver.observe(stepGrid);
+    }
+
+    // Offer Cards (What's included) Cascading Hover Simulation
+    const offerGrid = document.querySelector('.offer-grid');
+    const offerCards = document.querySelectorAll('.offer-item');
+    
+    if (offerGrid && offerCards.length > 0) {
+      const offerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              offerCards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add('simulate-hover');
+                  setTimeout(() => {
+                    card.classList.remove('simulate-hover');
+                  }, 600); // 600ms hover duration
+                }, index * 200); // 200ms stagger
+              });
+            }, 1000);
+            
+            offerObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      
+      offerObserver.observe(offerGrid);
+    }
+
+    // Hero Typewriter Effect
+    const typeWords = [
+      "Your messaging is lagging.", 
+      "Your sales cycles are stalling.", 
+      "Scale your authority with AI."
+    ];
+    let typeWordIndex = 0;
+    let isDeleting = false;
+    let typeText = "Your messaging is lagging.";
+    let typeDelay = 4000; // Initial wait before first delete
+    const typeWriterEl = document.getElementById('hero-typewriter');
+
+    if (typeWriterEl) {
+      function typeWriter() {
+        const currentWord = typeWords[typeWordIndex];
+
+        if (isDeleting) {
+          typeText = currentWord.substring(0, typeText.length - 1);
+        } else {
+          typeText = currentWord.substring(0, typeText.length + 1);
+        }
+
+        typeWriterEl.textContent = typeText;
+
+        let typeSpeed = isDeleting ? 40 : 80;
+
+        if (!isDeleting && typeText === currentWord) {
+          typeSpeed = 3000; // Pause at the end of word before deleting again
+          isDeleting = true;
+        } else if (isDeleting && typeText === '') {
+          isDeleting = false;
+          typeWordIndex = (typeWordIndex + 1) % typeWords.length;
+          typeSpeed = 500; // Pause before typing the next word
+        }
+
+        setTimeout(typeWriter, typeSpeed);
+      }
+
+      // Start the typewriter loop after the initial delay
+      setTimeout(() => {
+        isDeleting = true;
+        typeWriter();
+      }, typeDelay);
+    }
+  </script>
+
+</body>
+</html>

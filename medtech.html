@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSE Marketing Solutions — Healthcare B2B & MedTech</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -- TOKENS ----------------------------------------------- */
+    :root {
+      --bg-white: #ffffff;
+      --bg-light-blue: #F2FAFC;
+      --bg-blue-glass: rgba(242, 250, 252, 0.85);
+      
+      --accent: #00B4D8; /* Celestial Blue */
+      --accent-dark: #0077A0; 
+      
+      --text-dark: #0A2540; /* Deep Trust Navy */
+      --text-dim: #4A657A;
+      
+      --border: rgba(0, 180, 216, 0.15);
+      
+      --ff-display: 'Plus Jakarta Sans', sans-serif;
+      --ff-body: 'Inter', sans-serif;
+      
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: 0.3s var(--ease-out);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--ff-body);
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: var(--ff-body); border: none; background: none; }
+
+    /* -- MEDICAL BACKGROUND PATTERN (+ + +) ------------------- */
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 20v20M18 30h20' stroke='%2300B4D8' stroke-width='1.5' stroke-opacity='0.05' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* -- NAV --------------------------------------------------- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(255,255,255, 0.98) 0%, transparent 100%);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; }
+    .nav-name {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+    }
+    .nav-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--text-dark);
+      padding: 12px 28px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 180, 216, 0.2);
+    }
+
+    /* -- HERO -------------------------------------------------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 140px 48px 80px;
+      background: linear-gradient(to right, rgba(255,255,255,1) 35%, rgba(255,255,255,0) 80%);
+    }
+    
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.85;
+      filter: grayscale(100%) contrast(1.2);
+      overflow: hidden;
+    }
+
+    .hero-bg .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: right center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      transform: scale(1);
+    }
+
+    .hero-bg .slide.active {
+      opacity: 1;
+      animation: heroZoom 6s linear forwards;
+    }
+
+    .hero-bg .slide.previous {
+      opacity: 0;
+      animation: heroZoom 6s linear forwards;
+    }
+
+    @keyframes heroZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      z-index: 1;
+    }
+    
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      background: var(--bg-light-blue);
+      padding: 6px 16px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    .kicker-rule { width: 20px; height: 2px; background: var(--accent); }
+    
+    .hero-headline {
+      font-family: var(--ff-display);
+      font-size: clamp(40px, 7vw, 84px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      color: var(--text-dark);
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+    .hero-sub strong { color: var(--text-dark); }
+    
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: 6px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .btn-primary:hover {
+      background: var(--text-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(10, 37, 64, 0.2);
+    }
+    .btn-ghost {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dim);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 4px;
+      transition: var(--transition);
+    }
+    .btn-ghost:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    /* -- STRIPE (STATS) ---------------------------------------- */
+    .hero-stripe {
+      display: flex;
+      background: var(--bg-white);
+      padding: 30px 48px;
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 32px;
+      position: relative;
+      z-index: 2;
+    }
+    .stripe-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stripe-num {
+      font-family: var(--ff-display);
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stripe-lbl {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      font-weight: 600;
+      max-width: 160px;
+      line-height: 1.4;
+    }
+
+    /* -- COMMON SECTION --------------------------------------- */
+    section { padding: 120px 48px; position: relative; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    
+    .section-heading {
+      font-family: var(--ff-display);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 60px;
+      color: var(--text-dark);
+    }
+    
+    /* -- PROBLEM SECTION -------------------------------------- */
+    .problem { background: var(--bg-light-blue); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .problem-card {
+      background: var(--bg-white);
+      padding: 48px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 180, 216, 0.03);
+      transition: var(--transition);
+      position: relative;
+    }
+    .problem-card:hover {
+      box-shadow: 0 20px 40px rgba(0, 180, 216, 0.08);
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--bg-light-blue);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      color: var(--accent);
+      border: 1px solid var(--border);
+    }
+    .problem-title {
+      font-family: var(--ff-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .problem-text {
+      font-size: 15px;
+      color: var(--text-dim);
+    }
+
+    /* -- TICKER ----------------------------------------------- */
+    .ticker-strip {
+      background: var(--text-dark);
+      padding: 16px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .ticker-inner {
+      display: inline-flex;
+      animation: ticker 30s linear infinite;
+    }
+    .ticker-item {
+      font-family: var(--ff-display);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg-white);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .ticker-item::after {
+      content: '+';
+      color: var(--accent);
+      font-weight: bold;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* -- HOW IT WORKS ----------------------------------------- */
+    .how-sub {
+      font-size: 18px;
+      max-width: 600px;
+      margin-top: -30px;
+      margin-bottom: 60px;
+      color: var(--text-dim);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .step {
+      background: var(--bg-white);
+      padding: 48px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(10, 37, 64, 0.03);
+      position: relative;
+    }
+    .step-num {
+      font-family: var(--ff-display);
+      font-size: 80px;
+      font-weight: 800;
+      color: var(--bg-light-blue);
+      line-height: 1;
+      margin-bottom: 16px;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      -webkit-text-stroke: 1px var(--border);
+    }
+    .step-title {
+      font-family: var(--ff-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .step-text {
+      font-size: 15px;
+      color: var(--text-dim);
+      position: relative;
+      z-index: 2;
+    }
+    .step-tag {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--bg-light-blue);
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    /* -- RESULTS ---------------------------------------------- */
+    .results { background: var(--text-dark); color: var(--bg-white); }
+    .results .section-heading { color: var(--bg-white); }
+    .results .kicker { background: rgba(0, 180, 216, 0.15); border-color: rgba(0,180,216,0.3); }
+    
+    .results-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .results-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .metric {
+      background: rgba(255,255,255,0.03);
+      padding: 40px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .metric-val {
+      font-family: var(--ff-display);
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .metric-lbl {
+      font-size: 13px;
+      color: #A0B3C6;
+    }
+    .results-copy p {
+      font-size: 16px;
+      color: #A0B3C6;
+      margin-bottom: 24px;
+    }
+    .case-card {
+      background: rgba(0, 180, 216, 0.05);
+      border: 1px solid rgba(0, 180, 216, 0.2);
+      padding: 40px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    .case-quote {
+      font-family: var(--ff-display);
+      font-size: 18px;
+      color: var(--bg-white);
+      margin-bottom: 16px;
+    }
+    .case-author {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* -- OFFER ------------------------------------------------ */
+    .offer { background: var(--bg-light-blue); }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .offer-item {
+      display: flex;
+      gap: 20px;
+      background: var(--bg-white);
+      padding: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .offer-check {
+      width: 32px;
+      height: 32px;
+      background: var(--bg-light-blue);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .offer-title {
+      font-family: var(--ff-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* -- OBJECTIONS ------------------------------------------- */
+    .obj-item {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 40px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .obj-q {
+      font-family: var(--ff-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .obj-q::before {
+      content: '+';
+      color: var(--accent);
+      font-size: 28px;
+      line-height: 1;
+    }
+    .obj-a {
+      font-size: 16px;
+      color: var(--text-dim);
+    }
+    .obj-a strong { color: var(--text-dark); }
+
+    /* -- CTA -------------------------------------------------- */
+    .cta-section {
+      text-align: center;
+      padding: 160px 48px;
+      background: var(--bg-light-blue);
+      position: relative;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cta-inner .hero-headline { font-size: clamp(48px, 6vw, 72px); }
+
+    /* -- FOOTER ----------------------------------------------- */
+    footer {
+      background: var(--text-dark);
+      padding: 40px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #A0B3C6;
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-brand { color: var(--bg-white); font-weight: bold; font-size: 16px; font-family: var(--ff-display); }
+    .footer-links { display: flex; gap: 24px; }
+    
+    /* -- TYPEWRITER ------------------------------------------- */
+    .typing-cursor {
+      font-weight: 400;
+      color: var(--accent);
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    /* -- ANIMATIONS ------------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.8s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 1024px) {
+      .problem-grid, .steps, .results-layout, .offer-grid, .obj-item {
+        grid-template-columns: 1fr;
+      }
+      .hero-inner { padding: 40px; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-radius: 8px;}
+      section { padding: 80px 24px; }
+      nav { padding: 16px 24px; }
+      .hero { padding-top: 100px; }
+      .obj-q::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-pattern"></div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">
+      <div class="nav-name">DSE Marketing Solutions</div>
+      <div class="nav-tag">MedTech & Healthcare B2B Agency</div>
+    </a>
+    <a href="#book" class="nav-cta">Book a Free Call</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg" id="heroBg">
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1606206873764-fd15e242df52?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb');"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1606206886378-e49a19ad0933?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb');"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1599726159910-f4378e03f9bb?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb');"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1666214280352-db292c05fd80?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb');"></div>
+    </div>
+    <div class="hero-inner reveal">
+      <div class="kicker">
+        <div class="kicker-rule"></div>
+        <span>For medtech and healthcare B2B companies</span>
+      </div>
+      <h1 class="hero-headline">
+        Your clinical evidence is compelling.<br>
+        <em><span id="typewriter">Your content doesn't show it.</span><span class="typing-cursor">_</span></em>
+      </h1>
+      <p class="hero-sub">
+        We help <strong>MedTech and Healthcare B2B companies</strong> build credible, compliant content programs that reach clinicians, procurement committees, and administrators — building authority that accelerates sales cycles.
+      </p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn-primary">Book strategy call</a>
+        <a href="#how" class="btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-stripe">
+    <div class="stripe-item"><span class="stripe-num counter" data-target="72" data-suffix="%">0%</span><span class="stripe-lbl">of healthcare decisions start online</span></div>
+    <div class="stripe-item"><span class="stripe-num counter" data-target="18" data-suffix="mo">0mo</span><span class="stripe-lbl">Avg enterprise MedTech sales cycle</span></div>
+    <div class="stripe-item"><span class="stripe-num counter" data-target="0" data-prefix="$">$0</span><span class="stripe-lbl">invested in SEO by competitors</span></div>
+  </div>
+
+  <section class="problem">
+    <div class="section-inner">
+      <div class="kicker reveal"><div class="kicker-rule"></div><span>The problem</span></div>
+      <h2 class="section-heading reveal">Complex products.<br>Invisible online.</h2>
+      
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="problem-title">Committees research before they call</div>
+          <p class="problem-text">Administrators and clinical directors conduct extensive online research before engaging vendors. If your clinical evidence doesn't show up, you're not in the evaluation.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <div class="problem-title">Clinical complexity deserves clinical content</div>
+          <p class="problem-text">Your product solves real clinical problems with evidence behind it. Generic marketing copy undersells your credibility to the clinicians who matter.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="problem-title">Long sales cycles need touchpoints</div>
+          <p class="problem-text">An 18-month sales cycle means prospects are researching and building conviction over a long period. Content works during those long gaps between conversations.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="problem-title">Thought leadership accelerates buy-in</div>
+          <p class="problem-text">MedTech deals require multi-stakeholder consensus. Content that positions you as the expert makes the internal champion's job easier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker-strip">
+    <div class="ticker-inner">
+      <span class="ticker-item">Clinical Content Strategy</span>
+      <span class="ticker-item">MedTech SEO</span>
+      <span class="ticker-item">Regulatory-Aware Copywriting</span>
+      <span class="ticker-item">KOL Interview Content</span>
+      <span class="ticker-item">HCP-Targeted Content</span>
+      <span class="ticker-item">White Papers</span>
+      
+      <!-- Duplicate for infinite scroll -->
+      <span class="ticker-item">Clinical Content Strategy</span>
+      <span class="ticker-item">MedTech SEO</span>
+      <span class="ticker-item">Regulatory-Aware Copywriting</span>
+      <span class="ticker-item">KOL Interview Content</span>
+      <span class="ticker-item">HCP-Targeted Content</span>
+      <span class="ticker-item">White Papers</span>
+    </div>
+  </div>
+
+  <section class="how" id="how">
+    <div class="section-inner">
+      <div class="kicker reveal"><div class="kicker-rule"></div><span>How it works</span></div>
+      <h2 class="section-heading reveal">Three moves.<br>One outcome.</h2>
+      <p class="how-sub reveal">We understand MedTech buying cycles — the clinical evaluation process, regulatory constraints, and multi-stakeholder decisions.</p>
+      
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-title">We audit your visibility</div>
+          <p class="step-text">We analyze your current content, identify clinical search terms buyers use, and map where competitors build authority.</p>
+          <span class="step-tag">Free — 30 minutes</span>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <div class="step-title">We build your clinical engine</div>
+          <p class="step-text">AI-assisted production of accurate content — clinical summaries, use cases, and HCP blogs — reviewed by specialists.</p>
+          <span class="step-tag">Month 1 delivery</span>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <div class="step-title">We track pipeline movement</div>
+          <p class="step-text">Monthly reporting on content tied to real outcomes: website traffic, inquiries, and influenced pipeline. Compliant and focused.</p>
+          <span class="step-tag">Ongoing retainer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="section-inner">
+      <div class="results-layout">
+        <div class="results-metrics">
+          <div class="metric reveal"><div class="metric-val counter" data-target="5" data-suffix=" mo">0 mo</div><div class="metric-lbl">Time to first inbound inquiry</div></div>
+          <div class="metric reveal"><div class="metric-val counter" data-target="3" data-suffix="×">0×</div><div class="metric-lbl">More website engagement</div></div>
+          <div class="metric reveal"><div class="metric-val counter" data-target="40" data-suffix="%">0%</div><div class="metric-lbl">Reduction in sales cycle length</div></div>
+          <div class="metric reveal"><div class="metric-val counter" data-target="8" data-suffix=" wk">0 wk</div><div class="metric-lbl">To live compliant content program</div></div>
+        </div>
+        <div class="results-copy reveal">
+          <div class="kicker"><div class="kicker-rule"></div><span>Real results</span></div>
+          <h2 class="section-heading">High-stakes decisions.<br>Careers on the line.</h2>
+          <p>MedTech content has unique requirements — accuracy, regulatory awareness, and clinical credibility are non-negotiable. Our content meets those standards.</p>
+          <p>The MedTech companies <strong>winning more evaluations right now</strong> are the ones whose evidence shows up first, in the right format, for the right audiences.</p>
+          
+          <div class="case-card">
+            <p class="case-quote">"Our sales cycle used to start at the first demo. Now prospects arrive having already read three of our articles — they've convinced themselves we're credible before we speak."</p>
+            <div class="case-author">— VP Sales, Surgical Navigation Company</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer">
+    <div class="section-inner">
+      <div class="kicker reveal"><div class="kicker-rule"></div><span>What's included</span></div>
+      <h2 class="section-heading reveal">Everything you need.<br>Nothing you don't.</h2>
+      
+      <div class="offer-grid">
+        <div class="offer-item reveal">
+          <div class="offer-check">+</div>
+          <div>
+            <div class="offer-title">Clinical & technical production</div>
+            <p class="offer-text">Evidence-based articles and case studies written to clinical depth, reviewed for accuracy and regulatory awareness.</p>
+          </div>
+        </div>
+        <div class="offer-item reveal">
+          <div class="offer-check">+</div>
+          <div>
+            <div class="offer-title">MedTech SEO strategy</div>
+            <p class="offer-text">Keyword research targeting clinician search behavior and content built to rank during the evaluation phase.</p>
+          </div>
+        </div>
+        <div class="offer-item reveal">
+          <div class="offer-check">+</div>
+          <div>
+            <div class="offer-title">LinkedIn thought leadership</div>
+            <p class="offer-text">Strategic positioning for your CMO and clinical advisors — building visible authority without demanding their time.</p>
+          </div>
+        </div>
+        <div class="offer-item reveal">
+          <div class="offer-check">+</div>
+          <div>
+            <div class="offer-title">HCP-targeted content</div>
+            <p class="offer-text">Clinical education content that provides genuine value to professionals while demonstrating your evidence base.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="objections">
+    <div class="section-inner">
+      <div class="kicker reveal"><div class="kicker-rule"></div><span>Common questions</span></div>
+      <h2 class="section-heading reveal">Straight answers.</h2>
+      
+      <div class="obj-item reveal">
+        <div class="obj-q">Content in MedTech has to be careful. How do you manage that?</div>
+        <div class="obj-a">We have a structured review process for clinical content. <strong>Nothing goes live without sign-off</strong> from your clinical or regulatory team.</div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q">Our sales cycle is 18 months. Is content too long-term?</div>
+        <div class="obj-a">In an 18-month cycle, <strong>prospects are researching for 16 of those months</strong>. Content is the only asset working during that period.</div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q">Clinicians don't read marketing content.</div>
+        <div class="obj-a">Effective MedTech content reads like clinical education. <strong>We produce content clinicians find genuinely useful</strong>, building real trust.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="book">
+    <div class="cta-inner">
+      <div class="kicker reveal"><div class="kicker-rule"></div><span>No pitch deck. No obligation.</span></div>
+      <h2 class="hero-headline reveal">Let's talk about<br><em>your</em> opportunity.</h2>
+      <p class="hero-sub reveal" style="margin: 0 auto 40px; color: var(--text-dim);">A free 30-minute strategy call. We'll show you exactly what your online visibility looks like for clinical and procurement search terms.</p>
+      <a href="#" class="btn-primary reveal" style="margin: 0 auto; display: inline-flex;">Book free strategy call</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">DSE <span>Marketing</span> Solutions</div>
+    <div>© 2026 DSE Marketing Solutions. Built for B2B Healthcare.</div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Nav Scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Counter Animation
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = +el.getAttribute('data-target');
+          const prefix = el.getAttribute('data-prefix') || '';
+          const suffix = el.getAttribute('data-suffix') || '';
+          const duration = 2000;
+          const frameRate = 30;
+          const totalFrames = Math.round((duration / 1000) * frameRate);
+          let frame = 0;
+          
+          if (target === 0) {
+            el.innerText = `${prefix}0${suffix}`;
+            observer.unobserve(el);
+            return;
+          }
+
+          const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const current = Math.round(target * (1 - Math.pow(1 - progress, 3))); // ease out cubic
+            el.innerText = `${prefix}${current}${suffix}`;
+
+            if (frame >= totalFrames) {
+              clearInterval(counter);
+              el.innerText = `${prefix}${target}${suffix}`;
+            }
+          }, 1000 / frameRate);
+          
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+    // Hero Slideshow
+    const slides = document.querySelectorAll('.hero-bg .slide');
+    if (slides.length > 0) {
+      let currentSlide = 0;
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        slides[currentSlide].classList.add('previous');
+        
+        let prevSlide = currentSlide;
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        slides[currentSlide].classList.remove('previous');
+        slides[currentSlide].classList.add('active');
+
+        setTimeout(() => {
+          slides[prevSlide].classList.remove('previous');
+        }, 1500);
+      }, 3000); // 3 seconds
+    }
+
+    // Typewriter Effect
+    const words = [
+      "Your content doesn't show it.",
+      "Your content bottleneck is real.",
+      "Stop manually drafting reports.",
+      "Automate your clinical narratives."
+    ];
+    let wordIndex = 0;
+    let isDeleting = false;
+    let text = words[0];
+    let delay = 3000;
+    const typeWriterEl = document.getElementById('typewriter');
+
+    function typeWriter() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        text = currentWord.substring(0, text.length - 1);
+      } else {
+        text = currentWord.substring(0, text.length + 1);
+      }
+
+      if (typeWriterEl) {
+        typeWriterEl.textContent = text;
+      }
+
+      let typeSpeed = isDeleting ? 30 : 60;
+
+      if (!isDeleting && text === currentWord) {
+        typeSpeed = 3000;
+        isDeleting = true;
+      } else if (isDeleting && text === '') {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 400;
+      }
+
+      setTimeout(typeWriter, typeSpeed);
+    }
+
+    setTimeout(() => {
+      isDeleting = true;
+      typeWriter();
+    }, delay);
+  </script>
+
+</body>
+</html>
+
