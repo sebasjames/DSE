@@ -1813,7 +1813,7 @@
         .sandbox {
             position: relative;
             width: 100%;
-            height: 1200px;
+            height: 680px;
             background-color: #fafafa;
             overflow: hidden;
             background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
@@ -1822,7 +1822,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 60px;
+            padding-top: 40px;
         }
 
         .sandbox-header {
@@ -1833,27 +1833,27 @@
         }
 
         .sandbox-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--text-main);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -1px;
         }
 
         .sandbox-header p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
         }
 
         .btn-clear {
             position: absolute;
-            bottom: 30px;
-            right: 30px;
+            bottom: 22px;
+            right: 25px;
             background: #fff;
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 0.9rem;
+            padding: 8px 18px;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             color: var(--text-muted);
@@ -1883,7 +1883,7 @@
             position: absolute;
             background: #fff;
             border-radius: 12px;
-            padding: 24px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(0, 0, 0, 0.05);
             cursor: grab;
@@ -1902,8 +1902,9 @@
         .card-postit {
             background: #fff9c4;
             border: none;
-            width: 220px;
+            width: 210px;
             font-family: 'Comic Sans MS', cursive, sans-serif;
+            padding: 18px;
         }
 
         .card-postit [contenteditable="true"] {
@@ -1924,22 +1925,22 @@
         }
 
         .card-postit h4 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .card-postit p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #555;
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
         .card-photo {
-            padding: 12px;
-            padding-bottom: 40px;
+            padding: 10px;
+            padding-bottom: 32px;
             background: #fff;
-            width: 180px;
+            width: 170px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1962,7 +1963,7 @@
             font-family: 'Comic Sans MS', cursive, sans-serif;
             font-size: 0.85rem;
             color: #555;
-            margin-top: 15px;
+            margin-top: 12px;
             transition: background 0.2s;
             padding: 2px 6px;
             border-radius: 4px;
@@ -1980,23 +1981,24 @@
         }
 
         .card-graph {
-            width: 300px;
+            width: 270px;
+            padding: 18px 20px;
         }
 
         .card-graph-title {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             letter-spacing: 1px;
         }
 
         .card-graph-bar {
-            height: 12px;
+            height: 10px;
             background: rgba(230, 0, 0, 0.1);
-            border-radius: 6px;
-            margin-bottom: 12px;
+            border-radius: 5px;
+            margin-bottom: 10px;
             position: relative;
         }
 
@@ -2004,20 +2006,59 @@
             display: block;
             height: 100%;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 6px;
+            border-radius: 5px;
         }
 
         .card-node {
-            width: 200px;
+            width: 170px;
             text-align: center;
             border-radius: 50%;
-            height: 200px;
+            height: 170px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             border: 4px solid var(--accent-primary);
             background: #fff;
+            padding: 16px;
+        }
+
+        .card-node i {
+            font-size: 40px !important;
+            margin-bottom: 6px !important;
+        }
+
+        .card-node h4 {
+            font-size: 1rem !important;
+        }
+
+        @media (max-width: 768px) {
+            .sandbox {
+                height: 560px;
+                padding-top: 25px;
+            }
+            .sandbox-header h2 {
+                font-size: 1.7rem;
+            }
+            .sandbox-header p {
+                font-size: 0.95rem;
+            }
+            .card-photo {
+                width: 135px;
+                padding-bottom: 24px;
+            }
+            .card-postit {
+                width: 175px;
+                padding: 14px;
+            }
+            .card-node {
+                width: 135px;
+                height: 135px;
+            }
+            .card-graph {
+                width: 210px;
+                padding: 14px 16px;
+            }
         }
 
         /* CONTACT MODAL */
@@ -3379,35 +3420,35 @@
             <canvas id="strategy-canvas"></canvas>
 
             <!-- Draggable Cards -->
-            <div class="draggable-item card-postit" style="top: 350px; left: 15%; transform: rotate(-3deg);">
+            <div class="draggable-item card-postit" style="top: 200px; left: 14%; transform: rotate(-3deg);">
                 <h4 contenteditable="true" spellcheck="false">Target 2026</h4>
                 <p contenteditable="true" spellcheck="false">Focus on B2B SaaS and Enterprise Healthcare. We need to
                     double the MQLs by Q3.</p>
             </div>
 
-            <div class="draggable-item card-photo" style="top: 200px; left: 75%; transform: rotate(5deg);">
+            <div class="draggable-item card-photo" style="top: 150px; left: 76%; transform: rotate(5deg);">
                 <img src="./assets/medtech_photo_1780284871635.png" alt="MedTech" loading="lazy" decoding="async">
                 <span contenteditable="true" spellcheck="false">MedTech</span>
             </div>
-            <div class="draggable-item card-photo" style="top: 380px; left: 5%; transform: rotate(-8deg);">
+            <div class="draggable-item card-photo" style="top: 230px; left: 3%; transform: rotate(-8deg);">
                 <img src="./assets/b2b_saas_photo_1780284897532.png" alt="SaaS" loading="lazy" decoding="async">
                 <span contenteditable="true" spellcheck="false">B2B SaaS</span>
             </div>
-            <div class="draggable-item card-photo" style="top: 580px; left: 30%; transform: rotate(3deg);">
+            <div class="draggable-item card-photo" style="top: 390px; left: 28%; transform: rotate(3deg);">
                 <img src="./assets/real_estate_photo_1780284883728.png" alt="Real Estate" loading="lazy" decoding="async">
                 <span contenteditable="true" spellcheck="false">Real Estate</span>
             </div>
 
-            <div class="draggable-item card-graph" style="top: 500px; left: 65%; transform: rotate(2deg);">
+            <div class="draggable-item card-graph" style="top: 370px; left: 64%; transform: rotate(2deg);">
                 <div class="card-graph-title">Expected Growth</div>
                 <div class="card-graph-bar"><span style="width: 40%"></span></div>
                 <div class="card-graph-bar"><span style="width: 65%"></span></div>
                 <div class="card-graph-bar"><span style="width: 90%"></span></div>
             </div>
 
-            <div class="draggable-item card-node" style="top: 250px; left: 55%;">
-                <i class="ti ti-rocket" style="font-size: 48px; color: var(--accent-primary); margin-bottom: 10px;"></i>
-                <h4 style="font-size: 1.1rem; color: var(--text-main); font-weight: 700;">Launch Campaign</h4>
+            <div class="draggable-item card-node" style="top: 170px; left: 51%;">
+                <i class="ti ti-rocket" style="font-size: 40px; color: var(--accent-primary); margin-bottom: 6px;"></i>
+                <h4 style="font-size: 1rem; color: var(--text-main); font-weight: 700;">Launch Campaign</h4>
             </div>
 
             <button class="btn-clear" id="clear-canvas">Clear Ink</button>
@@ -3926,13 +3967,13 @@
 
                 const w = canvas.width;
                 // From SaaS (Left) to Launch Campaign
-                drawArrow(w * 0.15, 420, w * 0.52, 320, w * 0.35, 300);
+                drawArrow(w * 0.13, 290, w * 0.50, 235, w * 0.32, 210);
 
                 // From Real Estate (Bottom Left) to Launch Campaign
-                drawArrow(w * 0.35, 580, w * 0.55, 430, w * 0.5, 550);
+                drawArrow(w * 0.37, 410, w * 0.52, 330, w * 0.45, 390);
 
                 // From MedTech (Right) to Launch Campaign
-                drawArrow(w * 0.75, 280, w * 0.65, 300, w * 0.7, 250);
+                drawArrow(w * 0.76, 220, w * 0.63, 240, w * 0.70, 190);
             }, 800);
 
             document.getElementById('clear-canvas').addEventListener('click', () => {
