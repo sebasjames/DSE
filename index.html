@@ -1813,7 +1813,7 @@
         .sandbox {
             position: relative;
             width: 100%;
-            height: 680px;
+            height: 820px;
             background-color: #fafafa;
             overflow: hidden;
             background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
@@ -1822,7 +1822,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 40px;
+            padding-top: 50px;
         }
 
         .sandbox-header {
@@ -3420,35 +3420,35 @@
             <canvas id="strategy-canvas"></canvas>
 
             <!-- Draggable Cards -->
-            <div class="draggable-item card-postit" style="top: 200px; left: 14%; transform: rotate(-3deg);">
+            <div class="draggable-item card-postit" style="top: 240px; left: 14%; transform: rotate(-3deg);">
                 <h4 contenteditable="true" spellcheck="false">Target 2026</h4>
                 <p contenteditable="true" spellcheck="false">Focus on B2B SaaS and Enterprise Healthcare. We need to
                     double the MQLs by Q3.</p>
             </div>
 
-            <div class="draggable-item card-photo" style="top: 150px; left: 76%; transform: rotate(5deg);">
+            <div class="draggable-item card-photo" style="top: 180px; left: 76%; transform: rotate(5deg);">
                 <img src="./assets/medtech_photo_1780284871635.png" alt="MedTech" loading="lazy" decoding="async">
                 <span contenteditable="true" spellcheck="false">MedTech</span>
             </div>
-            <div class="draggable-item card-photo" style="top: 230px; left: 3%; transform: rotate(-8deg);">
+            <div class="draggable-item card-photo" style="top: 280px; left: 3%; transform: rotate(-8deg);">
                 <img src="./assets/b2b_saas_photo_1780284897532.png" alt="SaaS" loading="lazy" decoding="async">
                 <span contenteditable="true" spellcheck="false">B2B SaaS</span>
             </div>
-            <div class="draggable-item card-photo" style="top: 390px; left: 28%; transform: rotate(3deg);">
+            <div class="draggable-item card-photo" style="top: 470px; left: 28%; transform: rotate(3deg);">
                 <img src="./assets/real_estate_photo_1780284883728.png" alt="Real Estate" loading="lazy" decoding="async">
                 <span contenteditable="true" spellcheck="false">Real Estate</span>
             </div>
 
-            <div class="draggable-item card-graph" style="top: 370px; left: 64%; transform: rotate(2deg);">
+            <div class="draggable-item card-graph" style="top: 440px; left: 64%; transform: rotate(2deg);">
                 <div class="card-graph-title">Expected Growth</div>
                 <div class="card-graph-bar"><span style="width: 40%"></span></div>
                 <div class="card-graph-bar"><span style="width: 65%"></span></div>
                 <div class="card-graph-bar"><span style="width: 90%"></span></div>
             </div>
 
-            <div class="draggable-item card-node" style="top: 170px; left: 51%;">
-                <i class="ti ti-rocket" style="font-size: 40px; color: var(--accent-primary); margin-bottom: 6px;"></i>
-                <h4 style="font-size: 1rem; color: var(--text-main); font-weight: 700;">Launch Campaign</h4>
+            <div class="draggable-item card-node" style="top: 205px; left: 51%;">
+                <i class="ti ti-rocket" style="font-size: 44px; color: var(--accent-primary); margin-bottom: 8px;"></i>
+                <h4 style="font-size: 1.05rem; color: var(--text-main); font-weight: 700;">Launch Campaign</h4>
             </div>
 
             <button class="btn-clear" id="clear-canvas">Clear Ink</button>
@@ -3967,13 +3967,13 @@
 
                 const w = canvas.width;
                 // From SaaS (Left) to Launch Campaign
-                drawArrow(w * 0.13, 290, w * 0.50, 235, w * 0.32, 210);
+                drawArrow(w * 0.14, 340, w * 0.50, 275, w * 0.32, 250);
 
                 // From Real Estate (Bottom Left) to Launch Campaign
-                drawArrow(w * 0.37, 410, w * 0.52, 330, w * 0.45, 390);
+                drawArrow(w * 0.37, 480, w * 0.53, 380, w * 0.45, 460);
 
                 // From MedTech (Right) to Launch Campaign
-                drawArrow(w * 0.76, 220, w * 0.63, 240, w * 0.70, 190);
+                drawArrow(w * 0.76, 250, w * 0.63, 275, w * 0.70, 220);
             }, 800);
 
             document.getElementById('clear-canvas').addEventListener('click', () => {
