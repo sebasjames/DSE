@@ -2351,12 +2351,14 @@
                 margin-bottom: 10px;
             }
         }
-        /* TRUSTED BY INNOVATIVE BRANDS */
+        /* TRUSTED BY INNOVATIVE BRANDS - CONTINUOUS CAROUSEL */
         .trusted-ribbon {
-            padding: 50px 5%;
+            padding: 48px 0 52px;
             background: #ffffff;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             text-align: center;
+            overflow: hidden;
+            width: 100%;
         }
         
         .trusted-title {
@@ -2364,30 +2366,47 @@
             font-weight: 700;
             color: var(--text-muted);
             letter-spacing: 2px;
-            margin-bottom: 34px;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
-        
-        .trusted-logos {
+
+        .trusted-marquee-container {
             display: flex;
-            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .trusted-track {
+            display: flex;
+            width: max-content;
+            animation: trustedMarquee 26s linear infinite;
+        }
+
+        .trusted-track:hover {
+            animation-play-state: paused;
+        }
+
+        .trusted-logos-group {
+            display: flex;
             align-items: center;
-            gap: 32px 50px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 68px;
+            padding: 0 34px;
+            flex-shrink: 0;
         }
 
         .trusted-logo-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6px 12px;
             height: 52px;
+            flex-shrink: 0;
         }
 
         .trusted-logo-item img {
-            max-height: 40px;
+            max-height: 42px;
             max-width: 160px;
             width: auto;
             height: auto;
@@ -2403,16 +2422,25 @@
             transform: scale(1.08);
         }
 
+        @keyframes trustedMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         @media (max-width: 768px) {
             .trusted-ribbon {
-                padding: 36px 4%;
+                padding: 36px 0 40px;
             }
-            .trusted-logos {
-                gap: 20px 32px;
+            .trusted-logos-group {
+                gap: 40px;
+                padding: 0 20px;
             }
             .trusted-logo-item {
-                height: 44px;
-                padding: 4px 8px;
+                height: 42px;
             }
             .trusted-logo-item img {
                 max-height: 32px;
@@ -3085,33 +3113,63 @@
             </div>
         </div>
 
-        <!-- TRUSTED BY INNOVATIVE BRANDS -->
+        <!-- TRUSTED BY INNOVATIVE BRANDS (CONTINUOUS CAROUSEL) -->
         <section class="trusted-ribbon">
             <p class="trusted-title">TRUSTED BY INNOVATIVE BRANDS</p>
-            <div class="trusted-logos">
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/colbroker.png" alt="ColBroker" loading="lazy">
-                </div>
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/dervos-america.png" alt="Dervos America" loading="lazy">
-                </div>
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/edgen-murray.png" alt="Edgen Murray" loading="lazy">
-                </div>
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/kvc-logistics.png" alt="KVC Logistics" loading="lazy">
-                </div>
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/profile-lighting.png" alt="Profile Lighting Colombia" loading="lazy">
-                </div>
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/sdb-steel-and-pipe.png" alt="SDB Steel and Pipe" loading="lazy">
-                </div>
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/sir-dominios.png" alt="Sir Dominios" loading="lazy">
-                </div>
-                <div class="trusted-logo-item">
-                    <img src="assets/companies/southwest-pipe-services.png" alt="Southwest Pipe Services" loading="lazy">
+            <div class="trusted-marquee-container">
+                <div class="trusted-track">
+                    <div class="trusted-logos-group">
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/colbroker.png" alt="ColBroker" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/dervos-america.png" alt="Dervos America" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/edgen-murray.png" alt="Edgen Murray" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/kvc-logistics.png" alt="KVC Logistics" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/profile-lighting.png" alt="Profile Lighting Colombia" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/sdb-steel-and-pipe.png" alt="SDB Steel and Pipe" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/sir-dominios.png" alt="Sir Dominios" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/southwest-pipe-services.png" alt="Southwest Pipe Services" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="trusted-logos-group">
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/colbroker.png" alt="ColBroker" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/dervos-america.png" alt="Dervos America" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/edgen-murray.png" alt="Edgen Murray" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/kvc-logistics.png" alt="KVC Logistics" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/profile-lighting.png" alt="Profile Lighting Colombia" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/sdb-steel-and-pipe.png" alt="SDB Steel and Pipe" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/sir-dominios.png" alt="Sir Dominios" loading="lazy">
+                        </div>
+                        <div class="trusted-logo-item">
+                            <img src="assets/companies/southwest-pipe-services.png" alt="Southwest Pipe Services" loading="lazy">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
