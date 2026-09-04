@@ -601,53 +601,89 @@
             margin-bottom: 24px;
         }
 
-        .trap-breakdown-box {
-            padding: 20px 22px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: var(--radius-md);
+        .trap-compare-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
             margin-bottom: 20px;
         }
 
-        .breakdown-row {
+        @media (max-width: 640px) {
+            .trap-compare-cards {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        .mini-compare-card {
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: rgba(12, 12, 18, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 0.88rem;
-            margin-bottom: 12px;
+            flex-direction: column;
+            justify-content: flex-start;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
         }
 
-        .breakdown-row:last-child {
-            margin-bottom: 0;
+        .mini-compare-card.legacy {
+            border-left: 3px solid #ff4444;
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.06), rgba(12, 12, 18, 0.6));
         }
 
-        .breakdown-label-bad {
+        .mini-compare-card.legacy:hover {
+            border-color: rgba(255, 68, 68, 0.4);
+            border-left-color: #ff4444;
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1), rgba(16, 16, 24, 0.7));
+            transform: translateY(-2px);
+        }
+
+        .mini-compare-card.dse-ai {
+            border-left: 3px solid #22c55e;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.06), rgba(12, 12, 18, 0.6));
+        }
+
+        .mini-compare-card.dse-ai:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            border-left-color: #22c55e;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 16, 24, 0.7));
+            transform: translateY(-2px);
+        }
+
+        .mini-card-head {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .badge-legacy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
             color: #ff5555;
-            font-weight: 800;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            min-width: 95px;
             letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
 
-        .breakdown-label-good {
+        .badge-dse {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
             color: #22c55e;
-            font-weight: 800;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            min-width: 95px;
             letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
 
-        .breakdown-desc {
-            color: #d1d1de;
-            line-height: 1.5;
+        .mini-card-desc {
+            font-size: 0.84rem;
+            color: #c8c8d8;
+            line-height: 1.45;
+            margin: 0;
         }
 
         .trap-metric-badge {
@@ -1312,14 +1348,18 @@
                     <p class="trap-extended-text">
                         Enterprise decision-makers (CTOs, Chief Medical Officers, VP of Engineering) immediately spot ghostwritten, shallow marketing fluff. When an agency assigns a generalist copywriter to explain complex regulatory compliance, clinical trial protocols, or distributed infrastructure, credibility dissolves instantly.
                     </p>
-                    <div class="trap-breakdown-box">
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
-                            <span class="breakdown-desc">Junior copywriters guessing regulatory language, delivering superficial content that alienates technical buyers.</span>
+                    <div class="trap-compare-cards">
+                        <div class="mini-compare-card legacy">
+                            <div class="mini-card-head">
+                                <span class="badge-legacy"><i class="ti ti-x"></i> LEGACY AGENCY</span>
+                            </div>
+                            <p class="mini-card-desc">Junior copywriters guessing regulatory language, delivering superficial content that alienates technical buyers.</p>
                         </div>
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
-                            <span class="breakdown-desc">Autonomous domain knowledge graphs pre-trained on ISO, FDA, HIPAA, and deep vertical technical taxonomy.</span>
+                        <div class="mini-compare-card dse-ai">
+                            <div class="mini-card-head">
+                                <span class="badge-dse"><i class="ti ti-check"></i> DSE AI ENGINE</span>
+                            </div>
+                            <p class="mini-card-desc">Autonomous domain knowledge graphs pre-trained on ISO, FDA, HIPAA, and deep vertical technical taxonomy.</p>
                         </div>
                     </div>
                     <div class="trap-metric-badge">
@@ -1356,14 +1396,18 @@
                     <p class="trap-extended-text">
                         Traditional agencies depend on convoluted multi-stage approval chains: briefing, drafting, internal agency review, client revisions, and legal sign-off. What should take hours consumes 28+ business days. Your competitors capture market narrative velocity while your campaign sits trapped in a Google Doc review cycle.
                     </p>
-                    <div class="trap-breakdown-box">
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
-                            <span class="breakdown-desc">3 to 5 weeks per whitepaper or technical narrative with endless email threads and revision rounds.</span>
+                    <div class="trap-compare-cards">
+                        <div class="mini-compare-card legacy">
+                            <div class="mini-card-head">
+                                <span class="badge-legacy"><i class="ti ti-x"></i> LEGACY AGENCY</span>
+                            </div>
+                            <p class="mini-card-desc">3 to 5 weeks per whitepaper or technical narrative with endless email threads and revision rounds.</p>
                         </div>
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
-                            <span class="breakdown-desc">Autonomous 24/7 research & generation pipelines producing publish-ready technical assets in sub-hour turnaround.</span>
+                        <div class="mini-compare-card dse-ai">
+                            <div class="mini-card-head">
+                                <span class="badge-dse"><i class="ti ti-check"></i> DSE AI ENGINE</span>
+                            </div>
+                            <p class="mini-card-desc">Autonomous 24/7 research & generation pipelines producing publish-ready technical assets in sub-hour turnaround.</p>
                         </div>
                     </div>
                     <div class="trap-metric-badge">
@@ -1400,14 +1444,18 @@
                     <p class="trap-extended-text">
                         Agencies rely on standard Google Ads and LinkedIn default bidding algorithms that burn capital on broad, zero-intent queries ("free templates", "what is medtech"). Without algorithmic ICP intent verification, up to 72% of paid spend buys empty impressions from unqualified students, competitors, and job seekers.
                     </p>
-                    <div class="trap-breakdown-box">
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
-                            <span class="breakdown-desc">Spraying budget on broad match keywords, driving empty clicks and unqualified consumer leads.</span>
+                    <div class="trap-compare-cards">
+                        <div class="mini-compare-card legacy">
+                            <div class="mini-card-head">
+                                <span class="badge-legacy"><i class="ti ti-x"></i> LEGACY AGENCY</span>
+                            </div>
+                            <p class="mini-card-desc">Spraying budget on broad match keywords, driving empty clicks and unqualified consumer leads.</p>
                         </div>
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
-                            <span class="breakdown-desc">Algorithmic IP reverse-lookup, account-based intent scoring, and automated real-time negative keyword filtering.</span>
+                        <div class="mini-compare-card dse-ai">
+                            <div class="mini-card-head">
+                                <span class="badge-dse"><i class="ti ti-check"></i> DSE AI ENGINE</span>
+                            </div>
+                            <p class="mini-card-desc">Algorithmic IP reverse-lookup, account-based intent scoring, and automated real-time negative keyword filtering.</p>
                         </div>
                     </div>
                     <div class="trap-metric-badge">
@@ -1444,14 +1492,18 @@
                     <p class="trap-extended-text">
                         Your Salesforce says one thing, HubSpot reports another, and LinkedIn Ads operates in a total data silo. Manual CSV uploads and brittle Zapier integrations cause data desynchronization and attribution blackouts. High-value enterprise prospects fall through the cracks before a sales rep even knows they visited.
                     </p>
-                    <div class="trap-breakdown-box">
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
-                            <span class="breakdown-desc">Disconnected tools stitched with brittle manual spreadsheets, delayed handoffs, and zero bidirectional intelligence.</span>
+                    <div class="trap-compare-cards">
+                        <div class="mini-compare-card legacy">
+                            <div class="mini-card-head">
+                                <span class="badge-legacy"><i class="ti ti-x"></i> LEGACY AGENCY</span>
+                            </div>
+                            <p class="mini-card-desc">Disconnected tools stitched with brittle manual spreadsheets, delayed handoffs, and zero bidirectional intelligence.</p>
                         </div>
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
-                            <span class="breakdown-desc">Unified neural data fabric with sub-second event triggers across CRM, ad engines, and automated outbound touchpoints.</span>
+                        <div class="mini-compare-card dse-ai">
+                            <div class="mini-card-head">
+                                <span class="badge-dse"><i class="ti ti-check"></i> DSE AI ENGINE</span>
+                            </div>
+                            <p class="mini-card-desc">Unified neural data fabric with sub-second event triggers across CRM, ad engines, and automated outbound touchpoints.</p>
                         </div>
                     </div>
                     <div class="trap-metric-badge">
@@ -1488,14 +1540,18 @@
                     <p class="trap-extended-text">
                         Agencies proudly deliver monthly PDF decks celebrating 40% growth in impressions, CTR, and downloadable eBook form fills. Meanwhile, your VP of Sales is infuriated by personal Gmail addresses, students, and low-tier contacts with zero purchasing power. High impression volume with zero pipeline is pure vanity.
                     </p>
-                    <div class="trap-breakdown-box">
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
-                            <span class="breakdown-desc">Optimizing for superficial impressions, clicks, and pageviews that never convert into signed annual enterprise contracts.</span>
+                    <div class="trap-compare-cards">
+                        <div class="mini-compare-card legacy">
+                            <div class="mini-card-head">
+                                <span class="badge-legacy"><i class="ti ti-x"></i> LEGACY AGENCY</span>
+                            </div>
+                            <p class="mini-card-desc">Optimizing for superficial impressions, clicks, and pageviews that never convert into signed annual enterprise contracts.</p>
                         </div>
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
-                            <span class="breakdown-desc">Closed-loop pipeline attribution directly tied to Sales-Qualified Leads (SQLs), Sales Accepted Opportunities, and Net ARR.</span>
+                        <div class="mini-compare-card dse-ai">
+                            <div class="mini-card-head">
+                                <span class="badge-dse"><i class="ti ti-check"></i> DSE AI ENGINE</span>
+                            </div>
+                            <p class="mini-card-desc">Closed-loop pipeline attribution directly tied to Sales-Qualified Leads (SQLs), Sales Accepted Opportunities, and Net ARR.</p>
                         </div>
                     </div>
                     <div class="trap-metric-badge">
@@ -1532,14 +1588,18 @@
                     <p class="trap-extended-text">
                         The agency business model is fundamentally misaligned with client growth. If an agency automates repetitive work, their billable hours drop. They are financially incentivized to move slowly, pad hours with internal meetings, and maintain bloated account management headcount billed at $250-$400/hour.
                     </p>
-                    <div class="trap-breakdown-box">
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
-                            <span class="breakdown-desc">Incentivized to move slowly to defend $15,000/mo retainer margins and justify billable staff overhead.</span>
+                    <div class="trap-compare-cards">
+                        <div class="mini-compare-card legacy">
+                            <div class="mini-card-head">
+                                <span class="badge-legacy"><i class="ti ti-x"></i> LEGACY AGENCY</span>
+                            </div>
+                            <p class="mini-card-desc">Incentivized to move slowly to defend $15,000/mo retainer margins and justify billable staff overhead.</p>
                         </div>
-                        <div class="breakdown-row">
-                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
-                            <span class="breakdown-desc">Autonomous AI infrastructure with flat performance economics focused 100% on net revenue output.</span>
+                        <div class="mini-compare-card dse-ai">
+                            <div class="mini-card-head">
+                                <span class="badge-dse"><i class="ti ti-check"></i> DSE AI ENGINE</span>
+                            </div>
+                            <p class="mini-card-desc">Autonomous AI infrastructure with flat performance economics focused 100% on net revenue output.</p>
                         </div>
                     </div>
                     <div class="trap-metric-badge">
