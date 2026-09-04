@@ -515,8 +515,15 @@
         }
 
         /* VISUAL COLUMN */
-        .trap-visual {
+        .trap-visual-col {
             flex: 1 1 52%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .trap-visual {
+            width: 100%;
             position: relative;
             border-radius: var(--radius-lg);
             background: var(--bg-card);
@@ -755,25 +762,35 @@
         }
 
         .trap-metric-badge {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 16px;
-            border-radius: var(--radius-sm);
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px dashed rgba(230, 0, 0, 0.35);
+            gap: 14px;
+            padding: 13px 18px;
+            border-radius: var(--radius-md);
+            background: rgba(14, 10, 15, 0.7);
+            border: 1px dashed rgba(230, 0, 0, 0.4);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.82rem;
-            color: #e2e2ec;
+            font-size: 0.84rem;
+            color: #d8d8e6;
+            backdrop-filter: blur(10px);
+            box-sizing: border-box;
+            transition: all 0.4s ease;
+        }
+
+        .trap-row.is-focused .trap-metric-badge {
+            border-color: rgba(230, 0, 0, 0.65);
+            background: rgba(230, 0, 0, 0.09);
+            box-shadow: 0 0 25px rgba(230, 0, 0, 0.15);
         }
 
         .trap-metric-badge i {
             color: var(--accent-primary);
-            font-size: 1.1rem;
+            font-size: 1.35rem;
+            flex-shrink: 0;
         }
 
         .trap-metric-badge strong {
-            color: #ff6b6b;
+            color: #ff5555;
             font-weight: 700;
         }
 
@@ -782,7 +799,7 @@
                 flex-direction: column;
                 gap: 36px;
             }
-            .trap-visual, .trap-content {
+            .trap-visual-col, .trap-visual, .trap-content {
                 flex: 1 1 100%;
                 width: 100%;
             }
@@ -1391,7 +1408,8 @@
         <div class="traps-zigzag">
             <!-- Trap 01: The Generalist Trap -->
             <article class="trap-row" id="trap-01">
-                <div class="trap-visual">
+                <div class="trap-visual-col">
+                    <div class="trap-visual">
                     <div class="trap-visual-hud">
                         <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_01</span>
                         <span class="hud-id">SYS_ID: ERR_GENERALIST_DILUTION</span>
@@ -1402,6 +1420,11 @@
                         <div class="hud-corner bl"></div>
                         <div class="hud-corner br"></div>
                         <img src="assets/the-generalist-trap.jpg" alt="The Generalist Trap Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-alert-triangle"></i>
+                        <span>Conversion Penalty: <strong>-73% response rate</strong> when B2B messaging lacks domain authenticity.</span>
                     </div>
                 </div>
                 <div class="trap-content">
@@ -1430,16 +1453,14 @@
                             <p class="mini-card-desc">Autonomous domain knowledge graphs pre-trained on ISO, FDA, HIPAA, and deep vertical technical taxonomy.</p>
                         </div>
                     </div>
-                    <div class="trap-metric-badge">
-                        <i class="ti ti-alert-triangle"></i>
-                        <span>Conversion Penalty: <strong>-73% response rate</strong> when B2B messaging lacks domain authenticity.</span>
-                    </div>
+                    
                 </div>
             </article>
 
             <!-- Trap 02: The Content Bottleneck -->
             <article class="trap-row" id="trap-02">
-                <div class="trap-visual">
+                <div class="trap-visual-col">
+                    <div class="trap-visual">
                     <div class="trap-visual-hud">
                         <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_02</span>
                         <span class="hud-id">SYS_ID: ERR_CONTENT_LATENCY</span>
@@ -1450,6 +1471,11 @@
                         <div class="hud-corner bl"></div>
                         <div class="hud-corner br"></div>
                         <img src="assets/the-content-bottleneck.jpg" alt="The Content Bottleneck Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-clock-pause"></i>
+                        <span>Velocity Lag: <strong>26+ business days delay</strong> before traditional agency content goes live.</span>
                     </div>
                 </div>
                 <div class="trap-content">
@@ -1478,16 +1504,14 @@
                             <p class="mini-card-desc">Autonomous 24/7 research & generation pipelines producing publish-ready technical assets in sub-hour turnaround.</p>
                         </div>
                     </div>
-                    <div class="trap-metric-badge">
-                        <i class="ti ti-clock-pause"></i>
-                        <span>Velocity Lag: <strong>26+ business days delay</strong> before traditional agency content goes live.</span>
-                    </div>
+                    
                 </div>
             </article>
 
             <!-- Trap 03: Blind Ad Spend -->
             <article class="trap-row" id="trap-03">
-                <div class="trap-visual">
+                <div class="trap-visual-col">
+                    <div class="trap-visual">
                     <div class="trap-visual-hud">
                         <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_03</span>
                         <span class="hud-id">SYS_ID: ERR_CAPITAL_HEMORRHAGE</span>
@@ -1498,6 +1522,11 @@
                         <div class="hud-corner bl"></div>
                         <div class="hud-corner br"></div>
                         <img src="assets/blind-ad-spend.jpg" alt="Blind Ad Spend Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-zoom-money"></i>
+                        <span>Capital Hemorrhage: Up to <strong>72.1% of paid B2B search budgets</strong> squandered on non-buying queries.</span>
                     </div>
                 </div>
                 <div class="trap-content">
@@ -1526,16 +1555,14 @@
                             <p class="mini-card-desc">Algorithmic IP reverse-lookup, account-based intent scoring, and automated real-time negative keyword filtering.</p>
                         </div>
                     </div>
-                    <div class="trap-metric-badge">
-                        <i class="ti ti-zoom-money"></i>
-                        <span>Capital Hemorrhage: Up to <strong>72.1% of paid B2B search budgets</strong> squandered on non-buying queries.</span>
-                    </div>
+                    
                 </div>
             </article>
 
             <!-- Trap 04: The Fragmented Stack -->
             <article class="trap-row" id="trap-04">
-                <div class="trap-visual">
+                <div class="trap-visual-col">
+                    <div class="trap-visual">
                     <div class="trap-visual-hud">
                         <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_04</span>
                         <span class="hud-id">SYS_ID: ERR_STACK_FRAGMENTATION</span>
@@ -1546,6 +1573,11 @@
                         <div class="hud-corner bl"></div>
                         <div class="hud-corner br"></div>
                         <img src="assets/the-fragmented-stack.jpg" alt="The Fragmented Stack Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-plug-x"></i>
+                        <span>Pipeline Leakage: <strong>45% of qualified enterprise leads</strong> vanish between disconnected tools.</span>
                     </div>
                 </div>
                 <div class="trap-content">
@@ -1574,16 +1606,14 @@
                             <p class="mini-card-desc">Unified neural data fabric with sub-second event triggers across CRM, ad engines, and automated outbound touchpoints.</p>
                         </div>
                     </div>
-                    <div class="trap-metric-badge">
-                        <i class="ti ti-plug-x"></i>
-                        <span>Pipeline Leakage: <strong>45% of qualified enterprise leads</strong> vanish between disconnected tools.</span>
-                    </div>
+                    
                 </div>
             </article>
 
             <!-- Trap 05: Vanity Metrics -->
             <article class="trap-row" id="trap-05">
-                <div class="trap-visual">
+                <div class="trap-visual-col">
+                    <div class="trap-visual">
                     <div class="trap-visual-hud">
                         <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_05</span>
                         <span class="hud-id">SYS_ID: ERR_METRIC_MISALIGNMENT</span>
@@ -1594,6 +1624,11 @@
                         <div class="hud-corner bl"></div>
                         <div class="hud-corner br"></div>
                         <img src="assets/vanity-metrics.jpg" alt="Vanity Metrics Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-chart-arrows-vertical"></i>
+                        <span>Sales Disconnect: <strong>82% of agency-delivered leads</strong> rejected as unqualified by enterprise sales teams.</span>
                     </div>
                 </div>
                 <div class="trap-content">
@@ -1622,16 +1657,14 @@
                             <p class="mini-card-desc">Closed-loop pipeline attribution directly tied to Sales-Qualified Leads (SQLs), Sales Accepted Opportunities, and Net ARR.</p>
                         </div>
                     </div>
-                    <div class="trap-metric-badge">
-                        <i class="ti ti-chart-arrows-vertical"></i>
-                        <span>Sales Disconnect: <strong>82% of agency-delivered leads</strong> rejected as unqualified by enterprise sales teams.</span>
-                    </div>
+                    
                 </div>
             </article>
 
             <!-- Trap 06: The Billable Hours Trap -->
             <article class="trap-row" id="trap-06">
-                <div class="trap-visual">
+                <div class="trap-visual-col">
+                    <div class="trap-visual">
                     <div class="trap-visual-hud">
                         <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_06</span>
                         <span class="hud-id">SYS_ID: ERR_BILLABLE_OVERHEAD</span>
@@ -1642,6 +1675,11 @@
                         <div class="hud-corner bl"></div>
                         <div class="hud-corner br"></div>
                         <img src="assets/the-billable-hours-trap.jpg" alt="The Billable Hours Trap Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-receipt-tax"></i>
+                        <span>Economic Inefficiency: <strong>65% of agency retainer fees</strong> pay for administrative overhead, not pipeline.</span>
                     </div>
                 </div>
                 <div class="trap-content">
@@ -1670,10 +1708,7 @@
                             <p class="mini-card-desc">Autonomous AI infrastructure with flat performance economics focused 100% on net revenue output.</p>
                         </div>
                     </div>
-                    <div class="trap-metric-badge">
-                        <i class="ti ti-receipt-tax"></i>
-                        <span>Economic Inefficiency: <strong>65% of agency retainer fees</strong> pay for administrative overhead, not pipeline.</span>
-                    </div>
+                    
                 </div>
             </article>
         </div>
