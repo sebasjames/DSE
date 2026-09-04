@@ -427,136 +427,194 @@
             margin: 0 auto;
         }
 
-        .traps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        @media (max-width: 1080px) {
-            .traps-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 700px) {
-            .traps-grid { grid-template-columns: 1fr; }
-        }
-
-        .trap-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 36px 30px;
-            position: relative;
-            overflow: hidden;
+        /* TRAPS ZIGZAG ALTERNATING LAYOUT */
+        .traps-zigzag {
             display: flex;
             flex-direction: column;
-            transition: var(--transition);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+            gap: 100px;
+            margin-top: 60px;
         }
 
-        .trap-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .trap-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
         }
 
-        .trap-card:hover {
-            transform: translateY(-6px);
-            background: var(--bg-card-hover);
+        .trap-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* VISUAL COLUMN */
+        .trap-visual {
+            flex: 1 1 52%;
+            position: relative;
+            border-radius: var(--radius-lg);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(230, 0, 0, 0.12);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .trap-visual:hover {
             border-color: var(--border-accent);
-            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(230, 0, 0, 0.15);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75), 0 0 50px rgba(230, 0, 0, 0.25);
+            transform: translateY(-4px);
         }
 
-        .trap-card:hover::before {
-            opacity: 1;
-        }
-
-        .trap-card-top {
+        .trap-visual-hud {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 24px;
-        }
-
-        .trap-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-
-        .trap-tag {
+            padding: 12px 20px;
+            background: rgba(10, 10, 15, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: var(--radius-pill);
-            text-transform: uppercase;
             letter-spacing: 1px;
-            background: rgba(230, 0, 0, 0.12);
-            color: #ff6b6b;
-            border: 1px solid rgba(230, 0, 0, 0.28);
+            color: var(--text-muted);
         }
 
-        .trap-icon-wrap {
-            width: 58px;
-            height: 58px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .hud-status-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ff5555;
+            font-weight: 700;
+        }
+
+        .hud-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff4444;
+            box-shadow: 0 0 10px #ff2222;
+            animation: pulse-red 2s infinite;
+        }
+
+        .hud-id {
+            color: var(--text-dim);
+        }
+
+        .trap-img-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #030305;
+        }
+
+        .trap-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .trap-visual:hover .trap-img {
+            transform: scale(1.03);
+        }
+
+        .hud-corner {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: var(--accent-red);
+            border-style: solid;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .hud-corner.tl { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+        .hud-corner.tr { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
+        .hud-corner.bl { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
+        .hud-corner.br { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+        /* CONTENT COLUMN */
+        .trap-content {
+            flex: 1 1 48%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trap-meta-bar {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: var(--accent-glow);
-            font-size: 1.8rem;
-            margin-bottom: 22px;
-            transition: var(--transition);
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
 
-        .trap-card:hover .trap-icon-wrap {
-            background: rgba(230, 0, 0, 0.15);
-            border-color: rgba(230, 0, 0, 0.4);
-            transform: scale(1.08);
+        .trap-num-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: var(--radius-pill);
+            letter-spacing: 1.5px;
+            background: rgba(230, 0, 0, 0.14);
+            color: #ff6b6b;
+            border: 1px solid rgba(230, 0, 0, 0.35);
+            text-transform: uppercase;
         }
 
-        .trap-title {
+        .trap-tag-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            letter-spacing: 0.5px;
+        }
+
+        .trap-heading {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.45rem;
+            font-size: 2.25rem;
             font-weight: 800;
             color: #ffffff;
-            margin-bottom: 14px;
-            line-height: 1.3;
+            line-height: 1.22;
+            margin-bottom: 18px;
+            letter-spacing: -0.5px;
         }
 
-        .trap-text {
-            font-size: 0.98rem;
+        .trap-lead-text {
+            font-size: 1.12rem;
+            color: #f1f1f7;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            border-left: 3px solid var(--accent-primary);
+            padding: 10px 18px;
+            background: rgba(230, 0, 0, 0.04);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .trap-extended-text {
+            font-size: 0.96rem;
             color: var(--text-dim);
-            line-height: 1.65;
+            line-height: 1.7;
             margin-bottom: 24px;
-            flex-grow: 1;
         }
 
         .trap-breakdown-box {
-            padding: 16px 18px;
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px 22px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: var(--radius-md);
-            margin-top: auto;
+            margin-bottom: 20px;
         }
 
         .breakdown-row {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
+            gap: 12px;
+            font-size: 0.88rem;
+            margin-bottom: 12px;
         }
 
         .breakdown-row:last-child {
@@ -565,23 +623,71 @@
 
         .breakdown-label-bad {
             color: #ff5555;
-            font-weight: 700;
+            font-weight: 800;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            min-width: 60px;
+            min-width: 95px;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .breakdown-label-good {
             color: #22c55e;
-            font-weight: 700;
+            font-weight: 800;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            min-width: 60px;
+            min-width: 95px;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .breakdown-desc {
-            color: #c4c4d0;
-            line-height: 1.45;
+            color: #d1d1de;
+            line-height: 1.5;
+        }
+
+        .trap-metric-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(230, 0, 0, 0.35);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: #e2e2ec;
+        }
+
+        .trap-metric-badge i {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+        }
+
+        .trap-metric-badge strong {
+            color: #ff6b6b;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1024px) {
+            .trap-row, .trap-row:nth-child(even) {
+                flex-direction: column;
+                gap: 36px;
+            }
+            .trap-visual, .trap-content {
+                flex: 1 1 100%;
+                width: 100%;
+            }
+            .traps-zigzag {
+                gap: 70px;
+            }
+            .trap-heading {
+                font-size: 1.9rem;
+            }
         }
 
         /* COMPARISON MATRIX SECTION */
@@ -1178,153 +1284,267 @@
             </p>
         </div>
 
-        <div class="traps-grid">
-            <!-- Trap 01 -->
-            <article class="trap-card">
-                <div class="trap-card-top">
-                    <span class="trap-num">TRAP // 01</span>
-                    <span class="trap-tag">Knowledge Gap</span>
-                </div>
-                <div class="trap-icon-wrap">
-                    <i class="ti ti-users-minus"></i>
-                </div>
-                <h3 class="trap-title">The Generalist Trap</h3>
-                <p class="trap-text">
-                    Most agencies don't understand the nuances of MedTech, SaaS, or Renewables, leading to generic messaging that fails to convert technical buyers.
-                </p>
-                <div class="trap-breakdown-box">
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-bad">LEGACY:</span>
-                        <span class="breakdown-desc">Junior writers guessing regulatory language and engineering specs.</span>
+        <div class="traps-zigzag">
+            <!-- Trap 01: The Generalist Trap -->
+            <article class="trap-row" id="trap-01">
+                <div class="trap-visual">
+                    <div class="trap-visual-hud">
+                        <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_01</span>
+                        <span class="hud-id">SYS_ID: ERR_GENERALIST_DILUTION</span>
                     </div>
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-good">DSE AI:</span>
-                        <span class="breakdown-desc">Pre-trained models grounded in ISO, HIPAA, and vertical B2B filings.</span>
+                    <div class="trap-img-wrap">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                        <img src="assets/the-generalist-trap.jpg" alt="The Generalist Trap Diagnostic Telemetry" class="trap-img" loading="lazy">
                     </div>
                 </div>
-            </article>
-
-            <!-- Trap 02 -->
-            <article class="trap-card">
-                <div class="trap-card-top">
-                    <span class="trap-num">TRAP // 02</span>
-                    <span class="trap-tag">Slow Execution</span>
-                </div>
-                <div class="trap-icon-wrap">
-                    <i class="ti ti-hourglass-empty"></i>
-                </div>
-                <h3 class="trap-title">The Content Bottleneck</h3>
-                <p class="trap-text">
-                    Producing highly technical content takes human teams weeks. By the time your campaign launches, the market conversation has shifted.
-                </p>
-                <div class="trap-breakdown-box">
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-bad">LEGACY:</span>
-                        <span class="breakdown-desc">3 to 6 weeks of back-and-forth review per technical whitepaper.</span>
+                <div class="trap-content">
+                    <div class="trap-meta-bar">
+                        <span class="trap-num-badge">01 // KNOWLEDGE GAP</span>
+                        <span class="trap-tag-pill"><i class="ti ti-users-minus"></i> The Generalist Trap</span>
                     </div>
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-good">DSE AI:</span>
-                        <span class="breakdown-desc">Autonomous synthesis in minutes with 99.4% domain accuracy.</span>
+                    <h3 class="trap-heading">1. The Generalist Trap</h3>
+                    <div class="trap-lead-text">
+                        Most agencies don't understand the nuances of MedTech, SaaS, or Renewables, leading to generic messaging that fails to convert technical buyers.
+                    </div>
+                    <p class="trap-extended-text">
+                        Enterprise decision-makers (CTOs, Chief Medical Officers, VP of Engineering) immediately spot ghostwritten, shallow marketing fluff. When an agency assigns a generalist copywriter to explain complex regulatory compliance, clinical trial protocols, or distributed infrastructure, credibility dissolves instantly.
+                    </p>
+                    <div class="trap-breakdown-box">
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
+                            <span class="breakdown-desc">Junior copywriters guessing regulatory language, delivering superficial content that alienates technical buyers.</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
+                            <span class="breakdown-desc">Autonomous domain knowledge graphs pre-trained on ISO, FDA, HIPAA, and deep vertical technical taxonomy.</span>
+                        </div>
+                    </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-alert-triangle"></i>
+                        <span>Conversion Penalty: <strong>-73% response rate</strong> when B2B messaging lacks domain authenticity.</span>
                     </div>
                 </div>
             </article>
 
-            <!-- Trap 03 -->
-            <article class="trap-card">
-                <div class="trap-card-top">
-                    <span class="trap-num">TRAP // 03</span>
-                    <span class="trap-tag">Wasted Budget</span>
-                </div>
-                <div class="trap-icon-wrap">
-                    <i class="ti ti-report-money"></i>
-                </div>
-                <h3 class="trap-title">Blind Ad Spend</h3>
-                <p class="trap-text">
-                    Throwing budget at broad keywords without AI-driven intent modeling results in low-quality leads and wasted marketing dollars.
-                </p>
-                <div class="trap-breakdown-box">
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-bad">LEGACY:</span>
-                        <span class="breakdown-desc">Bidding on generic search queries that attract students and job seekers.</span>
+            <!-- Trap 02: The Content Bottleneck -->
+            <article class="trap-row" id="trap-02">
+                <div class="trap-visual">
+                    <div class="trap-visual-hud">
+                        <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_02</span>
+                        <span class="hud-id">SYS_ID: ERR_CONTENT_LATENCY</span>
                     </div>
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-good">DSE AI:</span>
-                        <span class="breakdown-desc">Account-level intent scoring targeting active buying committees.</span>
+                    <div class="trap-img-wrap">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                        <img src="assets/the-content-bottleneck.jpg" alt="The Content Bottleneck Diagnostic Telemetry" class="trap-img" loading="lazy">
                     </div>
                 </div>
-            </article>
-
-            <!-- Trap 04 -->
-            <article class="trap-card">
-                <div class="trap-card-top">
-                    <span class="trap-num">TRAP // 04</span>
-                    <span class="trap-tag">Tech Silos</span>
-                </div>
-                <div class="trap-icon-wrap">
-                    <i class="ti ti-plug-x"></i>
-                </div>
-                <h3 class="trap-title">The Fragmented Stack</h3>
-                <p class="trap-text">
-                    When your CRM, ad platforms, and email sequences don't communicate in real-time, you create a leaky funnel where prospects drop off.
-                </p>
-                <div class="trap-breakdown-box">
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-bad">LEGACY:</span>
-                        <span class="breakdown-desc">CSV exports and Zapier patches breaking every quarter.</span>
+                <div class="trap-content">
+                    <div class="trap-meta-bar">
+                        <span class="trap-num-badge">02 // SLOW EXECUTION</span>
+                        <span class="trap-tag-pill"><i class="ti ti-hourglass-empty"></i> The Content Bottleneck</span>
                     </div>
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-good">DSE AI:</span>
-                        <span class="breakdown-desc">Unified real-time studio synchronizing CRM, signals, and ads 24/7.</span>
+                    <h3 class="trap-heading">2. The Content Bottleneck</h3>
+                    <div class="trap-lead-text">
+                        Producing highly technical content takes human teams weeks. By the time your campaign launches, the market conversation has shifted.
+                    </div>
+                    <p class="trap-extended-text">
+                        Traditional agencies depend on convoluted multi-stage approval chains: briefing, drafting, internal agency review, client revisions, and legal sign-off. What should take hours consumes 28+ business days. Your competitors capture market narrative velocity while your campaign sits trapped in a Google Doc review cycle.
+                    </p>
+                    <div class="trap-breakdown-box">
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
+                            <span class="breakdown-desc">3 to 5 weeks per whitepaper or technical narrative with endless email threads and revision rounds.</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
+                            <span class="breakdown-desc">Autonomous 24/7 research & generation pipelines producing publish-ready technical assets in sub-hour turnaround.</span>
+                        </div>
+                    </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-clock-pause"></i>
+                        <span>Velocity Lag: <strong>26+ business days delay</strong> before traditional agency content goes live.</span>
                     </div>
                 </div>
             </article>
 
-            <!-- Trap 05 -->
-            <article class="trap-card">
-                <div class="trap-card-top">
-                    <span class="trap-num">TRAP // 05</span>
-                    <span class="trap-tag">Misalignment</span>
-                </div>
-                <div class="trap-icon-wrap">
-                    <i class="ti ti-chart-pie-off"></i>
-                </div>
-                <h3 class="trap-title">Vanity Metrics</h3>
-                <p class="trap-text">
-                    Marketing celebrates clicks and traffic, but Sales rejects the leads. A lack of alignment means you're optimizing for visibility, not revenue.
-                </p>
-                <div class="trap-breakdown-box">
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-bad">LEGACY:</span>
-                        <span class="breakdown-desc">Monthly PDF reports boasting impressions that generated $0 pipeline.</span>
+            <!-- Trap 03: Blind Ad Spend -->
+            <article class="trap-row" id="trap-03">
+                <div class="trap-visual">
+                    <div class="trap-visual-hud">
+                        <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_03</span>
+                        <span class="hud-id">SYS_ID: ERR_CAPITAL_HEMORRHAGE</span>
                     </div>
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-good">DSE AI:</span>
-                        <span class="breakdown-desc">Attribution tied directly to SQLs, pipeline velocity, and closed-won ACV.</span>
+                    <div class="trap-img-wrap">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                        <img src="assets/blind-ad-spend.jpg" alt="Blind Ad Spend Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                <div class="trap-content">
+                    <div class="trap-meta-bar">
+                        <span class="trap-num-badge">03 // WASTED BUDGET</span>
+                        <span class="trap-tag-pill"><i class="ti ti-report-money"></i> Blind Ad Spend</span>
+                    </div>
+                    <h3 class="trap-heading">3. Blind Ad Spend</h3>
+                    <div class="trap-lead-text">
+                        Throwing budget at broad keywords without AI-driven intent modeling results in low-quality leads and wasted marketing dollars.
+                    </div>
+                    <p class="trap-extended-text">
+                        Agencies rely on standard Google Ads and LinkedIn default bidding algorithms that burn capital on broad, zero-intent queries ("free templates", "what is medtech"). Without algorithmic ICP intent verification, up to 72% of paid spend buys empty impressions from unqualified students, competitors, and job seekers.
+                    </p>
+                    <div class="trap-breakdown-box">
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
+                            <span class="breakdown-desc">Spraying budget on broad match keywords, driving empty clicks and unqualified consumer leads.</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
+                            <span class="breakdown-desc">Algorithmic IP reverse-lookup, account-based intent scoring, and automated real-time negative keyword filtering.</span>
+                        </div>
+                    </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-zoom-money"></i>
+                        <span>Capital Hemorrhage: Up to <strong>72.1% of paid B2B search budgets</strong> squandered on non-buying queries.</span>
                     </div>
                 </div>
             </article>
 
-            <!-- Trap 06 -->
-            <article class="trap-card">
-                <div class="trap-card-top">
-                    <span class="trap-num">TRAP // 06</span>
-                    <span class="trap-tag">Inefficiency</span>
-                </div>
-                <div class="trap-icon-wrap">
-                    <i class="ti ti-clock-dollar"></i>
-                </div>
-                <h3 class="trap-title">The Billable Hours Trap</h3>
-                <p class="trap-text">
-                    Traditional agencies bill for effort, not outcomes. You pay for manual busywork instead of strategic growth and automated efficiency.
-                </p>
-                <div class="trap-breakdown-box">
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-bad">LEGACY:</span>
-                        <span class="breakdown-desc">Incentivized to work slowly to justify a $10k/month retainer.</span>
+            <!-- Trap 04: The Fragmented Stack -->
+            <article class="trap-row" id="trap-04">
+                <div class="trap-visual">
+                    <div class="trap-visual-hud">
+                        <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_04</span>
+                        <span class="hud-id">SYS_ID: ERR_STACK_FRAGMENTATION</span>
                     </div>
-                    <div class="breakdown-row">
-                        <span class="breakdown-label-good">DSE AI:</span>
-                        <span class="breakdown-desc">Outcome-driven automation that scales bandwidth exponentially at zero extra labor cost.</span>
+                    <div class="trap-img-wrap">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                        <img src="assets/the-fragmented-stack.jpg" alt="The Fragmented Stack Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                <div class="trap-content">
+                    <div class="trap-meta-bar">
+                        <span class="trap-num-badge">04 // TECH SILOS</span>
+                        <span class="trap-tag-pill"><i class="ti ti-plug-x"></i> The Fragmented Stack</span>
+                    </div>
+                    <h3 class="trap-heading">4. The Fragmented Stack</h3>
+                    <div class="trap-lead-text">
+                        When your CRM, ad platforms, and email sequences don't communicate in real-time, you create a leaky funnel where prospects drop off.
+                    </div>
+                    <p class="trap-extended-text">
+                        Your Salesforce says one thing, HubSpot reports another, and LinkedIn Ads operates in a total data silo. Manual CSV uploads and brittle Zapier integrations cause data desynchronization and attribution blackouts. High-value enterprise prospects fall through the cracks before a sales rep even knows they visited.
+                    </p>
+                    <div class="trap-breakdown-box">
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
+                            <span class="breakdown-desc">Disconnected tools stitched with brittle manual spreadsheets, delayed handoffs, and zero bidirectional intelligence.</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
+                            <span class="breakdown-desc">Unified neural data fabric with sub-second event triggers across CRM, ad engines, and automated outbound touchpoints.</span>
+                        </div>
+                    </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-plug-x"></i>
+                        <span>Pipeline Leakage: <strong>45% of qualified enterprise leads</strong> vanish between disconnected tools.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trap 05: Vanity Metrics -->
+            <article class="trap-row" id="trap-05">
+                <div class="trap-visual">
+                    <div class="trap-visual-hud">
+                        <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_05</span>
+                        <span class="hud-id">SYS_ID: ERR_METRIC_MISALIGNMENT</span>
+                    </div>
+                    <div class="trap-img-wrap">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                        <img src="assets/vanity-metrics.jpg" alt="Vanity Metrics Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                <div class="trap-content">
+                    <div class="trap-meta-bar">
+                        <span class="trap-num-badge">05 // MISALIGNMENT</span>
+                        <span class="trap-tag-pill"><i class="ti ti-chart-pie-off"></i> Vanity Metrics</span>
+                    </div>
+                    <h3 class="trap-heading">5. Vanity Metrics</h3>
+                    <div class="trap-lead-text">
+                        Marketing celebrates clicks and traffic, but Sales rejects the leads. A lack of alignment means you're optimizing for visibility, not revenue.
+                    </div>
+                    <p class="trap-extended-text">
+                        Agencies proudly deliver monthly PDF decks celebrating 40% growth in impressions, CTR, and downloadable eBook form fills. Meanwhile, your VP of Sales is infuriated by personal Gmail addresses, students, and low-tier contacts with zero purchasing power. High impression volume with zero pipeline is pure vanity.
+                    </p>
+                    <div class="trap-breakdown-box">
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
+                            <span class="breakdown-desc">Optimizing for superficial impressions, clicks, and pageviews that never convert into signed annual enterprise contracts.</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
+                            <span class="breakdown-desc">Closed-loop pipeline attribution directly tied to Sales-Qualified Leads (SQLs), Sales Accepted Opportunities, and Net ARR.</span>
+                        </div>
+                    </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-chart-arrows-vertical"></i>
+                        <span>Sales Disconnect: <strong>82% of agency-delivered leads</strong> rejected as unqualified by enterprise sales teams.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trap 06: The Billable Hours Trap -->
+            <article class="trap-row" id="trap-06">
+                <div class="trap-visual">
+                    <div class="trap-visual-hud">
+                        <span class="hud-status-live"><span class="hud-dot"></span> DIAGNOSTIC FAULT // VECTOR_06</span>
+                        <span class="hud-id">SYS_ID: ERR_BILLABLE_OVERHEAD</span>
+                    </div>
+                    <div class="trap-img-wrap">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                        <img src="assets/the-billable-hours-trap.jpg" alt="The Billable Hours Trap Diagnostic Telemetry" class="trap-img" loading="lazy">
+                    </div>
+                </div>
+                <div class="trap-content">
+                    <div class="trap-meta-bar">
+                        <span class="trap-num-badge">06 // INEFFICIENCY</span>
+                        <span class="trap-tag-pill"><i class="ti ti-clock-dollar"></i> The Billable Hours Trap</span>
+                    </div>
+                    <h3 class="trap-heading">6. The Billable Hours Trap</h3>
+                    <div class="trap-lead-text">
+                        Traditional agencies bill for effort, not outcomes. You pay for manual busywork instead of strategic growth and automated efficiency.
+                    </div>
+                    <p class="trap-extended-text">
+                        The agency business model is fundamentally misaligned with client growth. If an agency automates repetitive work, their billable hours drop. They are financially incentivized to move slowly, pad hours with internal meetings, and maintain bloated account management headcount billed at $250-$400/hour.
+                    </p>
+                    <div class="trap-breakdown-box">
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-bad"><i class="ti ti-x"></i> LEGACY:</span>
+                            <span class="breakdown-desc">Incentivized to move slowly to defend $15,000/mo retainer margins and justify billable staff overhead.</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span class="breakdown-label-good"><i class="ti ti-check"></i> DSE AI:</span>
+                            <span class="breakdown-desc">Autonomous AI infrastructure with flat performance economics focused 100% on net revenue output.</span>
+                        </div>
+                    </div>
+                    <div class="trap-metric-badge">
+                        <i class="ti ti-receipt-tax"></i>
+                        <span>Economic Inefficiency: <strong>65% of agency retainer fees</strong> pay for administrative overhead, not pipeline.</span>
                     </div>
                 </div>
             </article>
