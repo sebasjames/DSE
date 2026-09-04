@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why the traditional B2B marketing agency model is structurally broken in 2026. Explore the 6 failure modes—from the Generalist Trap to the Billable Hours Trap—and how autonomous AI systems drive 3.8x pipeline efficiency.">
+    <title>The Old Agency Model is Broken | Why Legacy Retainers Fail B2B | DSE AI Solutions</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- PRIMARY SEO & CANONICAL -->
+    <link rel="canonical" href="https://dseaisolutions.com/the-problem.html">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:site_name" content="DSE AI Solutions">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dseaisolutions.com/the-problem.html">
+    <meta property="og:title" content="The Old Agency Model is Broken | DSE AI Solutions">
+    <meta property="og:description" content="Why legacy agency retainers fail complex B2B enterprises. The 6 failure modes and how autonomous AI replaces manual busywork with guaranteed pipeline velocity.">
+    <meta property="og:image" content="https://dseaisolutions.com/assets/dse_banner.jpg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
+
+    <!-- TWITTER / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Old Agency Model is Broken | DSE AI Solutions">
+    <meta name="twitter:description" content="Why legacy agency retainers fail complex B2B enterprises. The 6 structural traps and how autonomous AI changes the game.">
+    <meta name="twitter:image" content="https://dseaisolutions.com/assets/dse_banner.jpg">
+
+    <!-- SCHEMA.ORG KNOWLEDGE GRAPH -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://dseaisolutions.com/the-problem.html#webpage",
+      "url": "https://dseaisolutions.com/the-problem.html",
+      "name": "The Old Agency Model is Broken | DSE AI Solutions",
+      "description": "Critical architectural analysis of why traditional agency retainer models collapse under complex B2B industries like MedTech, CleanTech, and Industrial SaaS.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DSE AI Solutions",
+        "url": "https://dseaisolutions.com/",
+        "logo": "https://dseaisolutions.com/assets/favicon.png"
+      }
+    }
+    </script>
+
+    <!-- FONTS & ICONS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #070709;
+            --bg-card: #0f0f14;
+            --bg-card-hover: #15151e;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(230, 0, 0, 0.4);
+            --accent-red: #e60000;
+            --accent-glow: #ff3333;
+            --text-main: #f4f4f6;
+            --text-dim: #9e9eb0;
+            --text-muted: #666675;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 22px;
+            --radius-pill: 9999px;
+            --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(230, 0, 0, 0.12) 0%, transparent 60%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 48px 48px, 48px 48px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+        nav.nav {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 20px 5% !important;
+            background: rgba(7, 7, 9, 0.75) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border-bottom: 1px solid var(--border-subtle) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        nav.nav.scrolled {
+            background: rgba(10, 10, 14, 0.92) !important;
+            padding: 14px 5% !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        nav.nav .logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        nav.nav .logo-mark {
+            width: 28px !important;
+            height: 28px !important;
+            background: linear-gradient(135deg, #e60000, #ff4d4d) !important;
+            border-radius: 6px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #ffffff !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 12px rgba(230, 0, 0, 0.4) !important;
+        }
+
+        nav.nav .logo-text {
+            font-size: 1.2rem !important;
+            font-weight: 800 !important;
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+        }
+
+        nav.nav .logo-text span {
+            background: linear-gradient(135deg, #ff4d4d, #ff6b6b) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        nav.nav .nav-links {
+            display: flex !important;
+            gap: 28px !important;
+            align-items: center !important;
+        }
+
+        nav.nav .nav-links a {
+            color: #d1d1d6 !important;
+            font-weight: 500 !important;
+            font-size: 0.95rem !important;
+            transition: color 0.2s ease !important;
+        }
+
+        nav.nav .nav-links a:hover,
+        nav.nav .nav-links a.active {
+            color: #ffffff !important;
+        }
+
+        nav.nav .nav-item-dropdown {
+            position: relative !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            cursor: pointer !important;
+            padding: 8px 0 !important;
+        }
+
+        nav.nav .nav-dropdown-menu {
+            position: absolute !important;
+            top: 100% !important;
+            left: 50% !important;
+            transform: translateX(-50%) translateY(10px) !important;
+            background: rgba(15, 15, 20, 0.96) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            border-radius: 16px !important;
+            padding: 10px 0 !important;
+            min-width: 200px !important;
+            z-index: 10000 !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+
+        nav.nav .nav-item-dropdown:hover .nav-dropdown-menu {
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: translateX(-50%) translateY(0) !important;
+        }
+
+        nav.nav .nav-dropdown-menu a {
+            display: block !important;
+            padding: 10px 24px !important;
+            font-size: 0.95rem !important;
+            color: #e4e4e7 !important;
+            transition: all 0.2s !important;
+            white-space: nowrap !important;
+        }
+
+        nav.nav .nav-dropdown-menu a:hover {
+            color: #ff4d4d !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            padding-left: 28px !important;
+        }
+
+        nav.nav .nav-cta {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-glow)) !important;
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 20px !important;
+            padding: 9px 24px !important;
+            font-size: 0.92rem !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            box-shadow: 0 4px 16px rgba(230, 0, 0, 0.4) !important;
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        nav.nav .nav-cta:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 24px rgba(230, 0, 0, 0.6) !important;
+        }
+
+        @media (max-width: 768px) {
+            nav.nav .nav-links { display: none !important; }
+        }
+
+        /* HERO SECTION */
+        .problem-hero {
+            position: relative;
+            padding: 180px 5% 70px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-glow-core {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(230, 0, 0, 0.22) 0%, transparent 70%);
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .kicker-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            background: rgba(230, 0, 0, 0.1);
+            border: 1px solid rgba(230, 0, 0, 0.35);
+            border-radius: var(--radius-pill);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #ff5555;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 26px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff3333;
+            box-shadow: 0 0 10px #ff3333;
+            animation: pulseGlow 1.8s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 16px #ff3333; }
+            100% { transform: scale(0.9); opacity: 0.8; }
+        }
+
+        .hero-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            color: #ffffff;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        .hero-headline .broken-text {
+            background: linear-gradient(135deg, #ff4d4d 0%, #e60000 60%, #b30000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(230, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .hero-subhead {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-dim);
+            max-width: 780px;
+            margin: 0 auto 36px;
+            line-height: 1.65;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subhead strong {
+            color: #ffffff;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-action-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--accent-red), #ff4d4d);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(230, 0, 0, 0.45);
+            transition: var(--transition);
+        }
+
+        .btn-action-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(230, 0, 0, 0.65);
+        }
+
+        .btn-action-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 32px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.02rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-subtle);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .btn-action-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION HEADERS */
+        .section-header-center {
+            text-align: center;
+            max-width: 840px;
+            margin: 0 auto 55px;
+        }
+
+        .section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-glow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* 6 STRUCTURAL TRAPS GRID */
+        .traps-section {
+            padding: 80px 5% 100px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .traps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        @media (max-width: 1080px) {
+            .traps-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 700px) {
+            .traps-grid { grid-template-columns: 1fr; }
+        }
+
+        .trap-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 36px 30px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+        }
+
+        .trap-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .trap-card:hover {
+            transform: translateY(-6px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-accent);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(230, 0, 0, 0.15);
+        }
+
+        .trap-card:hover::before {
+            opacity: 1;
+        }
+
+        .trap-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .trap-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .trap-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(230, 0, 0, 0.12);
+            color: #ff6b6b;
+            border: 1px solid rgba(230, 0, 0, 0.28);
+        }
+
+        .trap-icon-wrap {
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-glow);
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+            transition: var(--transition);
+        }
+
+        .trap-card:hover .trap-icon-wrap {
+            background: rgba(230, 0, 0, 0.15);
+            border-color: rgba(230, 0, 0, 0.4);
+            transform: scale(1.08);
+        }
+
+        .trap-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .trap-text {
+            font-size: 0.98rem;
+            color: var(--text-dim);
+            line-height: 1.65;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .trap-breakdown-box {
+            padding: 16px 18px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            margin-top: auto;
+        }
+
+        .breakdown-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .breakdown-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .breakdown-label-bad {
+            color: #ff5555;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            min-width: 60px;
+        }
+
+        .breakdown-label-good {
+            color: #22c55e;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            min-width: 60px;
+        }
+
+        .breakdown-desc {
+            color: #c4c4d0;
+            line-height: 1.45;
+        }
+
+        /* COMPARISON MATRIX SECTION */
+        .comparison-section {
+            padding: 90px 5%;
+            background: rgba(15, 15, 20, 0.45);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+        }
+
+        .matrix-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        table.comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 750px;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 22px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .comparison-table th {
+            background: rgba(0, 0, 0, 0.4);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .comparison-table th.col-dse {
+            background: linear-gradient(180deg, rgba(230, 0, 0, 0.25) 0%, rgba(230, 0, 0, 0.08) 100%);
+            border-left: 1px solid var(--border-accent);
+            border-right: 1px solid var(--border-accent);
+            color: #ffffff;
+        }
+
+        .comparison-table td.col-dse {
+            background: rgba(230, 0, 0, 0.04);
+            border-left: 1px solid rgba(230, 0, 0, 0.25);
+            border-right: 1px solid rgba(230, 0, 0, 0.25);
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .metric-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .metric-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .bad-val {
+            color: #ff6666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.92rem;
+        }
+
+        .good-val {
+            color: #4ade80;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* CALCULATOR WIDGET */
+        .calculator-section {
+            padding: 100px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .calc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 900px) {
+            .calc-card { grid-template-columns: 1fr; padding: 32px 24px; }
+        }
+
+        .calc-card::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(230, 0, 0, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .calc-input-group {
+            margin-bottom: 32px;
+        }
+
+        .calc-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .calc-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .calc-display-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-glow);
+        }
+
+        .calc-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 3px solid var(--accent-red);
+            box-shadow: 0 0 12px rgba(230, 0, 0, 0.8);
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .calc-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .calc-result-box {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(230, 0, 0, 0.3);
+            border-radius: var(--radius-md);
+            padding: 36px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .calc-result-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .calc-result-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            font-weight: 900;
+            color: #ff4d4d;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            text-shadow: 0 0 25px rgba(230, 0, 0, 0.4);
+        }
+
+        .calc-result-sub {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        /* 3 PILLARS SOLUTION */
+        .solution-section {
+            padding: 100px 5%;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        @media (max-width: 900px) {
+            .solution-grid { grid-template-columns: 1fr; }
+        }
+
+        .solution-card {
+            background: linear-gradient(180deg, rgba(22, 22, 30, 0.7) 0%, rgba(15, 15, 20, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .solution-card:hover {
+            border-color: rgba(34, 197, 94, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 197, 94, 0.1);
+        }
+
+        .solution-step-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.12);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .solution-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 14px;
+        }
+
+        .solution-card p {
+            font-size: 0.98rem;
+            color: var(--text-dim);
+            line-height: 1.65;
+        }
+
+        /* BOTTOM CTA */
+        .bottom-cta-banner {
+            padding: 120px 5%;
+            background: radial-gradient(circle at 50% 50%, rgba(230, 0, 0, 0.18) 0%, rgba(7, 7, 9, 0.95) 75%);
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            position: relative;
+        }
+
+        .bottom-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bottom-cta-content h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            line-height: 1.15;
+        }
+
+        .bottom-cta-content p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer.footer {
+            background: #030305;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 80px 5% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        .footer-col h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: #ffffff;
+        }
+
+        /* CONTACT MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #0f0f14;
+            border-radius: 24px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            color: #ffffff;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(230, 0, 0, 0.2);
+            color: #ff4d4d;
+        }
+
+        .modal-header h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .modal-header p {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+        }
+
+        .modal-form p {
+            margin-bottom: 18px;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #e4e4e7;
+            margin-bottom: 6px;
+            text-align: left;
+        }
+
+        .modal-form input,
+        .modal-form textarea {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 13px 16px;
+            font-size: 0.98rem;
+            color: #ffffff;
+            outline: none;
+            font-family: var(--font-sans);
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+
+        .modal-form input:focus,
+        .modal-form textarea:focus {
+            border-color: var(--accent-red);
+            box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .modal-form button[type="submit"] {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-red), #ff4d4d);
+            color: #ffffff;
+            border: none;
+            border-radius: 30px;
+            padding: 16px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(230, 0, 0, 0.35);
+            margin-top: 8px;
+            transition: all 0.3s;
+        }
+
+        .modal-form button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(230, 0, 0, 0.55);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="logo">
+            <div class="logo-mark">DSE</div>
+            <div class="logo-text">DSE <span>AI</span></div>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item-dropdown">
+                <a href="#industries">Industries <i class="ti ti-chevron-down" style="font-size: 0.85rem; margin-left: 4px;"></i></a>
+                <div class="nav-dropdown-menu">
+                    <a href="b2b.html">B2B SaaS</a>
+                    <a href="futuristic-industrial-growth.html">Industrial</a>
+                    <a href="medtech.html">MedTech</a>
+                    <a href="renewables.html">Renewables</a>
+                </div>
+            </div>
+            <a href="DSE-AI-Studio.html">DSE AI Studio</a>
+            <a href="the-problem.html" class="active" style="color: #ff4d4d !important; font-weight: 700 !important;">The Problem</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#about">About</a>
+        </div>
+        <button class="nav-cta" onclick="openContactModal(event)">Request Audit</button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="problem-hero">
+        <div class="hero-glow-core"></div>
+        
+        <div class="kicker-badge">
+            <span class="pulse-dot"></span>
+            Structural Industry Breakdown // B2B Manifesto
+        </div>
+
+        <h1 class="hero-headline">
+            THE OLD AGENCY MODEL IS <span class="broken-text">BROKEN.</span>
+        </h1>
+
+        <p class="hero-subhead">
+            If you're relying on manual execution and disconnected tools, <strong>you're already behind.</strong> Traditional retainers reward agency headcounts and billable hours—not deal velocity or closed revenue.
+        </p>
+
+        <div class="hero-cta-group">
+            <a href="#traps" class="btn-action-primary">
+                <span>Inspect The 6 Traps</span>
+                <i class="ti ti-arrow-down"></i>
+            </a>
+            <a href="#calculator" class="btn-action-secondary">
+                <i class="ti ti-calculator"></i>
+                <span>Calculate Your Retainer Leak</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- THE 6 STRUCTURAL TRAPS SECTION -->
+    <section class="traps-section" id="traps">
+        <div class="section-header-center">
+            <div class="section-eyebrow">Diagnostic Overview</div>
+            <h2 class="section-title">The 6 Failure Modes of Legacy Agencies</h2>
+            <p class="section-desc">
+                When enterprise products require deep clinical, engineering, or regulatory credibility, horizontal marketing teams inevitably break down. Here is how:
+            </p>
+        </div>
+
+        <div class="traps-grid">
+            <!-- Trap 01 -->
+            <article class="trap-card">
+                <div class="trap-card-top">
+                    <span class="trap-num">TRAP // 01</span>
+                    <span class="trap-tag">Knowledge Gap</span>
+                </div>
+                <div class="trap-icon-wrap">
+                    <i class="ti ti-users-minus"></i>
+                </div>
+                <h3 class="trap-title">The Generalist Trap</h3>
+                <p class="trap-text">
+                    Most agencies don't understand the nuances of MedTech, SaaS, or Renewables, leading to generic messaging that fails to convert technical buyers.
+                </p>
+                <div class="trap-breakdown-box">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-bad">LEGACY:</span>
+                        <span class="breakdown-desc">Junior writers guessing regulatory language and engineering specs.</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-good">DSE AI:</span>
+                        <span class="breakdown-desc">Pre-trained models grounded in ISO, HIPAA, and vertical B2B filings.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trap 02 -->
+            <article class="trap-card">
+                <div class="trap-card-top">
+                    <span class="trap-num">TRAP // 02</span>
+                    <span class="trap-tag">Slow Execution</span>
+                </div>
+                <div class="trap-icon-wrap">
+                    <i class="ti ti-hourglass-empty"></i>
+                </div>
+                <h3 class="trap-title">The Content Bottleneck</h3>
+                <p class="trap-text">
+                    Producing highly technical content takes human teams weeks. By the time your campaign launches, the market conversation has shifted.
+                </p>
+                <div class="trap-breakdown-box">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-bad">LEGACY:</span>
+                        <span class="breakdown-desc">3 to 6 weeks of back-and-forth review per technical whitepaper.</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-good">DSE AI:</span>
+                        <span class="breakdown-desc">Autonomous synthesis in minutes with 99.4% domain accuracy.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trap 03 -->
+            <article class="trap-card">
+                <div class="trap-card-top">
+                    <span class="trap-num">TRAP // 03</span>
+                    <span class="trap-tag">Wasted Budget</span>
+                </div>
+                <div class="trap-icon-wrap">
+                    <i class="ti ti-report-money"></i>
+                </div>
+                <h3 class="trap-title">Blind Ad Spend</h3>
+                <p class="trap-text">
+                    Throwing budget at broad keywords without AI-driven intent modeling results in low-quality leads and wasted marketing dollars.
+                </p>
+                <div class="trap-breakdown-box">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-bad">LEGACY:</span>
+                        <span class="breakdown-desc">Bidding on generic search queries that attract students and job seekers.</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-good">DSE AI:</span>
+                        <span class="breakdown-desc">Account-level intent scoring targeting active buying committees.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trap 04 -->
+            <article class="trap-card">
+                <div class="trap-card-top">
+                    <span class="trap-num">TRAP // 04</span>
+                    <span class="trap-tag">Tech Silos</span>
+                </div>
+                <div class="trap-icon-wrap">
+                    <i class="ti ti-plug-x"></i>
+                </div>
+                <h3 class="trap-title">The Fragmented Stack</h3>
+                <p class="trap-text">
+                    When your CRM, ad platforms, and email sequences don't communicate in real-time, you create a leaky funnel where prospects drop off.
+                </p>
+                <div class="trap-breakdown-box">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-bad">LEGACY:</span>
+                        <span class="breakdown-desc">CSV exports and Zapier patches breaking every quarter.</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-good">DSE AI:</span>
+                        <span class="breakdown-desc">Unified real-time studio synchronizing CRM, signals, and ads 24/7.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trap 05 -->
+            <article class="trap-card">
+                <div class="trap-card-top">
+                    <span class="trap-num">TRAP // 05</span>
+                    <span class="trap-tag">Misalignment</span>
+                </div>
+                <div class="trap-icon-wrap">
+                    <i class="ti ti-chart-pie-off"></i>
+                </div>
+                <h3 class="trap-title">Vanity Metrics</h3>
+                <p class="trap-text">
+                    Marketing celebrates clicks and traffic, but Sales rejects the leads. A lack of alignment means you're optimizing for visibility, not revenue.
+                </p>
+                <div class="trap-breakdown-box">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-bad">LEGACY:</span>
+                        <span class="breakdown-desc">Monthly PDF reports boasting impressions that generated $0 pipeline.</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-good">DSE AI:</span>
+                        <span class="breakdown-desc">Attribution tied directly to SQLs, pipeline velocity, and closed-won ACV.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trap 06 -->
+            <article class="trap-card">
+                <div class="trap-card-top">
+                    <span class="trap-num">TRAP // 06</span>
+                    <span class="trap-tag">Inefficiency</span>
+                </div>
+                <div class="trap-icon-wrap">
+                    <i class="ti ti-clock-dollar"></i>
+                </div>
+                <h3 class="trap-title">The Billable Hours Trap</h3>
+                <p class="trap-text">
+                    Traditional agencies bill for effort, not outcomes. You pay for manual busywork instead of strategic growth and automated efficiency.
+                </p>
+                <div class="trap-breakdown-box">
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-bad">LEGACY:</span>
+                        <span class="breakdown-desc">Incentivized to work slowly to justify a $10k/month retainer.</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span class="breakdown-label-good">DSE AI:</span>
+                        <span class="breakdown-desc">Outcome-driven automation that scales bandwidth exponentially at zero extra labor cost.</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- COMPARISON MATRIX -->
+    <section class="comparison-section">
+        <div class="section-header-center">
+            <div class="section-eyebrow">Architectural Contrast</div>
+            <h2 class="section-title">Traditional Retainer vs. DSE Autonomous AI</h2>
+            <p class="section-desc">
+                Comparing unit economics, time-to-value, and operational velocity side by side:
+            </p>
+        </div>
+
+        <div class="matrix-wrap">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 32%;">Operational Dimension</th>
+                        <th style="width: 34%;">Legacy Agency Model</th>
+                        <th style="width: 34%;" class="col-dse">DSE Autonomous AI Studio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="metric-title">Time to First Pipeline</div>
+                            <div class="metric-sub">Ramp up, onboarding & go-to-market</div>
+                        </td>
+                        <td>
+                            <div class="bad-val"><i class="ti ti-x"></i> 90 to 120 Days</div>
+                        </td>
+                        <td class="col-dse">
+                            <div class="good-val"><i class="ti ti-check"></i> 14 to 21 Days</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="metric-title">Cost Per Qualified Pipeline</div>
+                            <div class="metric-sub">Fully loaded CPA on sales-accepted deals</div>
+                        </td>
+                        <td>
+                            <div class="bad-val"><i class="ti ti-x"></i> $4,800 – $7,500</div>
+                        </td>
+                        <td class="col-dse">
+                            <div class="good-val"><i class="ti ti-check"></i> $1,250 – $1,900</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="metric-title">Domain Expertise Accuracy</div>
+                            <div class="metric-sub">Grounded understanding of your B2B ICP</div>
+                        </td>
+                        <td>
+                            <div class="bad-val"><i class="ti ti-x"></i> &lt;60% (Heavy revision needed)</div>
+                        </td>
+                        <td class="col-dse">
+                            <div class="good-val"><i class="ti ti-check"></i> 99.4% (Pre-grounded on vertical data)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="metric-title">Internal Team Bandwidth Needed</div>
+                            <div class="metric-sub">Meetings, briefing copywriters, reviews</div>
+                        </td>
+                        <td>
+                            <div class="bad-val"><i class="ti ti-x"></i> 15 – 20 hours / week</div>
+                        </td>
+                        <td class="col-dse">
+                            <div class="good-val"><i class="ti ti-check"></i> &lt; 2 hours / week (Zero-touch)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="metric-title">Campaign Optimization Cycle</div>
+                            <div class="metric-sub">Reallocating ad budget & creative pivots</div>
+                        </td>
+                        <td>
+                            <div class="bad-val"><i class="ti ti-x"></i> Bi-weekly manual tweaks</div>
+                        </td>
+                        <td class="col-dse">
+                            <div class="good-val"><i class="ti ti-check"></i> Real-time 24/7 algorithmic shifts</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="metric-title">Incentive Alignment</div>
+                            <div class="metric-sub">What the vendor is rewarded for</div>
+                        </td>
+                        <td>
+                            <div class="bad-val"><i class="ti ti-x"></i> Maximizing billable hours</div>
+                        </td>
+                        <td class="col-dse">
+                            <div class="good-val"><i class="ti ti-check"></i> Maximizing pipeline & revenue</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE BUDGET LEAK CALCULATOR -->
+    <section class="calculator-section" id="calculator">
+        <div class="section-header-center">
+            <div class="section-eyebrow">Interactive Diagnostic</div>
+            <h2 class="section-title">Calculate Your Retainer Overhead Leak</h2>
+            <p class="section-desc">
+                Estimate how much capital and executive time your team is subsidizing under the traditional agency model.
+            </p>
+        </div>
+
+        <div class="calc-card">
+            <div class="calc-inputs">
+                <div class="calc-input-group">
+                    <div class="calc-label-row">
+                        <span class="calc-label">Monthly Agency Retainer</span>
+                        <span class="calc-display-val" id="val-retainer">$10,000 / mo</span>
+                    </div>
+                    <input type="range" class="calc-slider" id="slider-retainer" min="3000" max="35000" step="1000" value="10000">
+                </div>
+
+                <div class="calc-input-group">
+                    <div class="calc-label-row">
+                        <span class="calc-label">Executive Hours Spent in Agency Meetings</span>
+                        <span class="calc-display-val" id="val-hours">15 hrs / wk</span>
+                    </div>
+                    <input type="range" class="calc-slider" id="slider-hours" min="4" max="30" step="1" value="15">
+                </div>
+
+                <div class="calc-input-group" style="margin-bottom: 0;">
+                    <div class="calc-label-row">
+                        <span class="calc-label">Monthly Ad Spend Managed</span>
+                        <span class="calc-display-val" id="val-adspend">$25,000 / mo</span>
+                    </div>
+                    <input type="range" class="calc-slider" id="slider-adspend" min="5000" max="100000" step="5000" value="25000">
+                </div>
+            </div>
+
+            <div class="calc-result-box">
+                <div class="calc-result-title">Estimated Annual Inefficiency Leak</div>
+                <div class="calc-result-num" id="leak-amount">$84,000</div>
+                <p class="calc-result-sub" id="leak-explainer">
+                    Lost in unbillable review loops, broad-match ad waste, and slow content production cycles.
+                </p>
+                <button class="btn-action-primary" style="width: 100%; justify-content: center;" onclick="openContactModal(event)">
+                    <span>Reclaim With DSE AI</span>
+                    <i class="ti ti-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SOLUTION PILLARS -->
+    <section class="solution-section">
+        <div class="section-header-center">
+            <div class="section-eyebrow">The Autonomous Alternative</div>
+            <h2 class="section-title">How DSE AI Fixes the Equation</h2>
+            <p class="section-desc">
+                We engineered an end-to-end intelligence studio that replaces horizontal labor with specialized domain infrastructure.
+            </p>
+        </div>
+
+        <div class="solution-grid">
+            <div class="solution-card">
+                <span class="solution-step-num">PILLAR 01</span>
+                <h3>Sovereign Domain Models</h3>
+                <p>
+                    Instead of generic ChatGPT copy, your engine is fine-tuned on clinical trials, engineering specifications, and closed-won sales transcripts.
+                </p>
+            </div>
+            <div class="solution-card">
+                <span class="solution-step-num">PILLAR 02</span>
+                <h3>Algorithmic Intent Targeting</h3>
+                <p>
+                    We track 55,000+ real-time intent signals to find buying committees actively researching solutions, bypassing broad search clicks entirely.
+                </p>
+            </div>
+            <div class="solution-card">
+                <span class="solution-step-num">PILLAR 03</span>
+                <h3>Continuous Closed-Loop Optimization</h3>
+                <p>
+                    The system monitors lead response, pipeline conversion, and ROI 24/7, autonomously adjusting bids and ad assets without human lag.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="bottom-cta-banner">
+        <div class="bottom-cta-content">
+            <h2>Ready to Stop Subsidizing Agency Overhead?</h2>
+            <p>
+                Deploy an autonomous marketing engine pre-configured for your vertical. Request a confidential funnel audit and see what your pipeline is missing.
+            </p>
+            <button class="btn-action-primary" onclick="openContactModal(event)">
+                <i class="ti ti-bolt"></i>
+                <span>Request Free AI Funnel Audit</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h2>DSE<span style="color: var(--accent-red);">.</span></h2>
+                <p>We transform chaotic marketing data into autonomous, predictable revenue streams using advanced AI.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="the-problem.html">The Problem</a></li>
+                    <li><a href="DSE-AI-Studio.html">DSE AI Studio</a></li>
+                    <li><a href="b2b.html">B2B SaaS</a></li>
+                    <li><a href="medtech.html">MedTech</a></li>
+                    <li><a href="renewables.html">Renewables</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Insights</h4>
+                <ul>
+                    <li><a href="blog.html">Blog & Playbooks</a></li>
+                    <li><a href="article.html?id=vertical-ai-vs-generalist-agencies">Vertical AI vs Agencies</a></li>
+                    <li><a href="article.html?id=aeo-generative-engine-optimization-2026">AEO Optimization</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Info</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Security Architecture</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 DSE Marketing Solutions. All rights reserved.</span>
+            <div class="footer-socials">
+                <a href="#"><i class="ti ti-brand-linkedin"></i></a>
+                <a href="#"><i class="ti ti-brand-x"></i></a>
+                <a href="#"><i class="ti ti-brand-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CONTACT / AUDIT MODAL -->
+    <div class="modal-overlay" id="contact-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContactModal()"><i class="ti ti-x"></i></button>
+            <div class="modal-header">
+                <h2>Request Free AI Audit</h2>
+                <p>Find out where your current marketing is leaking revenue.</p>
+            </div>
+            <form name="problem-audit" method="POST" data-netlify="true" netlify class="modal-form" id="audit-form" onsubmit="handleAuditSubmit(event)">
+                <input type="hidden" name="form-name" value="problem-audit" />
+                <p>
+                    <label>Your Name *</label>
+                    <input type="text" name="name" required placeholder="Alex Morgan">
+                </p>
+                <p>
+                    <label>Work Email *</label>
+                    <input type="email" name="email" required placeholder="alex@company.com">
+                </p>
+                <p>
+                    <label>Company & Industry</label>
+                    <input type="text" name="company" placeholder="Acme Corp · MedTech">
+                </p>
+                <button type="submit">Deploy My Audit</button>
+            </form>
+            <div id="audit-success" style="display: none; padding: 25px 10px; text-align: center;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); color: #22c55e; font-size: 26px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                    <i class="ti ti-check"></i>
+                </div>
+                <h3 style="font-size: 1.3rem; margin-bottom: 6px;">Audit Request Received</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem;">Our intelligence team will analyze your funnel and reach out within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Navbar Scroll Styling
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 40) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Contact Modal Logic
+        window.openContactModal = function (e) {
+            if (e) e.preventDefault();
+            const modal = document.getElementById('contact-modal');
+            if (modal) modal.classList.add('active');
+        };
+
+        window.closeContactModal = function () {
+            const modal = document.getElementById('contact-modal');
+            if (modal) modal.classList.remove('active');
+        };
+
+        window.handleAuditSubmit = function (e) {
+            e.preventDefault();
+            const form = document.getElementById('audit-form');
+            const success = document.getElementById('audit-success');
+            const formData = new FormData(form);
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            }).catch(() => {});
+            if (form) form.style.display = 'none';
+            if (success) success.style.display = 'block';
+        };
+
+        const modalOverlay = document.getElementById('contact-modal');
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeContactModal();
+            });
+        }
+
+        // Calculator Interactive Logic
+        const sliderRetainer = document.getElementById('slider-retainer');
+        const sliderHours = document.getElementById('slider-hours');
+        const sliderAdspend = document.getElementById('slider-adspend');
+
+        const valRetainer = document.getElementById('val-retainer');
+        const valHours = document.getElementById('val-hours');
+        const valAdspend = document.getElementById('val-adspend');
+        const leakAmount = document.getElementById('leak-amount');
+
+        function updateCalculator() {
+            const retainer = parseInt(sliderRetainer.value);
+            const hours = parseInt(sliderHours.value);
+            const adspend = parseInt(sliderAdspend.value);
+
+            valRetainer.textContent = `$${retainer.toLocaleString()} / mo`;
+            valHours.textContent = `${hours} hrs / wk`;
+            valAdspend.textContent = `$${adspend.toLocaleString()} / mo`;
+
+            // Leak Formula:
+            // 45% of retainer spent on manual agency overhead
+            // Executive hours valued at $150/hr
+            // 25% of ad spend wasted on broad matching without intent
+            const annualRetainerWaste = (retainer * 12) * 0.45;
+            const annualExecHoursWaste = (hours * 50) * 150;
+            const annualAdWaste = (adspend * 12) * 0.25;
+
+            const totalLeak = Math.round(annualRetainerWaste + annualExecHoursWaste + annualAdWaste);
+            leakAmount.textContent = `$${totalLeak.toLocaleString()}`;
+        }
+
+        if (sliderRetainer && sliderHours && sliderAdspend) {
+            sliderRetainer.addEventListener('input', updateCalculator);
+            sliderHours.addEventListener('input', updateCalculator);
+            sliderAdspend.addEventListener('input', updateCalculator);
+            updateCalculator();
+        }
+    </script>
+</body>
+</html>

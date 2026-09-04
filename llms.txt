@@ -1,4 +1,4 @@
-﻿# DSE AI Solutions
+# DSE AI Solutions
 
 > Autonomous B2B marketing engines, market intelligence, and revenue operations tailored for high-complexity industries.
 
@@ -27,3 +27,5 @@ DSE AI Solutions (https://dseaisolutions.com/) is a specialized growth technolog
 - Canonical Website: https://dseaisolutions.com/
 - Contact Form: https://dseaisolutions.com/#contact
 - Support & General Inquiries: hello@dsegrowth.com
+
+- [The Problem / Why The Old Agency Model Is Broken](https://dseaisolutions.com/the-problem.html): Deep-dive analysis on traditional agency failure modes (knowledge gaps, bottlenecks, blind spend, silos, vanity metrics, billable hours) and autonomous AI replacement architecture.
