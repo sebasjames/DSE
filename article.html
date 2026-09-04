@@ -739,17 +739,12 @@
         <h1 class="article-headline" id="article-title">Loading playbook...</h1>
 
         <div class="meta-strip">
-            <div class="author-box">
-                <img src="" alt="Author" class="author-avatar" id="author-avatar">
-                <div class="author-info">
-                    <div class="author-name" id="author-name">Sebastian James</div>
-                    <div class="author-role" id="author-role">Chief AI Strategist</div>
-                </div>
+            <div class="meta-date-box" style="display: flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">
+                <i class="ti ti-calendar" style="color: var(--accent-primary); font-size: 1.15rem;"></i>
+                <span id="article-date">August 28, 2026</span>
             </div>
 
             <div class="meta-details">
-                <span><i class="ti ti-calendar"></i> <span id="article-date">August 28, 2026</span></span>
-                <span>●</span>
                 <span><i class="ti ti-clock"></i> <span id="article-read-time">6 min read</span></span>
             </div>
         </div>
@@ -857,9 +852,12 @@
             document.getElementById('breadcrumb-category').textContent = currentPost.category;
             document.getElementById('article-category').textContent = currentPost.category;
             document.getElementById('article-title').textContent = currentPost.title;
-            document.getElementById('author-name').textContent = currentPost.author;
-            document.getElementById('author-role').textContent = currentPost.authorRole;
-            document.getElementById('author-avatar').src = currentPost.authorAvatar;
+            const authorNameEl = document.getElementById('author-name');
+            if (authorNameEl) authorNameEl.textContent = currentPost.author;
+            const authorRoleEl = document.getElementById('author-role');
+            if (authorRoleEl) authorRoleEl.textContent = currentPost.authorRole;
+            const authorAvatarEl = document.getElementById('author-avatar');
+            if (authorAvatarEl) authorAvatarEl.src = currentPost.authorAvatar;
             document.getElementById('article-date').textContent = currentPost.date;
             document.getElementById('article-read-time').textContent = currentPost.readTime;
             

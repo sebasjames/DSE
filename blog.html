@@ -915,12 +915,12 @@
                         </div>
                         <h2 class="featured-heading">${featuredPost.title}</h2>
                         <p class="featured-excerpt">${featuredPost.excerpt}</p>
-                        <div class="author-box">
-                            <img src="${featuredPost.authorAvatar}" alt="${featuredPost.author}" class="author-avatar">
-                            <div class="author-info">
-                                <div class="author-name">${featuredPost.author}</div>
-                                <div class="author-role">${featuredPost.authorRole}</div>
+                        <div class="featured-footer" style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 15px;">
+                            <div class="card-date-badge" style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">
+                                <i class="ti ti-calendar" style="color: var(--accent-primary); font-size: 1.05rem;"></i>
+                                <span>${featuredPost.date}</span>
                             </div>
+                            <span class="read-link" style="color: var(--accent-primary); font-weight: 600; font-size: 0.95rem;">Read Playbook &rarr;</span>
                         </div>
                     </div>
                 </a>
@@ -970,11 +970,9 @@
                         </a>
                         <p class="card-excerpt">${post.excerpt}</p>
                         <div class="card-footer">
-                            <div class="author-box">
-                                <img src="${post.authorAvatar}" alt="${post.author}" class="author-avatar" style="width: 32px; height: 32px;">
-                                <div class="author-info">
-                                    <div class="author-name" style="font-size: 0.85rem;">${post.author}</div>
-                                </div>
+                            <div class="card-date-badge" style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">
+                                <i class="ti ti-calendar" style="color: var(--accent-primary);"></i>
+                                <span>${post.date}</span>
                             </div>
                             <a href="article.html?id=${post.slug}" class="read-link">Read <i class="ti ti-arrow-right"></i></a>
                         </div>
