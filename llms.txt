@@ -21,7 +21,7 @@ DSE AI Solutions (https://dseaisolutions.com/) is a specialized growth technolog
 1. **AI-Driven Funnel Audits**: Deep autonomous analysis of full-funnel marketing data to pinpoint revenue leaks in seconds.
 2. **Autonomous Marketing Strategy**: Predictive market positioning, multi-channel orchestration, and real-time competitor response.
 3. **PR & Authority Automation**: Automated media outreach and publication placement across top-tier financial and trade networks (PR Newswire, Business Wire, Accesswire).
-4. **DSE Studio / Platform** (https://dseaisolutions.com/platform.html): Centralized enterprise command center for campaign generation, analytics, and asset distribution.
+4. **DSE Studio / Platform** (https://dseaisolutions.com/DSE-AI-Studio.html): Centralized enterprise command center for campaign generation, analytics, and asset distribution.
 
 ## Contact & Entity Information
 - Canonical Website: https://dseaisolutions.com/
