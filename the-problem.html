@@ -440,6 +440,74 @@
             align-items: center;
             gap: 60px;
             position: relative;
+            opacity: 0.25;
+            filter: blur(3.5px) grayscale(65%);
+            transform: scale(0.965);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, filter, transform;
+        }
+
+        .trap-row.is-focused {
+            opacity: 1;
+            filter: blur(0px) grayscale(0%);
+            transform: scale(1);
+        }
+
+        .trap-row.is-focused .trap-visual {
+            border-color: rgba(230, 0, 0, 0.65);
+            box-shadow: 0 35px 85px rgba(0, 0, 0, 0.8), 0 0 55px rgba(230, 0, 0, 0.32);
+        }
+
+        .trap-row.is-focused .hud-dot {
+            box-shadow: 0 0 14px #ff0000, 0 0 28px rgba(255, 0, 0, 0.95);
+            animation: pulse-red 1s infinite;
+        }
+
+        .trap-row.is-focused .hud-status-live {
+            color: #ff3333;
+            text-shadow: 0 0 12px rgba(255, 50, 50, 0.7);
+        }
+
+        .trap-row.is-focused .trap-num-badge {
+            background: rgba(230, 0, 0, 0.22);
+            border-color: rgba(230, 0, 0, 0.6);
+            box-shadow: 0 0 22px rgba(230, 0, 0, 0.3);
+        }
+
+        .trap-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff2222, #ffffff, #ff2222, transparent);
+            box-shadow: 0 0 16px rgba(255, 34, 34, 0.9);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .trap-row.is-focused .trap-visual::after {
+            opacity: 1;
+            animation: laserSweep 3s ease-in-out infinite;
+        }
+
+        @keyframes laserSweep {
+            0% { top: 0%; opacity: 0; }
+            12% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .trap-row {
+                opacity: 0.38;
+                filter: blur(1.5px) grayscale(40%);
+                transform: scale(0.985);
+            }
         }
 
         .trap-row:nth-child(even) {
@@ -1888,6 +1956,65 @@
 
     <!-- SCRIPTS -->
     <script>
+        // Scroll-Driven Focus & Defocus Engine for 6 Diagnostic Traps (Option 1)
+        function initTrapScrollFocus() {
+            const trapRows = document.querySelectorAll('.trap-row');
+            if (!trapRows.length) return;
+
+            let isTicking = false;
+
+            function evaluateTrapFocus() {
+                const vh = window.innerHeight;
+                const vCenter = vh * 0.5;
+
+                let closestRow = null;
+                let minDistance = Infinity;
+
+                trapRows.forEach(row => {
+                    const rect = row.getBoundingClientRect();
+                    const rowCenter = rect.top + (rect.height * 0.5);
+                    const dist = Math.abs(vCenter - rowCenter);
+
+                    if (dist < minDistance) {
+                        minDistance = dist;
+                        closestRow = row;
+                    }
+                });
+
+                // Maximum distance threshold from center to qualify as focused (60% of viewport)
+                const maxThreshold = vh * 0.58;
+
+                trapRows.forEach(row => {
+                    if (row === closestRow && minDistance < maxThreshold) {
+                        row.classList.add('is-focused');
+                    } else {
+                        row.classList.remove('is-focused');
+                    }
+                });
+
+                isTicking = false;
+            }
+
+            function onScroll() {
+                if (!isTicking) {
+                    window.requestAnimationFrame(evaluateTrapFocus);
+                    isTicking = true;
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
+
+            // Initial trigger
+            evaluateTrapFocus();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTrapScrollFocus);
+        } else {
+            initTrapScrollFocus();
+        }
+
         // Navbar Scroll Styling
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('nav');
