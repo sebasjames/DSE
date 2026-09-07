@@ -850,8 +850,9 @@
         <div class="digest-card">
             <h2>Join 12,000+ Enterprise Growth Leaders</h2>
             <p>Subscribe to the DSE Growth Dispatch for weekly algorithmic breakdowns, unit economics models, and vertical AI benchmarks.</p>
-            <form class="digest-form" id="digest-form">
-                <input type="email" class="digest-input" id="digest-email" placeholder="Enter your corporate email..." required>
+            <form name="digest-form" method="POST" data-netlify="true" netlify class="digest-form" id="digest-form">
+                <input type="hidden" name="form-name" value="digest-form" />
+                <input type="email" name="email" class="digest-input" id="digest-email" placeholder="Enter your corporate email..." required>
                 <button type="submit" class="digest-btn">Get Dispatch</button>
             </form>
         </div>
@@ -1018,6 +1019,13 @@
             e.preventDefault();
             const email = document.getElementById('digest-email').value;
             if (!email) return;
+
+                        const formData = new FormData(digestForm);
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            }).catch(() => {});
 
             toastMsg.textContent = `Subscribed successfully! Welcome to the Growth Dispatch.`;
             toast.classList.add('show');
