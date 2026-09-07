@@ -1513,11 +1513,11 @@
         .url-preview-thumb-wrap {
             position: relative;
             width: 100%;
-            height: 120px;
-            border-radius: 8px;
+            height: 140px;
+            border-radius: 10px;
             overflow: hidden;
             background: #0d0405;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1527,13 +1527,23 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top;
+            object-position: top center;
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
         .url-preview-img.loaded {
             opacity: 1;
+            animation: previewScrollPan 9s ease-in-out infinite alternate;
+        }
+
+        @keyframes previewScrollPan {
+            0%, 20% {
+                object-position: top center;
+            }
+            80%, 100% {
+                object-position: bottom center;
+            }
         }
 
         .url-preview-loader {
@@ -2661,11 +2671,11 @@
         .url-preview-thumb-wrap {
             position: relative;
             width: 100%;
-            height: 120px;
-            border-radius: 8px;
+            height: 140px;
+            border-radius: 10px;
             overflow: hidden;
             background: #0d0405;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2675,13 +2685,23 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top;
+            object-position: top center;
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
         .url-preview-img.loaded {
             opacity: 1;
+            animation: previewScrollPan 9s ease-in-out infinite alternate;
+        }
+
+        @keyframes previewScrollPan {
+            0%, 20% {
+                object-position: top center;
+            }
+            80%, 100% {
+                object-position: bottom center;
+            }
         }
 
         .url-preview-loader {
@@ -2892,7 +2912,7 @@
                                 previewImg.classList.remove('loaded');
                                 
                                 // Snapshot service using thum.io with Google favicon fallback
-                                const snapshotUrl = `https://image.thum.io/get/width/600/crop/400/noanimate/${parsed.href}`;
+                                const snapshotUrl = `https://image.thum.io/get/width/800/crop/1400/noanimate/${parsed.href}`;
                                 
                                 previewImg.onload = () => {
                                     if (previewLoader) previewLoader.style.display = 'none';
