@@ -3775,7 +3775,8 @@
                     <h3>Get ahead of the curve.</h3>
                     <p>Join the waitlist for our proprietary AI marketing studio — designed for complex B2B
                         industries. Be the first to automate what your competitors are still doing manually.</p>
-                    <form class="waitlist-bar" name="waitlist" method="POST" data-netlify="true" netlify>
+                    <form class="waitlist-bar" name="waitlist" method="POST" data-netlify="true" netlify data-netlify-honeypot="bot-field">
+                    <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
                         <input type="email" name="email" placeholder="your@company.com" required>
                         <button type="submit">Join waitlist</button>
                     </form>
@@ -3907,7 +3908,8 @@
             <div style="position: relative; z-index: 2; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 24px; padding: 50px; width: 100%; max-width: 600px; box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.45), 0 0 40px rgba(230, 0, 0, 0.2); text-align: center;">
                 <div class="section-label" style="font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-primary); margin-bottom: 12px;">Get in Touch</div>
                 <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 30px;">Let's talk <span style="color: var(--accent-primary);">growth.</span></h2>
-                <form name="contact-section" method="POST" data-netlify="true" netlify style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
+                <form name="contact-section" method="POST" data-netlify="true" netlify style="display: flex; flex-direction: column; gap: 20px; text-align: left;" data-netlify-honeypot="bot-field">
+                    <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label for="contact-name" style="font-size: 0.9rem; font-weight: 600; color: var(--text-main);">Name</label>
                         <input type="text" id="contact-name" name="name" placeholder="John Doe" style="padding: 16px; border-radius: 12px; border: 1px solid var(--glass-border); background: #fff; font-family: var(--font-sans); font-size: 1rem; color: var(--text-main); outline: none;" required>
@@ -3978,7 +3980,8 @@
                     <p>Fill out the form below and our team will get back to you within the next hours.</p>
                 </div>
                 <!-- Netlify Form -->
-                <form name="contact" method="POST" data-netlify="true" netlify class="modal-form">
+                <form name="contact" method="POST" data-netlify="true" netlify class="modal-form" data-netlify-honeypot="bot-field">
+                    <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
                     <p>
                         <label>Name <input type="text" name="name" required placeholder="John Doe" /></label>
                     </p>
@@ -4011,7 +4014,8 @@
                     <p>Comprehensive telemetry audit across your conversion funnels, answer engine (AEO) visibility, and growth bottlenecks.</p>
                 </div>
                 <!-- Netlify Form -->
-                <form name="free-ai-audit" method="POST" data-netlify="true" netlify class="modal-form">
+                <form name="free-ai-audit" method="POST" data-netlify="true" netlify class="modal-form" data-netlify-honeypot="bot-field">
+                    <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
                     <input type="hidden" name="form-name" value="free-ai-audit" />
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
                         <div>
@@ -5224,6 +5228,7 @@
         });
 
 </script>
+    <script src="assets/js/security-shield.js" defer></script>
 </body>
 
 </html>
