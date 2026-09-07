@@ -1445,6 +1445,131 @@
             color: #ff4d4d !important;
         }
 
+    
+        /* REAL-TIME WEBSITE SNAPSHOT PREVIEW */
+        .url-preview-card {
+            display: none;
+            margin-top: 10px;
+            margin-bottom: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(230, 0, 0, 0.35);
+            border-radius: 12px;
+            padding: 12px 14px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .url-preview-card.active {
+            display: block;
+            animation: fadeInScan 0.3s ease;
+        }
+
+        @keyframes fadeInScan {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .url-preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+
+        .url-preview-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: #4ade80;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+        }
+
+        .url-preview-status.scanning {
+            color: #ff9800;
+        }
+
+        .url-preview-status .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulseDot 1.5s infinite;
+        }
+
+        .url-preview-status.scanning .dot {
+            background: #ff9800;
+            box-shadow: 0 0 8px #ff9800;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
+
+        .url-preview-thumb-wrap {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #0d0405;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .url-preview-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .url-preview-img.loaded {
+            opacity: 1;
+        }
+
+        .url-preview-loader {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #a1a1aa;
+            font-size: 0.78rem;
+        }
+
+        .url-preview-loader i {
+            font-size: 1.3rem;
+            color: #ff4d4d;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .url-preview-caption {
+            font-size: 0.75rem;
+            color: #9e9eb0;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .url-preview-caption strong {
+            color: #ffffff;
+        }
+
     </style>
 </head>
 
@@ -2468,6 +2593,131 @@
             color: #ff4d4d !important;
         }
 
+    
+        /* REAL-TIME WEBSITE SNAPSHOT PREVIEW */
+        .url-preview-card {
+            display: none;
+            margin-top: 10px;
+            margin-bottom: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(230, 0, 0, 0.35);
+            border-radius: 12px;
+            padding: 12px 14px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .url-preview-card.active {
+            display: block;
+            animation: fadeInScan 0.3s ease;
+        }
+
+        @keyframes fadeInScan {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .url-preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+
+        .url-preview-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: #4ade80;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+        }
+
+        .url-preview-status.scanning {
+            color: #ff9800;
+        }
+
+        .url-preview-status .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulseDot 1.5s infinite;
+        }
+
+        .url-preview-status.scanning .dot {
+            background: #ff9800;
+            box-shadow: 0 0 8px #ff9800;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
+
+        .url-preview-thumb-wrap {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #0d0405;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .url-preview-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .url-preview-img.loaded {
+            opacity: 1;
+        }
+
+        .url-preview-loader {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #a1a1aa;
+            font-size: 0.78rem;
+        }
+
+        .url-preview-loader i {
+            font-size: 1.3rem;
+            color: #ff4d4d;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .url-preview-caption {
+            font-size: 0.75rem;
+            color: #9e9eb0;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .url-preview-caption strong {
+            color: #ffffff;
+        }
+
     </style>
 
     <script>
@@ -2518,10 +2768,33 @@
                     <div>
                         <label>Company Name <input type="text" name="company" required placeholder="Acme Inc." /></label>
                     </div>
-                    <div>
-                        <label>Website URL <input type="url" name="website" required placeholder="https://company.com" /></label>
+                                            <div>
+                            <label>Website URL <input type="text" name="website" required placeholder="https://company.com" /></label>
+                        </div>
                     </div>
-                </div>
+
+                    <!-- REAL-TIME DOMAIN SNAPSHOT CARD -->
+                    <div class="url-preview-card">
+                        <div class="url-preview-header">
+                            <span style="color: #ffffff; font-weight: 600; font-size: 0.8rem; display: flex; align-items: center; gap: 5px;">
+                                <i class="ti ti-world" style="color: #ff4d4d;"></i> <span class="preview-domain-name">company.com</span>
+                            </span>
+                            <div class="url-preview-status">
+                                <span class="dot"></span> Ready
+                            </div>
+                        </div>
+                        <div class="url-preview-thumb-wrap">
+                            <div class="url-preview-loader">
+                                <i class="ti ti-loader-2"></i>
+                                <span>Extracting domain telemetry...</span>
+                            </div>
+                            <img src="" alt="Website Snapshot" class="url-preview-img" loading="lazy">
+                        </div>
+                        <div class="url-preview-caption">
+                            <span>Is this your website?</span>
+                            <strong><i class="ti ti-shield-check" style="color: #4ade80;"></i> AI Telemetry Active</strong>
+                        </div>
+                    </div>
                 <p>
                     <label>Monthly Ad Spend / Marketing Budget
                         <select name="monthly_spend" required style="width: 100%; border: 1px solid rgba(0,0,0,0.1); background: rgba(255,255,255,0.5); border-radius: 12px; padding: 14px 16px; font-size: 1rem; color: var(--text-main); outline: none;">
@@ -2567,6 +2840,91 @@
         const modal = document.getElementById('audit-modal');
         if (modal) modal.classList.remove('active');
     };
+</script>
+<script>
+
+        // REAL-TIME URL SNAPSHOT PREVIEW LOGIC
+        document.addEventListener('DOMContentLoaded', () => {
+            const auditModals = document.querySelectorAll('#audit-modal');
+            
+            auditModals.forEach(modal => {
+                const urlInput = modal.querySelector('input[name="website"]');
+                const previewCard = modal.querySelector('.url-preview-card');
+                const previewImg = modal.querySelector('.url-preview-img');
+                const previewLoader = modal.querySelector('.url-preview-loader');
+                const previewStatus = modal.querySelector('.url-preview-status');
+                const previewDomain = modal.querySelector('.preview-domain-name');
+                
+                if (!urlInput || !previewCard) return;
+
+                let debounceTimer = null;
+
+                urlInput.addEventListener('input', (e) => {
+                    clearTimeout(debounceTimer);
+                    const rawVal = e.target.value.trim();
+
+                    if (!rawVal || rawVal.length < 4) {
+                        previewCard.classList.remove('active');
+                        return;
+                    }
+
+                    debounceTimer = setTimeout(() => {
+                        let cleanUrl = rawVal;
+                        if (!cleanUrl.startsWith('http://') && !cleanUrl.startsWith('https://')) {
+                            cleanUrl = 'https://' + cleanUrl;
+                        }
+
+                        try {
+                            const parsed = new URL(cleanUrl);
+                            const hostname = parsed.hostname;
+
+                            if (!hostname || !hostname.includes('.')) return;
+
+                            // Activate preview in scanning state
+                            previewCard.classList.add('active');
+                            if (previewDomain) previewDomain.textContent = hostname;
+                            if (previewStatus) {
+                                previewStatus.className = 'url-preview-status scanning';
+                                previewStatus.innerHTML = '<span class="dot"></span> Scanning domain...';
+                            }
+                            if (previewLoader) previewLoader.style.display = 'flex';
+                            if (previewImg) {
+                                previewImg.classList.remove('loaded');
+                                
+                                // Snapshot service using thum.io with Google favicon fallback
+                                const snapshotUrl = `https://image.thum.io/get/width/600/crop/400/noanimate/${parsed.href}`;
+                                
+                                previewImg.onload = () => {
+                                    if (previewLoader) previewLoader.style.display = 'none';
+                                    previewImg.classList.add('loaded');
+                                    if (previewStatus) {
+                                        previewStatus.className = 'url-preview-status';
+                                        previewStatus.innerHTML = '<span class="dot"></span> Target Online &bull; Ready for Audit';
+                                    }
+                                };
+                                
+                                previewImg.onerror = () => {
+                                    // Fallback to favicon preview
+                                    if (previewLoader) previewLoader.style.display = 'none';
+                                    previewImg.src = `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`;
+                                    previewImg.style.objectFit = 'contain';
+                                    previewImg.classList.add('loaded');
+                                    if (previewStatus) {
+                                        previewStatus.className = 'url-preview-status';
+                                        previewStatus.innerHTML = '<span class="dot"></span> Domain Verified';
+                                    }
+                                };
+
+                                previewImg.src = snapshotUrl;
+                            }
+                        } catch (err) {
+                            // Invalid URL syntax while typing
+                        }
+                    }, 500);
+                });
+            });
+        });
+
 </script>
 </body>
 </html>
