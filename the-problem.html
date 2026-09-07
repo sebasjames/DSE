@@ -1395,6 +1395,56 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(230, 0, 0, 0.55);
         }
+    
+        /* RED THEME FOR FREE AI AUDIT MODAL */
+        #audit-modal .modal-content {
+            background: linear-gradient(145deg, #1a0608 0%, #100204 50%, #090102 100%) !important;
+            border: 1px solid rgba(230, 0, 0, 0.45) !important;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 50px rgba(230, 0, 0, 0.3) !important;
+            color: #ffffff !important;
+        }
+
+        #audit-modal .modal-header h2 {
+            color: #ffffff !important;
+        }
+
+        #audit-modal .modal-header p {
+            color: #a1a1aa !important;
+        }
+
+        #audit-modal .modal-form label {
+            color: #f4f4f6 !important;
+        }
+
+        #audit-modal .modal-form input,
+        #audit-modal .modal-form select,
+        #audit-modal .modal-form textarea {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            color: #ffffff !important;
+        }
+
+        #audit-modal .modal-form input:focus,
+        #audit-modal .modal-form select:focus,
+        #audit-modal .modal-form textarea:focus {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: #ff4d4d !important;
+            box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.25) !important;
+        }
+
+        #audit-modal .modal-form select option {
+            background: #140406;
+            color: #ffffff;
+        }
+
+        #audit-modal .modal-close {
+            color: #a1a1aa !important;
+        }
+
+        #audit-modal .modal-close:hover {
+            color: #ff4d4d !important;
+        }
+
     </style>
 </head>
 
@@ -1911,7 +1961,7 @@
                 <p class="calc-result-sub" id="leak-explainer">
                     Lost in unbillable review loops, broad-match ad waste, and slow content production cycles.
                 </p>
-                <button class="btn-action-primary" style="width: 100%; justify-content: center;" onclick="openContactModal(event)">
+                <button class="btn-action-primary" style="width: 100%; justify-content: center;" onclick="openAuditModal(event)">
                     <span>Reclaim With DSE AI</span>
                     <i class="ti ti-arrow-right"></i>
                 </button>
@@ -1961,7 +2011,7 @@
             <p>
                 Deploy an autonomous marketing engine pre-configured for your vertical. Request a confidential funnel audit and see what your pipeline is missing.
             </p>
-            <button class="btn-action-primary" onclick="openContactModal(event)">
+            <button class="btn-action-primary" onclick="openAuditModal(event)">
                 <i class="ti ti-bolt"></i>
                 <span>Request Free AI Funnel Audit</span>
             </button>
@@ -2368,6 +2418,56 @@
                 justify-content: flex-end;
             }
         }
+    
+        /* RED THEME FOR FREE AI AUDIT MODAL */
+        #audit-modal .modal-content {
+            background: linear-gradient(145deg, #1a0608 0%, #100204 50%, #090102 100%) !important;
+            border: 1px solid rgba(230, 0, 0, 0.45) !important;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 50px rgba(230, 0, 0, 0.3) !important;
+            color: #ffffff !important;
+        }
+
+        #audit-modal .modal-header h2 {
+            color: #ffffff !important;
+        }
+
+        #audit-modal .modal-header p {
+            color: #a1a1aa !important;
+        }
+
+        #audit-modal .modal-form label {
+            color: #f4f4f6 !important;
+        }
+
+        #audit-modal .modal-form input,
+        #audit-modal .modal-form select,
+        #audit-modal .modal-form textarea {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            color: #ffffff !important;
+        }
+
+        #audit-modal .modal-form input:focus,
+        #audit-modal .modal-form select:focus,
+        #audit-modal .modal-form textarea:focus {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: #ff4d4d !important;
+            box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.25) !important;
+        }
+
+        #audit-modal .modal-form select option {
+            background: #140406;
+            color: #ffffff;
+        }
+
+        #audit-modal .modal-close {
+            color: #a1a1aa !important;
+        }
+
+        #audit-modal .modal-close:hover {
+            color: #ff4d4d !important;
+        }
+
     </style>
 
     <script>
