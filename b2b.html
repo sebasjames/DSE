@@ -697,10 +697,55 @@ nav.nav .nav-cta:hover {
     </div>
     <h2 class="cta-heading reveal">Let's audit your funnel.</h2>
     <p class="cta-sub reveal">Book a free 30-minute growth consultation. We'll identify your biggest bottlenecks and map out a unit-economic roadmap to hit your next funding milestone.</p>
-    <div class="cta-group reveal">
-      <a href="#" class="btn-xl">Book your Growth Audit ?</a>
-      <span class="cta-note">No commitment. Just actionable data.</span>
-    </div>
+        <!-- B2B CUSTOM FORM -->
+    <form name="b2b-growth-audit" method="POST" data-netlify="true" netlify class="b2b-custom-form reveal" style="max-width: 620px; margin: 36px auto 0; text-align: left; background: rgba(24, 24, 27, 0.9); border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 20px; padding: 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(99, 102, 241, 0.18); backdrop-filter: blur(16px);">
+      <input type="hidden" name="form-name" value="b2b-growth-audit" />
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a1a1aa; margin-bottom: 6px;">Full Name</label>
+          <input type="text" name="name" required placeholder="Sarah Jenkins" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a1a1aa; margin-bottom: 6px;">Work Email</label>
+          <input type="email" name="email" required placeholder="sarah@saascompany.com" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;" />
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a1a1aa; margin-bottom: 6px;">Company Name</label>
+          <input type="text" name="company" required placeholder="SaaSify Inc." style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a1a1aa; margin-bottom: 6px;">Website URL</label>
+          <input type="text" name="website" required placeholder="https://saascompany.com" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;" />
+        </div>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a1a1aa; margin-bottom: 6px;">Annual Recurring Revenue (ARR) Stage</label>
+        <select name="arr_stage" required style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #1f1f23; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;">
+          <option value="" disabled selected>Select ARR stage...</option>
+          <option value="pre-seed">Pre-Seed / Seed (Building Pipeline)</option>
+          <option value="under-1m">&lt; $1M ARR (Scaling Outbound)</option>
+          <option value="1m-5m">$1M – $5M ARR (AEO & Unit Economics)</option>
+          <option value="5m-20m">$5M – $20M ARR (Autonomous Scaling)</option>
+          <option value="20m-plus">$20M+ ARR (Enterprise Growth)</option>
+        </select>
+      </div>
+      <div style="margin-bottom: 22px;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a1a1aa; margin-bottom: 6px;">Primary Growth Focus</label>
+        <select name="primary_focus" required style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #1f1f23; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;">
+          <option value="" disabled selected>Select primary focus...</option>
+          <option value="aeo-answer-engines">Answer Engine Optimization (ChatGPT, Perplexity, Gemini)</option>
+          <option value="outbound-pipeline">Autonomous Outbound Lead Generation & Enrichment</option>
+          <option value="cac-efficiency">Lowering CAC & Boosting Inbound Conversion Velocity</option>
+          <option value="full-growth-engine">Full-Stack Autonomous Marketing Engine</option>
+        </select>
+      </div>
+      <button type="submit" style="width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #6366F1, #818CF8); color: #fff; border: none; border-radius: 12px; font-weight: 700; font-size: 1.05rem; cursor: pointer; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4); transition: transform 0.2s, box-shadow 0.2s;">Request B2B Growth Audit &rarr;</button>
+      <div style="text-align: center; margin-top: 14px; font-size: 0.8rem; color: #71717a;">
+        <i class="ti ti-shield-check" style="color: #818CF8;"></i> Zero commitment. Free 30-min telemetry analysis within the next hours.
+      </div>
+    </form>
   </div>
 </section>
 

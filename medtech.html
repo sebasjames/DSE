@@ -1070,7 +1070,50 @@ nav.nav .nav-cta:hover {
       <div class="kicker reveal"><div class="kicker-rule"></div><span>No pitch deck. No obligation.</span></div>
       <h2 class="hero-headline reveal">Let's talk about<br><em>your</em> opportunity.</h2>
       <p class="hero-sub reveal" style="margin: 0 auto 40px; color: var(--text-dim);">A free 30-minute strategy call. We'll show you exactly what your online visibility looks like for clinical and procurement search terms.</p>
-      <a href="#" class="btn-primary reveal" style="margin: 0 auto; display: inline-flex;">Book free strategy call</a>
+          <!-- MEDTECH CUSTOM FORM -->
+    <form name="medtech-strategy-call" method="POST" data-netlify="true" netlify class="medtech-custom-form reveal" style="max-width: 620px; margin: 36px auto 0; text-align: left; background: rgba(255, 255, 255, 0.96); border: 1px solid rgba(0, 180, 216, 0.35); border-radius: 24px; padding: 38px; box-shadow: 0 25px 60px rgba(0, 119, 160, 0.15), 0 0 30px rgba(0, 180, 216, 0.1); backdrop-filter: blur(20px);">
+      <input type="hidden" name="form-name" value="medtech-strategy-call" />
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #0077A0; margin-bottom: 6px;">Executive Name</label>
+          <input type="text" name="name" required placeholder="Dr. Marcus Vance" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #F2FAFC; border: 1px solid rgba(0, 180, 216, 0.25); border-radius: 10px; color: #0a192f; font-size: 0.95rem; outline: none;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #0077A0; margin-bottom: 6px;">Work Email</label>
+          <input type="email" name="email" required placeholder="vance@meddevice.com" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #F2FAFC; border: 1px solid rgba(0, 180, 216, 0.25); border-radius: 10px; color: #0a192f; font-size: 0.95rem; outline: none;" />
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #0077A0; margin-bottom: 6px;">MedTech Company</label>
+          <input type="text" name="company" required placeholder="BioVance Medical" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #F2FAFC; border: 1px solid rgba(0, 180, 216, 0.25); border-radius: 10px; color: #0a192f; font-size: 0.95rem; outline: none;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #0077A0; margin-bottom: 6px;">Device / Tech Category</label>
+          <select name="device_category" required style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #F2FAFC; border: 1px solid rgba(0, 180, 216, 0.25); border-radius: 10px; color: #0a192f; font-size: 0.95rem; outline: none;">
+            <option value="" disabled selected>Select category...</option>
+            <option value="class-ii-iii">Class II/III Medical Device / Surgical</option>
+            <option value="diagnostics-lab">In-Vitro Diagnostics / Lab Automation</option>
+            <option value="digital-health-samd">Digital Health / SaMD / AI Radiology</option>
+            <option value="hospital-hardware">Hospital Equipment & Patient Monitoring</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom: 22px;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #0077A0; margin-bottom: 6px;">Primary Stakeholder Audience</label>
+        <select name="target_stakeholders" required style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #F2FAFC; border: 1px solid rgba(0, 180, 216, 0.25); border-radius: 10px; color: #0a192f; font-size: 0.95rem; outline: none;">
+          <option value="" disabled selected>Select target decision makers...</option>
+          <option value="hospital-c-suite">Hospital Procurement, CFOs & Value Committees</option>
+          <option value="surgeons-physicians">Surgeons, Clinicians & Department Heads</option>
+          <option value="distributors-payers">Medical Distributors, Payers & GPOs</option>
+          <option value="regulatory-clinical">Multi-Stakeholder Clinical Adoption</option>
+        </select>
+      </div>
+      <button type="submit" style="width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #00B4D8, #0077A0); color: #fff; border: none; border-radius: 14px; font-weight: 700; font-size: 1.05rem; cursor: pointer; box-shadow: 0 6px 24px rgba(0, 180, 216, 0.35); transition: transform 0.2s, box-shadow 0.2s;">Schedule MedTech Clinical Strategy Call &rarr;</button>
+      <div style="text-align: center; margin-top: 14px; font-size: 0.8rem; color: #5a7184;">
+        <i class="ti ti-lock" style="color: #00B4D8;"></i> HIPAA & FDA compliance conscious. Response within the next hours.
+      </div>
+    </form>
     </div>
   </section>
 

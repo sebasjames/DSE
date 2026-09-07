@@ -1340,7 +1340,51 @@ nav.nav .nav-cta:hover {
       <h2 class="hero-headline reveal">Let's talk about<br><em>your</em> opportunity.</h2>
       <p class="hero-sub reveal" style="margin: 0 auto 40px; color: #fff;">A free 30-minute strategy call. We'll show
         you exactly where your content and SEO gaps are — with real data specific to your company.</p>
-      <a href="#" class="btn-primary reveal" style="margin: 0 auto; display: inline-flex;">Book free strategy call</a>
+          <!-- RENEWABLES CUSTOM FORM -->
+    <form name="renewables-growth-audit" method="POST" data-netlify="true" netlify class="renewables-custom-form reveal" style="max-width: 620px; margin: 36px auto 0; text-align: left; background: rgba(11, 43, 27, 0.9); border: 1px solid rgba(0, 230, 118, 0.35); border-radius: 24px; padding: 38px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 230, 118, 0.18); backdrop-filter: blur(20px);">
+      <input type="hidden" name="form-name" value="renewables-growth-audit" />
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a7f3d0; margin-bottom: 6px;">Executive Name</label>
+          <input type="text" name="name" required placeholder="Julian Rossi" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(0, 230, 118, 0.25); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a7f3d0; margin-bottom: 6px;">Corporate Email</label>
+          <input type="email" name="email" required placeholder="julian@cleanpower.com" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(0, 230, 118, 0.25); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;" />
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a7f3d0; margin-bottom: 6px;">CleanTech Enterprise</label>
+          <input type="text" name="company" required placeholder="NovaWatt Energy" style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(0, 230, 118, 0.25); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a7f3d0; margin-bottom: 6px;">Renewable Sector</label>
+          <select name="renewable_sector" required style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #072214; border: 1px solid rgba(0, 230, 118, 0.25); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;">
+            <option value="" disabled selected>Select sector...</option>
+            <option value="utility-solar">Utility-Scale Solar & Community PV</option>
+            <option value="bess-storage">Battery Energy Storage Systems (BESS)</option>
+            <option value="wind-offshore">Onshore / Offshore Wind Power</option>
+            <option value="ev-grid-infra">EV Charging & Smart Grid Infrastructure</option>
+            <option value="green-hydrogen">Hydrogen & Clean Synthetic Fuels</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom: 22px;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #a7f3d0; margin-bottom: 6px;">Primary Growth Objective</label>
+        <select name="growth_objective" required style="width: 100%; box-sizing: border-box; padding: 12px 14px; background: #072214; border: 1px solid rgba(0, 230, 118, 0.25); border-radius: 10px; color: #fff; font-size: 0.95rem; outline: none;">
+          <option value="" disabled selected>Select growth objective...</option>
+          <option value="developer-inbound">Landowner & Project Developer Inbound</option>
+          <option value="epc-procurement">EPC / Commercial Offtaker Lead Generation</option>
+          <option value="aeo-clean-visibility">Answer Engine Authority (AEO) for CleanTech</option>
+          <option value="full-pipeline">Autonomous Multi-Gigawatt Pipeline Engine</option>
+        </select>
+      </div>
+      <button type="submit" style="width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #00E676, #00B0FF); color: #041A10; border: none; border-radius: 14px; font-weight: 800; font-size: 1.05rem; cursor: pointer; box-shadow: 0 6px 24px rgba(0, 230, 118, 0.35); transition: transform 0.2s, box-shadow 0.2s;">Deploy CleanTech Strategy Call &rarr;</button>
+      <div style="text-align: center; margin-top: 14px; font-size: 0.8rem; color: #6ee7b7;">
+        <i class="ti ti-plant-2" style="color: #00E676;"></i> 30-min strategy roadmap. Response within the next hours.
+      </div>
+    </form>
     </div>
   </section>
 
